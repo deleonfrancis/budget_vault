@@ -5,7 +5,7 @@ export const useDarkMode = () => {
   
 
   const setMode = (mode) => {
-    window.localStorage.setItem("theme", mode);
+    window.localStorage.setItem("Budget_Vault_Theme", mode);
     setTheme(mode);
   };
 
@@ -14,7 +14,7 @@ export const useDarkMode = () => {
   };
 
   useEffect(() => {
-    const localTheme = window.localStorage.getItem("theme");
+    const localTheme = window.localStorage.getItem("Budget_Vault_Theme");
     // localTheme ? setTheme(localTheme) : setMode("dark");
     if (localTheme === "light") {
       setTheme(localTheme);

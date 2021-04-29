@@ -6,11 +6,12 @@ function GuestFilter() {
       <form className="col s12">
         <div className="row">
           <div className="input-field col s12">
+          <i class="material-icons prefix">search</i>
             <input id="searchBudgets" type="text" className="" />
             <label htmlFor="searchBudgets">Search</label>
-            <span className="text-info" data-error="wrong" data-success="right">
+            {/* <span className="text-info" data-error="wrong" data-success="right">
               Search for a budget
-            </span>
+            </span> */}
           </div>
         </div>
       </form>
@@ -19,5 +20,3 @@ function GuestFilter() {
 }
 
 export default GuestFilter;
-
-
