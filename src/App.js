@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { useDarkMode } from "./components/themes/useDarkMode";
 import {
@@ -8,9 +8,9 @@ import {
 } from "./components/themes/globalStyles";
 import "./App.css";
 import "materialize-css/dist/css/materialize.min.css";
-// import M from "materialize-css/dist/js/materialize.min.js";
-import Content from "./components/Content";
+import M from "materialize-css/dist/js/materialize.min.js";
 import DarkModeToggle from "./components/themes/DarkModeToggle";
+import GuestFilter from "./components/guest/GuestFilter";
 
 const Container = styled.div`
   max-width: 50%;
@@ -22,6 +22,9 @@ function App() {
   const [checked, setChecked] = useState(null);
   const themeMode = theme === "light" ? lightTheme : darkTheme;
 
+  useEffect(() => {
+    M.AutoInit()
+  })
   return (
     <ThemeProvider theme={themeMode}>
       <Container>
@@ -32,7 +35,7 @@ function App() {
           theme={theme}
           toggleTheme={toggleTheme}
         />
-        <Content />
+        <GuestFilter theme={theme} />
       </Container>
     </ThemeProvider>
   );
