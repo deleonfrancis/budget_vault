@@ -1,24 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import styled, { ThemeProvider } from "styled-components";
+import { useDarkMode } from "./components/themes/useDarkMode";
+import {
+  GlobalStyles,
+  lightTheme,
+  darkTheme,
+} from "./components/themes/globalStyles";
+import "./App.css";
+import "materialize-css/dist/css/materialize.min.css";
+// import M from "materialize-css/dist/js/materialize.min.js";
+import Content from "./components/Content";
+import DarkModeToggle from "./components/themes/DarkModeToggle";
+
+const Container = styled.div`
+  max-width: 50%;
+  margin: 8rem auto 0;
+`;
 
 function App() {
+  const [theme, toggleTheme] = useDarkMode();
+  const [checked, setChecked] = useState(null);
+  const themeMode = theme === "light" ? lightTheme : darkTheme;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={themeMode}>
+      <Container>
+        <GlobalStyles />
+        <DarkModeToggle
+          checked={checked}
+          setChecked={setChecked}
+          theme={theme}
+          toggleTheme={toggleTheme}
+        />
+        <Content />
+      </Container>
+    </ThemeProvider>
   );
 }
 
