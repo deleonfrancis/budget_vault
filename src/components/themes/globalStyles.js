@@ -29,7 +29,7 @@ export const lightTheme = {
 };
 
 export const darkTheme = {
-  body: "#121212",
+  body: "#333333",
   text: "#fff",
   primary: "#bb86fc",
   teal: "#008080",
