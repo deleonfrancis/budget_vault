@@ -43,20 +43,20 @@ function Budgets({theme}) {
     <section className="">
       <table className={theme=== "dark" ? "highlight" : "highlight"}>
         <thead className="">
-          <tr style={{fontSize:"20px"}}>
+          <tr style={{fontSize:"20px", borderColor:"teal", borderWidth:"5px"}}>
             <th>Title</th>
-            <th>Budget</th>
-            <th>Balance</th>
+            <th className="center-align">Budget</th>
+            <th className="center-align">Balance</th>
             <th>Expenses</th>
-            <th>Date</th>
-            <th>Delete</th>
+            <th className="center-align">Date</th>
+            <th className="center-align">Delete</th>
           </tr>
         </thead>
         <tbody>
         {!loading && budgets.length === 0 ? (
           <div style={{margin:"0 auto"}} className="">No Budgets To Show</div>
         ) : (
-          budgets.map((budget) => <BudgetItem key={budget.id} budget={budget} />)
+          budgets.map((budget) => <BudgetItem key={budget.id} budget={budget} theme={theme} />)
         )}
         </tbody>
       </table>
