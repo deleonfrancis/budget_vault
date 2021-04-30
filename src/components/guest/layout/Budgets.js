@@ -3,7 +3,7 @@ import { css } from "@emotion/core";
 import RingLoader from "react-spinners/RingLoader";
 import BudgetItem from "./BudgetItem";
 
-function Budgets() {
+function Budgets({theme}) {
   const [budgets, setBudgets] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -41,11 +41,12 @@ function Budgets() {
 
   return (
     <section className="">
-      <table className="highlight responsive-table">
-        <thead>
-          <tr>
+      <table className={theme=== "dark" ? "highlight" : "highlight"}>
+        <thead className="">
+          <tr style={{fontSize:"20px"}}>
             <th>Title</th>
             <th>Budget</th>
+            <th>Balance</th>
             <th>Expenses</th>
             <th>Date</th>
             <th>Delete</th>

@@ -5,6 +5,7 @@
       "title": "Desk budget",
       "currency": "$",
       "amount": 900,
+      "balance": 200,
       "expenses": [
         {
           "id": 1,
@@ -33,6 +34,7 @@
         "title": "Car Mod",
         "currency": "£",
         "amount": 2000,
+        "balance": 100,
         "expenses": [
           {
             "id": 1,
@@ -61,6 +63,7 @@
         "title": "Home Mod",
         "currency": "¥",
         "amount": 10000,
+        "balance": 50,
         "expenses": [
           {
             "id": 1,
@@ -95,6 +98,7 @@
         "title": "Alaska Vacation",
         "currency": "€",
         "amount": 1800,
+        "balance": 0,
         "expenses": [
           {
             "id": 1,
@@ -123,6 +127,7 @@
         "title": "Jamaica Vacation",
         "currency": "₹",
         "amount": 3000,
+        "balance": -100,
         "expenses": [
           {
             "id": 1,
@@ -151,6 +156,7 @@
         "title": "Music Studio",
         "currency": "$",
         "amount": 7000,
+        "balance": 100,
         "expenses": [
           {
             "id": 1,

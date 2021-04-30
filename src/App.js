@@ -39,7 +39,7 @@ function App() {
         />
         <GuestFilter theme={theme} />
         <ComposeBudgetBtn />
-        <Budgets />
+        <Budgets theme={theme} />
       </Container>
     </ThemeProvider>
   );
