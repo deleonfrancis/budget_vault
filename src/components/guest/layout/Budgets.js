@@ -44,12 +44,12 @@ function Budgets({theme}) {
       <table className={theme=== "dark" ? "highlight" : "highlight"}>
         <thead className="">
           <tr style={{fontSize:"20px", borderColor:"teal", borderWidth:"5px"}}>
-            <th>Title</th>
+            <th>Budget Name</th>
             <th className="center-align">Budget</th>
             <th className="center-align">Balance</th>
             <th>Expenses</th>
             <th className="center-align">Date</th>
-            <th className="center-align">Delete</th>
+            <th className="center-align">Options</th>
           </tr>
         </thead>
         <tbody>
