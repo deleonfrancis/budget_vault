@@ -10,10 +10,12 @@ import "./App.css";
 import "materialize-css/dist/css/materialize.min.css";
 import M from "materialize-css/dist/js/materialize.min.js";
 import DarkModeToggle from "./components/themes/DarkModeToggle";
-import GuestFilter from "./components/guest/GuestFilter";
+import GuestFilter from "./components/guest/layout/GuestFilter";
+import Budgets from "./components/guest/layout/Budgets";
+import ComposeBudgetBtn from "./components/guest/layout/ComposeBudgetBtn";
 
 const Container = styled.div`
-  max-width: 50%;
+  max-width: 80%;
   margin: 8rem auto 0;
 `;
 
@@ -36,6 +38,8 @@ function App() {
           toggleTheme={toggleTheme}
         />
         <GuestFilter theme={theme} />
+        <ComposeBudgetBtn />
+        <Budgets />
       </Container>
     </ThemeProvider>
   );

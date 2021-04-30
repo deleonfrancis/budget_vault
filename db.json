@@ -31,7 +31,7 @@
     {
         "id": 2,
         "title": "Car Mod",
-        "currency": "$",
+        "currency": "£",
         "amount": 2000,
         "expenses": [
           {
@@ -59,7 +59,7 @@
       {
         "id": 3,
         "title": "Home Mod",
-        "currency": "$",
+        "currency": "¥",
         "amount": 10000,
         "expenses": [
           {
@@ -93,7 +93,7 @@
       {
         "id": 5,
         "title": "Alaska Vacation",
-        "currency": "$",
+        "currency": "€",
         "amount": 1800,
         "expenses": [
           {
@@ -121,7 +121,7 @@
       {
         "id": 6,
         "title": "Jamaica Vacation",
-        "currency": "$",
+        "currency": "₹",
         "amount": 3000,
         "expenses": [
           {
@@ -181,4 +181,4 @@
         "dateCreated": "10-15-2019"
       }
   ]
-}
+} 
