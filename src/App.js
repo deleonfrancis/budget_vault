@@ -13,6 +13,9 @@ import DarkModeToggle from "./components/themes/DarkModeToggle";
 import GuestFilter from "./components/guest/layout/GuestFilter";
 import Budgets from "./components/guest/layout/Budgets";
 import ComposeBudgetBtn from "./components/guest/layout/ComposeBudgetBtn";
+import ComposeBudgetModal from "./components/guest/modals/ComposeBudgetModal";
+import DeleteBudgetModal from "./components/guest/modals/DeleteBudgetModal";
+import EditBudgetModal from "./components/guest/modals/EditBudgetModal";
 
 const Container = styled.div`
   max-width: 80%;
@@ -40,6 +43,9 @@ function App() {
         <GuestFilter theme={theme} />
         <ComposeBudgetBtn />
         <Budgets theme={theme} />
+        <ComposeBudgetModal />
+        <DeleteBudgetModal />
+        <EditBudgetModal />
       </Container>
     </ThemeProvider>
   );
