@@ -30,161 +30,169 @@
       "dateCreated": "08-22-2019"
     },
     {
-        "id": 2,
-        "title": "Car Mod",
-        "currency": "£",
-        "amount": 2000,
-        "balance": 100,
-        "expenses": [
-          {
-            "id": 1,
-            "expName": "Suspension",
-            "expAmount": 300,
-            "date": "08-22-2019"
-          },
-          {
-            "id": 2,
-            "expName": "Tires",
-            "expAmount": 700,
-            "date": "03-20-2020"
-          },
-          {
-            "id": 3,
-            "expName": "Tint",
-            "expAmount": 350,
-            "date": "03-15-2021"
-          }
-        ],
-        "dateUpdated": null,
-        "dateCreated": "10-15-2019"
-      },
-      {
-        "id": 3,
-        "title": "Home Mod",
-        "currency": "¥",
-        "amount": 10000,
-        "balance": 50,
-        "expenses": [
-          {
-            "id": 1,
-            "expName": "Wall for font plans",
-            "expAmount": 1600,
-            "date": "08-22-2019"
-          },
-          {
-            "id": 2,
-            "expName": "Window Blinds",
-            "expAmount": 5000,
-            "date": "03-20-2020"
-          },
-          {
-            "id": 3,
-            "expName": "Crown Molding",
-            "expAmount": 3000,
-            "date": "03-15-2021"
-          },
-          {
-            "id": 4,
-            "expName": "Lanai Encloser",
-            "expAmount": 1500,
-            "date": "04-15-2021"
-          }
-        ],
-        "dateUpdated": null,
-        "dateCreated": "10-15-2019"
-      },
-      {
-        "id": 5,
-        "title": "Alaska Vacation",
-        "currency": "€",
-        "amount": 1800,
-        "balance": 0,
-        "expenses": [
-          {
-            "id": 1,
-            "expName": "Food",
-            "expAmount": 200,
-            "date": "08-22-2019"
-          },
-          {
-            "id": 2,
-            "expName": "Attractions",
-            "expAmount": 150,
-            "date": "03-20-2020"
-          },
-          {
-            "id": 3,
-            "expName": "Flight",
-            "expAmount": 1000,
-            "date": "03-15-2021"
-          }          
-        ],
-        "dateUpdated": null,
-        "dateCreated": "10-15-2019"
-      },
-      {
-        "id": 6,
-        "title": "Jamaica Vacation",
-        "currency": "₹",
-        "amount": 3000,
-        "balance": -100,
-        "expenses": [
-          {
-            "id": 1,
-            "expName": "Food",
-            "expAmount": 500,
-            "date": "08-22-2019"
-          },
-          {
-            "id": 2,
-            "expName": "Hotel",
-            "expAmount": 1000,
-            "date": "03-20-2020"
-          },
-          {
-            "id": 3,
-            "expName": "Flight",
-            "expAmount": 1000,
-            "date": "03-15-2021"
-          }          
-        ],
-        "dateUpdated": null,
-        "dateCreated": "10-15-2019"
-      },
-      {
-        "id": 7,
-        "title": "Music Studio",
-        "currency": "$",
-        "amount": 7000,
-        "balance": 100,
-        "expenses": [
-          {
-            "id": 1,
-            "expName": "Bass Guitar",
-            "expAmount": 1500,
-            "date": "08-22-2019"
-          },
-          {
-            "id": 2,
-            "expName": "Electric Guitar",
-            "expAmount": 2000,
-            "date": "03-20-2020"
-          },
-          {
-            "id": 3,
-            "expName": "Mac Pro",
-            "expAmount": 3000,
-            "date": "03-15-2021"
-          },
-          {
-            "id": 4,
-            "expName": "Monitors",
-            "expAmount": 1000,
-            "date": "03-15-2021"
-          }          
-        ],
-        "dateUpdated": null,
-        "dateCreated": "10-15-2019"
-      }
+      "id": 2,
+      "title": "Car Mod",
+      "currency": "£",
+      "amount": 2000,
+      "balance": 100,
+      "expenses": [
+        {
+          "id": 1,
+          "expName": "Suspension",
+          "expAmount": 300,
+          "date": "08-22-2019"
+        },
+        {
+          "id": 2,
+          "expName": "Tires",
+          "expAmount": 700,
+          "date": "03-20-2020"
+        },
+        {
+          "id": 3,
+          "expName": "Tint",
+          "expAmount": 350,
+          "date": "03-15-2021"
+        }
+      ],
+      "dateUpdated": null,
+      "dateCreated": "10-15-2019"
+    },
+    {
+      "id": 3,
+      "title": "Home Mod",
+      "currency": "¥",
+      "amount": 10000,
+      "balance": 50,
+      "expenses": [
+        {
+          "id": 1,
+          "expName": "Wall for font plans",
+          "expAmount": 1600,
+          "date": "08-22-2019"
+        },
+        {
+          "id": 2,
+          "expName": "Window Blinds",
+          "expAmount": 5000,
+          "date": "03-20-2020"
+        },
+        {
+          "id": 3,
+          "expName": "Crown Molding",
+          "expAmount": 3000,
+          "date": "03-15-2021"
+        },
+        {
+          "id": 4,
+          "expName": "Lanai Encloser",
+          "expAmount": 1500,
+          "date": "04-15-2021"
+        }
+      ],
+      "dateUpdated": null,
+      "dateCreated": "10-15-2019"
+    },
+    {
+      "id": 4,
+      "title": "Alaska Vacation",
+      "currency": "€",
+      "amount": 1800,
+      "balance": 0,
+      "expenses": [
+        {
+          "id": 1,
+          "expName": "Food",
+          "expAmount": 200,
+          "date": "08-22-2019"
+        },
+        {
+          "id": 2,
+          "expName": "Attractions",
+          "expAmount": 150,
+          "date": "03-20-2020"
+        },
+        {
+          "id": 3,
+          "expName": "Flight",
+          "expAmount": 1000,
+          "date": "03-15-2021"
+        }
+      ],
+      "dateUpdated": null,
+      "dateCreated": "10-15-2019"
+    },
+    {
+      "id": 5,
+      "title": "Jamaica Vacation",
+      "currency": "₹",
+      "amount": 3000,
+      "balance": -100,
+      "expenses": [
+        {
+          "id": 1,
+          "expName": "Food",
+          "expAmount": 500,
+          "date": "08-22-2019"
+        },
+        {
+          "id": 2,
+          "expName": "Hotel",
+          "expAmount": 1000,
+          "date": "03-20-2020"
+        },
+        {
+          "id": 3,
+          "expName": "Flight",
+          "expAmount": 1000,
+          "date": "03-15-2021"
+        }
+      ],
+      "dateUpdated": null,
+      "dateCreated": "10-15-2019"
+    },
+    {
+      "id": 6,
+      "title": "Music Studio",
+      "currency": "$",
+      "amount": 7000,
+      "balance": 100,
+      "expenses": [
+        {
+          "id": 1,
+          "expName": "Bass Guitar",
+          "expAmount": 1500,
+          "date": "08-22-2019"
+        },
+        {
+          "id": 2,
+          "expName": "Electric Guitar",
+          "expAmount": 2000,
+          "date": "03-20-2020"
+        },
+        {
+          "id": 3,
+          "expName": "Mac Pro",
+          "expAmount": 3000,
+          "date": "03-15-2021"
+        },
+        {
+          "id": 4,
+          "expName": "Monitors",
+          "expAmount": 1000,
+          "date": "03-15-2021"
+        }
+      ],
+      "dateUpdated": null,
+      "dateCreated": "10-15-2019"
+    }
+  ],
+
+  "currencies": [
+    { "id": 1, "value": "$", "text": "$ Dollars" },
+    { "id": 2, "value": "€", "text": "€ Euro" },
+    { "id": 3, "value": "£", "text": "£ Pounds" },
+    { "id": 4, "value": "¥", "text": "¥ Yen/Yuan" },
+    { "id": 5, "value": "₹", "text": "₹ Rupee" }
   ]
-} 
+}

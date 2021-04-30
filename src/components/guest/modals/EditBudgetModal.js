@@ -11,6 +11,6 @@ function EditBudgetModal() {
 }
 const modalStyle = {
     width:"90%",
-    height:"100%"
+    height:"100%",
 }
 export default EditBudgetModal

@@ -17,7 +17,7 @@ body {
 }
 
 input, select, textarea{
-    color: ${({ theme }) => theme.text};
+    color: ${({ theme }) => theme.teal};
     }
 `;
 
@@ -25,10 +25,12 @@ export const lightTheme = {
   body: "#fff",
   text: "#121212",
   primary: "#808080",
+  teal: "#121212",
 };
 
 export const darkTheme = {
   body: "#121212",
   text: "#fff",
   primary: "#bb86fc",
+  teal: "#008080",
 };
