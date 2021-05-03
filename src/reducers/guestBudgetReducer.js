@@ -1,0 +1,54 @@
+import {
+  GET_BUDGETS,
+  //   ADD_BUDGET,
+  //   DELETE_BUDGET,
+  //   SET_CURRENT,
+  //   CLEAR_CURRENT,
+  //   UPDATE_BUDGET,
+  //   CLEAR_BUDGETS,
+  SET_LOADING,
+  BUDGETS_ERROR,
+  // SEARCH_BUDGETS,
+  // GET_EXPENSES,
+  // SET_CURRENT_EXPENSE,
+  // CLEAR_CURRENT_EXPENSE,
+  // ADD_EXPENSE,
+  // UPDATE_EXPENSE,
+  // DELETE_EXPENSE,
+  // EXPENSES_ERROR,
+} from "../actions/types";
+
+const initialState = {
+  budgets: null,
+  current: null,
+  loading: false,
+  error: null,
+};
+
+// eslint-disable-next-line
+export default (state = initialState, action) => {
+  switch (action.type) {
+    case GET_BUDGETS: {
+        return {
+          ...state,
+          budgets: action.payload,
+          loading: false,
+        };
+      }
+    case SET_LOADING: {
+      return {
+        ...state,
+        loading: true,
+      };
+    }
+    case BUDGETS_ERROR: {
+      console.error(action.payload);
+      return {
+        ...state,
+        error: action.payload,
+      };
+    }
+    default:
+      return state;
+  }
+};
