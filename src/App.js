@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { Provider } from "react-redux";
+import store from "./store";
+
 import styled, { ThemeProvider } from "styled-components";
 import { useDarkMode } from "./components/themes/useDarkMode";
 import {
@@ -28,26 +31,28 @@ function App() {
   const themeMode = theme === "light" ? lightTheme : darkTheme;
 
   useEffect(() => {
-    M.AutoInit()
-  })
+    M.AutoInit();
+  });
   return (
-    <ThemeProvider theme={themeMode}>
-      <Container>
-        <GlobalStyles />
-        <DarkModeToggle
-          checked={checked}
-          setChecked={setChecked}
-          theme={theme}
-          toggleTheme={toggleTheme}
-        />
-        <GuestFilter theme={theme} />
-        <ComposeBudgetBtn />
-        <Budgets theme={theme} />
-        <ComposeBudgetModal />
-        <DeleteBudgetModal />
-        <EditBudgetModal />
-      </Container>
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={themeMode}>
+        <Container>
+          <GlobalStyles />
+          <DarkModeToggle
+            checked={checked}
+            setChecked={setChecked}
+            theme={theme}
+            toggleTheme={toggleTheme}
+          />
+          <GuestFilter theme={theme} />
+          <ComposeBudgetBtn />
+          <Budgets theme={theme} />
+          <ComposeBudgetModal />
+          <DeleteBudgetModal />
+          <EditBudgetModal />
+        </Container>
+      </ThemeProvider>
+    </Provider>
   );
 }
 
