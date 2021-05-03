@@ -1,18 +1,16 @@
 import React from "react";
 
-function AskCurrency() {
+function AskCurrency({currency, setCurrency}) {
+
   return (
     <div className="center-align inputColor">
-      <h4 className="center-align teal-text" style={{ marginBottom: "50px" }}>
-        Compose a budget!
-      </h4>
       <div
         style={{ width: "50%", margin: "auto" }}
         className="input-field col s12 center-align"
       >
-        <select>
+        <select name="currency" value={currency} onChange={e=> setCurrency(e.target.value)}>
           <option style={{ color:"red" }} value="" disabled>
-            Currency?
+            Select Currency
           </option>
           <option value="$">$ Dollars</option>
           <option value="€">€ Euro</option>

@@ -1,6 +1,7 @@
-.modalLg {
-  width: 90% !important ;
-  height: 100% !important ;
+#composeBudget {
+  /* width: 90% !important ;
+  height: 100% !important ; */
+  padding: 5%;
 } /* increase the height and width as you desire */
 
 .inputColor{
