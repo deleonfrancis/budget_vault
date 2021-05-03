@@ -1,6 +1,13 @@
 import React from 'react'
 
-function BudgetDetails() {
+function BudgetDetails({
+    title,
+    setTitle,
+    currency,
+    setCurrency,
+    guestBudget,
+    setGuestBudget,
+  }) {
     return (
         <div>
             Budget Details

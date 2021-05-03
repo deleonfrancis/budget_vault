@@ -5,28 +5,39 @@ import BudgetDetails from "../layout/BudgetDetails";
 function ComposeBudgetModal() {
   const [title, setTitle] = useState("");
   const [currency, setCurrency] = useState("");
-  const [guestBudget, setGuestBudget] = useState(null);
-  // const [amount, setAmount] = useState(0);
-  // const [balance, setBalance] = useState(amount);
+  const [budgetAmount, setBudgetAmount] = useState(0);
+  // const [balance, setBalance] = useState(budgetAmount);
   // const [expenses, setExpenses] = useState([]);
   // const [expName, setExpName] = useState("");
   // const [expAmount, setExpAmount] = useState(0);
+  // const [guestBudget, setGuestBudget] = useState(null);
 
-    console.log(`${title}, ${currency}${guestBudget}`);
+  console.log(`${title}, ${currency}${budgetAmount}`);
 
   return (
     <div id="composeBudget" className="modal">
       <div className="modal-content">
-      {!guestBudget && <AskBudgetGuest
-          title={title}
-          setTitle={setTitle}
-          currency={currency}
-          setCurrency={setCurrency}
-          guestBudget={guestBudget}
-          setGuestBudget={setGuestBudget}
-        />}
+        {!budgetAmount && (
+          <AskBudgetGuest
+            title={title}
+            setTitle={setTitle}
+            currency={currency}
+            setCurrency={setCurrency}
+            budgetAmount={budgetAmount}
+            setBudgetAmount={setBudgetAmount}
+          />
+        )}
 
-      {(guestBudget) && <BudgetDetails /> }
+        {budgetAmount && (
+          <BudgetDetails
+            title={title}
+            setTitle={setTitle}
+            currency={currency}
+            setCurrency={setCurrency}
+            budgetAmount={setBudgetAmount}
+            setGuestBudget={budgetAmount}
+          />
+        )}
       </div>
     </div>
   );

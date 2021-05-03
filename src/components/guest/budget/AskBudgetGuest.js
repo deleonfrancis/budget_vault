@@ -8,14 +8,14 @@ function AskBudget({
   setTitle,
   currency,
   setCurrency,
-  guestBudget,
-  setGuestBudget,
+  budgetAmount,
+  setBudgetAmount,
 }) {
   const [userBudget, setUserBudget] = useState("");
 
   const handleClick = (e) => {
     e.preventDefault();
-    setGuestBudget(numeral(userBudget).value());
+    setBudgetAmount(numeral(userBudget).value());
     // console.log(numeral(userBudget).value());
     setUserBudget("");
   };
