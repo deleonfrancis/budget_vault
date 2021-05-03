@@ -5,9 +5,14 @@ import RingLoader from "react-spinners/RingLoader";
 import BudgetItem from "./BudgetItem";
 import { getBudgets, setLoading } from "../../../actions/budgetActions";
 
-function Budgets({ theme, budget: { budgets, loading }, getBudgets, setLoading }) {
+function Budgets({
+  theme,
+  budget: { budgets, loading },
+  getBudgets,
+  setLoading,
+}) {
   useEffect(() => {
-    setLoading(true)
+    setLoading(true);
     getBudgets();
     // eslint-disable-next-line
   }, []);
@@ -51,17 +56,18 @@ function Budgets({ theme, budget: { budgets, loading }, getBudgets, setLoading }
           </tr>
         </thead>
         <tbody>
-          {!loading && budgets.length === 0 ? (
-            <div style={{ margin: "0 auto" }} className="">
-              No Budgets To Show
-            </div>
-          ) : (
+          {!loading &&
+            budgets.length > 0 &&
             budgets.map((budget) => (
               <BudgetItem key={budget.id} budget={budget} theme={theme} />
-            ))
-          )}
+            ))}
         </tbody>
       </table>
+      {!loading && budgets.length === 0 && (
+        <div style={{ margin: "0 auto" }} className="">
+          No Budgets To Show
+        </div>
+      )}
     </section>
   );
 }

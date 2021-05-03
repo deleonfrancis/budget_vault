@@ -8,7 +8,7 @@ import {
   //   CLEAR_BUDGETS,
   SET_LOADING,
   BUDGETS_ERROR,
-  // SEARCH_BUDGETS,
+  SEARCH_BUDGETS,
   // GET_EXPENSES,
   // SET_CURRENT_EXPENSE,
   // CLEAR_CURRENT_EXPENSE,
@@ -46,6 +46,13 @@ export default (state = initialState, action) => {
       return {
         ...state,
         error: action.payload,
+      };
+    }
+    case SEARCH_BUDGETS: {
+      return {
+        ...state,
+        budgets: action.payload,
+        loading: false,
       };
     }
     default:

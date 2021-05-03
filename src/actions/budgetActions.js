@@ -8,7 +8,7 @@ import {
   //   CLEAR_BUDGETS,
   SET_LOADING,
   BUDGETS_ERROR,
-  // SEARCH_BUDGETS,
+  SEARCH_BUDGETS,
   // GET_EXPENSES,
   // SET_CURRENT_EXPENSE,
   // CLEAR_CURRENT_EXPENSE,
@@ -17,7 +17,6 @@ import {
   // DELETE_EXPENSE,
   // EXPENSES_ERROR,
 } from "./types";
-
 
 // Get the Budgets from the server
 export const getBudgets = () => async (dispatch) => {
@@ -42,4 +41,22 @@ export const setLoading = () => {
   return {
     type: SET_LOADING,
   };
+};
+
+// Search for Budget
+export const searchBudgets = (text) => async (dispatch) => {
+  try {
+    setLoading();
+    const res = await fetch(`/budgets?q=${text}`);
+    const data = await res.json();
+    dispatch({
+      type: SEARCH_BUDGETS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: BUDGETS_ERROR,
+      payload: error.response.statusText,
+    });
+  }
 };
