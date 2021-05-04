@@ -1,6 +1,9 @@
 import React from "react";
+import { connect } from "react-redux";
+import { setCurrency } from "../../../actions/mainActions";
 
-function AskCurrency({currency, setCurrency}) {
+
+function AskCurrency({guestMain:{currency}, setCurrency}) {
 
   return (
     <div className="center-align inputColor">
@@ -24,4 +27,9 @@ function AskCurrency({currency, setCurrency}) {
   );
 }
 
-export default AskCurrency;
+const mapStateToProps = (state => ({
+  guestMain: state.guestMain,
+}))
+
+
+export default connect(mapStateToProps, {setCurrency})(AskCurrency);

@@ -20,7 +20,7 @@ const initialState = {
   budget: null,
   id: null,
   title: "",
-  currency: null,
+  currency: "",
   budgetAmount: null,
   balance: null,
   dateUpdated: null,
