@@ -24,10 +24,7 @@ function ComposeBudgetModal({guestMain: {title, currency, budgetAmount}}) {
     <div id="composeBudget" className="modal">
       <div className="modal-content">
         {!budgetAmount && (
-          <AskBudgetGuest
-            // budgetAmount={budgetAmount}
-            // setBudgetAmount={setBudgetAmount}
-          />
+          <AskBudgetGuest />
         )}
 
         {budgetAmount && (

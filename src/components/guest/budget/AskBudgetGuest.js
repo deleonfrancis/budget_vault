@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { setBudgetAmount } from "../../../actions/mainActions";
+import { setBudgetAmount, setBalance } from "../../../actions/mainActions";
 import AskCurrencyGuest from "./AskCurrencyGuest";
 import AskTitleGuest from "./AskTitleGuest";
 import numeral from "numeral";
 
-function AskBudget({guestMain:{title, currency}, setBudgetAmount}) {
+function AskBudget({guestMain:{title, currency}, setBudgetAmount, setBalance}) {
   const [userBudget, setUserBudget] = useState("");
 
   const handleClick = (e) => {
     e.preventDefault();
     setBudgetAmount(numeral(userBudget).value());
+    setBalance(numeral(userBudget).value());
     // console.log(numeral(userBudget).value());
     setUserBudget("");
   };
@@ -58,4 +59,4 @@ const mapStateToProps = (state) => ({
   guestMain: state.guestMain,
 })
 
-export default connect(mapStateToProps, {setBudgetAmount})(AskBudget);
+export default connect(mapStateToProps, {setBudgetAmount, setBalance})(AskBudget);

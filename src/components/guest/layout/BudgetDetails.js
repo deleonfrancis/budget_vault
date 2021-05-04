@@ -6,22 +6,24 @@ import AddExpense from "../expense/AddExpense";
 import ExpenseList from "../expense/ExpenseList";
 
 function BudgetDetails({
-  title,
-  currency,
-  budgetAmount,
-  setBudgetAmount,
-  balance,
-  setBalance,
-  expId,
-  setExId,
-  expenses,
-  setExpenses,
-  expName,
-  setExpName,
-  expAmount,
-  setExpAmount,
-  guestBudget,
-  setGuestBudget,
+  // title,
+  // currency,
+  // budgetAmount,
+  // setBudgetAmount,
+  // balance,
+  // setBalance,
+  // expId,
+  // setExId,
+  // expenses,
+  // setExpenses,
+  // expName,
+  // setExpName,
+  // expAmount,
+  // setExpAmount,
+  // guestBudget,
+  // setGuestBudget,
+
+  guestMain:{title, currency, budgetAmount, balance},
 }) {
   return (
     <div>
@@ -33,7 +35,7 @@ function BudgetDetails({
           Budget: {`${currency}${budgetAmount}`}
         </h5>
         <h5 style={{ color: "black" }}>
-          Balance: {`${currency}${budgetAmount}`}
+          Balance: {`${currency}${balance}`}
         </h5>
       </div>
       <div className="center-align" style={{ margin: "15px auto 50px auto " }}>
@@ -44,7 +46,7 @@ function BudgetDetails({
           <i className="material-icons left">save</i>Save and Exit
         </a>
       </div>
-      <div className="row">
+      {/* <div className="row">
         <div className="col s6">
           <AddExpense
             expId={expId}
@@ -62,9 +64,13 @@ function BudgetDetails({
         <div className="col s6">
           {expenses.length > 0 && <ExpenseList />}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
 
-export default connect(null, { addBudget })(BudgetDetails);
+const mapStateToProps = (state) => ({
+guestMain: state.guestMain
+})
+
+export default connect(mapStateToProps, { addBudget })(BudgetDetails);
