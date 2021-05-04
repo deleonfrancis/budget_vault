@@ -31,10 +31,10 @@ const initialState = {
   dateCreated: null,
   expense: null,
   expenseID: null,
-  expenseName: null,
-  expenseAmount: null,
+  expenseName: "",
+  expenseAmount: "",
   expenseDate: null,
-  expenses: null,
+  expenses: [],
   expenseError: null,
 };
 

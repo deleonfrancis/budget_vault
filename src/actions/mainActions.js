@@ -23,9 +23,9 @@ import {
 import { setLoading } from "./budgetActions";
 
 // Create the budget ID
-export const createId = (dispatch) => {
+export const createId = () => {
   const id = uuidv4();
-  dispatch({
+  return({
     type: BUDGET_ID,
     payload: id,
   });
@@ -64,54 +64,53 @@ export const setBalance = (balance) => (dispatch) => {
 };
 
 // Create Expense ID
-export const createExpId = (dispatch) => {
-    const id = uuidv4();
-    dispatch({
-      type: EXP_ID,
-      payload: id,
-    });
+export const createExpId = () => {
+  const id = uuidv4();
+  return {
+    type: EXP_ID,
+    payload: id,
   };
+};
 
 // For Setting the Expense Name
 export const setExpName = (text) => (dispatch) => {
-    dispatch({
-      type: EXPENSE_NAME,
-      payload: text,
-    });
-  };
+  dispatch({
+    type: EXPENSE_NAME,
+    payload: text,
+  });
+};
 
-  // For Setting the Expense Amount
+// For Setting the Expense Amount
 export const setExpAmount = (amount) => (dispatch) => {
-    dispatch({
-      type: EXPENSE_AMOUNT,
-      payload: amount,
-    });
-  };
+  dispatch({
+    type: EXPENSE_AMOUNT,
+    payload: amount,
+  });
+};
 
-  // Create the  date the expense created
+// Create the  date the expense created
 export const createExpDate = (date) => (dispatch) => {
-    dispatch({
-      type: EXPENSE_DATE,
-      payload: date,
-    });
-  };
-
+  dispatch({
+    type: EXPENSE_DATE,
+    payload: date,
+  });
+};
 
 // For Setting the Balance
 export const addExpense = (expense) => async (dispatch) => {
   try {
-    setLoading();
-    const res = await fetch("/budgets",{
-        method: "POST",
-        body: JSON.stringify(expense),
-        headers: {
-            "Content-Type": "application/json",
-          },
-    });
-    const data = await res.json();
+    // setLoading();
+    // const res = await fetch("/budgets",{
+    //     method: "POST",
+    //     body: JSON.stringify(expense),
+    //     headers: {
+    //         "Content-Type": "application/json",
+    //       },
+    // });
+    // const data = await res.json();
     dispatch({
       type: ADD_EXPENSE,
-      payload: data,
+      payload: expense,
     });
     setLoading(false);
   } catch (error) {

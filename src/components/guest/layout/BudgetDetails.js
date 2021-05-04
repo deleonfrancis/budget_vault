@@ -6,7 +6,7 @@ import AddExpense from "../expense/AddExpense";
 import ExpenseList from "../expense/ExpenseList";
 
 function BudgetDetails({
-  guestMain:{title, currency, budgetAmount, balance},
+  guestMain:{title, currency, budgetAmount, balance, expenses},
 }) {
   return (
     <div>
@@ -29,25 +29,25 @@ function BudgetDetails({
           <i className="material-icons left">save</i>Save and Exit
         </a>
       </div>
-      {/* <div className="row">
+      <div className="row">
         <div className="col s6">
           <AddExpense
-            expId={expId}
-            setExId={setExId}
-            expenses={expenses}
-            setExpenses={setExpenses}
-            expName={expName}
-            setExpName={setExpName}
-            expAmount={expAmount}
-            setExpAmount={setExpAmount}
-            guestBudget={guestBudget}
-            setGuestBudget={setGuestBudget}
+            // expId={expId}
+            // setExId={setExId}
+            // expenses={expenses}
+            // setExpenses={setExpenses}
+            // expName={expName}
+            // setExpName={setExpName}
+            // expAmount={expAmount}
+            // setExpAmount={setExpAmount}
+            // guestBudget={guestBudget}
+            // setGuestBudget={setGuestBudget}
           />
         </div>
         <div className="col s6">
           {expenses.length > 0 && <ExpenseList />}
         </div>
-      </div> */}
+      </div>
     </div>
   );
 }
