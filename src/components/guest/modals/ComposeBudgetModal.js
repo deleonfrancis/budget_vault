@@ -4,12 +4,6 @@ import AskBudgetGuest from "../budget/AskBudgetGuest";
 import BudgetDetails from "../layout/BudgetDetails";
 
 function ComposeBudgetModal({guestMain: {title, currency, budgetAmount}}) {
-  // const [id, setId] = useState(null);
-
-  // const [title, setTitle] = useState("");
-  // const [currency, setCurrency] = useState("");
-  // // const [budgetAmount, setBudgetAmount] = useState(0);
-  // const [balance, setBalance] = useState(budgetAmount);
 
   // const [expId, setExId] = useState(null);
   // const [expenses, setExpenses] = useState([]);
@@ -26,17 +20,8 @@ function ComposeBudgetModal({guestMain: {title, currency, budgetAmount}}) {
         {!budgetAmount && (
           <AskBudgetGuest />
         )}
-
         {budgetAmount && (
           <BudgetDetails
-            // title={title}
-            // // setTitle={setTitle}
-            // // setCurrency={setCurrency}
-            // currency={currency}
-            // budgetAmount={budgetAmount}
-            // // setBudgetAmount={setBudgetAmount}
-            // balance={balance}
-            // setBalance={setBalance}
             // expId={expId}
             // setExId={setExId}
             // expense={expense}

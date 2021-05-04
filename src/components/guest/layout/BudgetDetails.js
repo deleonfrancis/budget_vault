@@ -6,23 +6,6 @@ import AddExpense from "../expense/AddExpense";
 import ExpenseList from "../expense/ExpenseList";
 
 function BudgetDetails({
-  // title,
-  // currency,
-  // budgetAmount,
-  // setBudgetAmount,
-  // balance,
-  // setBalance,
-  // expId,
-  // setExId,
-  // expenses,
-  // setExpenses,
-  // expName,
-  // setExpName,
-  // expAmount,
-  // setExpAmount,
-  // guestBudget,
-  // setGuestBudget,
-
   guestMain:{title, currency, budgetAmount, balance},
 }) {
   return (
