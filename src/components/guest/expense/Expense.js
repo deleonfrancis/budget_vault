@@ -1,7 +1,7 @@
 import React from "react";
 import numeral from "numeral";
 
-function Expense({ expName, expAmount }) {
+function Expense({ expName, expAmount, date }) {
   return (
     <div className="row d-flex justify-content-between tList bg-white border m-2">
       <div className="col-lg-5 border-right center-text bg-white p-2 font-weight-bold">
