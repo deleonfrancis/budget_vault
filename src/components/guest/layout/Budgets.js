@@ -7,7 +7,7 @@ import { getBudgets, setLoading } from "../../../actions/budgetActions";
 
 function Budgets({
   theme,
-  budget: { budgets, loading },
+  guestBudget: { budgets, loading },
   getBudgets,
   setLoading,
 }) {
@@ -73,7 +73,7 @@ function Budgets({
 }
 
 const mapStateToProps = (state) => ({
-  budget: state.budget,
+  guestBudget: state.guestBudget,
 });
 
 export default connect(mapStateToProps, { getBudgets, setLoading })(Budgets);

@@ -1,5 +1,9 @@
 import React from "react";
+import { connect } from "react-redux";
+import { addBudget } from "../../../actions/budgetActions";
+
 import AddExpense from "../expense/AddExpense";
+import ExpenseList from "../expense/ExpenseList";
 
 function BudgetDetails({
   title,
@@ -32,20 +36,35 @@ function BudgetDetails({
           Balance: {`${currency}${budgetAmount}`}
         </h5>
       </div>
-      <AddExpense
-        expId={expId}
-        setExId={setExId}
-        expenses={expenses}
-        setExpenses={setExpenses}
-        expName={expName}
-        setExpName={setExpName}
-        expAmount={expAmount}
-        setExpAmount={setExpAmount}
-        guestBudget={guestBudget}
-        setGuestBudget={setGuestBudget}
-      />
+      <div className="center-align" style={{ margin: "15px auto 50px auto " }}>
+        <a
+          href="#!"
+          className="waves-effect waves-light btn-large modal-trigger"
+        >
+          <i className="material-icons left">save</i>Save and Exit
+        </a>
+      </div>
+      <div className="row">
+        <div className="col s6">
+          <AddExpense
+            expId={expId}
+            setExId={setExId}
+            expenses={expenses}
+            setExpenses={setExpenses}
+            expName={expName}
+            setExpName={setExpName}
+            expAmount={expAmount}
+            setExpAmount={setExpAmount}
+            guestBudget={guestBudget}
+            setGuestBudget={setGuestBudget}
+          />
+        </div>
+        <div className="col s6">
+          {expenses.length > 0 && <ExpenseList />}
+        </div>
+      </div>
     </div>
   );
 }
 
-export default BudgetDetails;
+export default connect(null, { addBudget })(BudgetDetails);

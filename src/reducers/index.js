@@ -1,6 +1,8 @@
 import { combineReducers } from "redux";
 import guestBudgetReducer from "./guestBudgetReducer";
+import guestMainReducer from "./guestMainReducer";
 
 export default combineReducers({
-  budget: guestBudgetReducer,
+  guestBudget: guestBudgetReducer,
+  guestMain: guestMainReducer,
 });

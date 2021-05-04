@@ -1,6 +1,6 @@
 import {
   GET_BUDGETS,
-  //   ADD_BUDGET,
+  ADD_BUDGET,
   //   DELETE_BUDGET,
   //   SET_CURRENT,
   //   CLEAR_CURRENT,
@@ -26,6 +26,30 @@ export const getBudgets = () => async (dispatch) => {
     const data = await res.json();
     dispatch({
       type: GET_BUDGETS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: BUDGETS_ERROR,
+      payload: error.response.statusText,
+    });
+  }
+};
+
+//
+export const addBudget = (budget) => async (dispatch) => {
+  try {
+    setLoading();
+    const res = await fetch("/budgets", {
+      method: "POST",
+      body: JSON.stringify(),
+      headers: {
+        "Content-Type": "application.json",
+      },
+    });
+    const data = await res.json();
+    dispatch({
+      type: ADD_BUDGET,
       payload: data,
     });
   } catch (error) {

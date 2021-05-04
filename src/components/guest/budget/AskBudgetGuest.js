@@ -22,7 +22,7 @@ function AskBudget({
 
   return (
     <div>
-      <AskTitleGuest title={title} setTitle={setTitle} />
+      <AskTitleGuest />
       <AskCurrencyGuest currency={currency} setCurrency={setCurrency} />
       <div className="row">
         <form className="col s12">

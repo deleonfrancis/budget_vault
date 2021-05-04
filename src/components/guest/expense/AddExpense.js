@@ -3,18 +3,20 @@ import { v4 as uuidv4 } from "uuid";
 // import { randomColor } from "../../utils/randomColorGen";
 import numeral from "numeral";
 
-function AddExpense({ expId,
-    setExId,
-    expense,
-    setExpense,
-    expenses,
-    setExpenses,
-    expName,
-    setExpName,
-    expAmount,
-    setExpAmount,
-    guestBudget,
-    setGuestBudget }) {
+function AddExpense({
+  // expId,
+  // setExId,
+  // expense,
+  setExpense,
+  // expenses,
+  // setExpenses,
+  // expName,
+  // setExpName,
+  // expAmount,
+  // setExpAmount,
+  // guestBudget,
+  // setGuestBudget,
+}) {
   const [name, setName] = useState("");
   const [amount, setAmount] = useState("");
 
@@ -25,7 +27,7 @@ function AddExpense({ expId,
       id: id,
       expName: name,
       expAmount: numeral(amount).value(),
-      date: Date.now()
+      date: new Date(),
     };
 
     setExpense(expense);
@@ -34,10 +36,10 @@ function AddExpense({ expId,
   };
 
   return (
-      <div className="">
-        <form className="">
-          <div className="form-group">
-            <label className="labelText" for="expenseName">
+    <div className="">
+      <form className="">
+          <div style={{marginBottom:"10px"}} className="form-group">
+            <label className="labelText" htmlFor="expenseName">
               What is the name of your expense?
             </label>
             <input
@@ -55,14 +57,14 @@ function AddExpense({ expId,
             </small>
           </div>
           <div className="form-group mt-4">
-            <label className="labelText" for="expenseAmount">
+            <label className="labelText" htmlFor="expenseAmount">
               How much is the expense?
             </label>
             <input
               type="text"
               className="form-control"
               id="expenseAmount"
-              placeholder="$0.00"
+              placeholder="0.00"
               name="amount"
               value={amount}
               onChange={(event) => setAmount(event.target.value)}
@@ -71,7 +73,7 @@ function AddExpense({ expId,
               A valid expense amount is required.
             </small>
           </div>
-          <div className="col-8 centerX">
+          <div className="">
             <button
               // type="button"
               className={
@@ -86,7 +88,7 @@ function AddExpense({ expId,
             </button>
           </div>
         </form>
-      </div>
+    </div>
   );
 }
 

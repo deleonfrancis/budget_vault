@@ -1,6 +1,11 @@
 import React from "react";
+import { connect } from "react-redux";
+import { setTitle } from "../../../actions/mainActions";
 
-function AskTitleGuest({ title, setTitle }) {
+function AskTitleGuest({ guestMain: { title }, setTitle}) {
+  const handleChange = (e) => {
+    setTitle(e.target.value);
+  };
 
   return (
     <div className="row">
@@ -18,33 +23,25 @@ function AskTitleGuest({ title, setTitle }) {
                 drive_file_rename_outline
               </i>
               <input
-              name="title"
+                name="title"
                 id="guestTitleInput"
                 type="text"
                 className=""
                 style={{ color: "black" }}
-                onChange={(e) => {
-                  setTitle(e.target.value);
-                  console.log(title)
-                }}
+                onChange={handleChange}
                 value={title}
               />
               <label htmlFor="guestTitleInput">Budget Name</label>
             </div>
           </div>
-          {/* <button
-            className="btn waves-effect waves-light"
-            type="submit"
-            name="action"
-            disabled={title === ""}
-          >
-            Next
-            <i className="material-icons right">navigate_next</i>
-          </button> */}
         </form>
       </div>
     </div>
   );
 }
 
-export default AskTitleGuest;
+const mapStateToProps = (state) => ({
+  guestMain: state.guestMain,
+});
+
+export default connect(mapStateToProps, { setTitle })(AskTitleGuest);

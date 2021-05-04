@@ -1,6 +1,6 @@
 import {
   GET_BUDGETS,
-  //   ADD_BUDGET,
+  ADD_BUDGET,
   //   DELETE_BUDGET,
   //   SET_CURRENT,
   //   CLEAR_CURRENT,
@@ -16,6 +16,22 @@ import {
   // UPDATE_EXPENSE,
   // DELETE_EXPENSE,
   // EXPENSES_ERROR,
+
+  // GUEST_BUDGET,
+  // BUDGET_ID,
+  // BUDGET_TITLE,
+  // CURRENCY,
+  // BUDGET_AMOUNT,
+  // BALANCE,
+  // DATE_UPDATED,
+  // DATE_CREATED,
+
+  // EXPENSES,
+  // EXPENSE,
+  // EXP_ID,
+  // EXPENSE_NAME,
+  // EXPENSE_AMOUNT,
+  // EXPENSE_DATE,
 } from "../actions/types";
 
 const initialState = {
@@ -29,12 +45,19 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case GET_BUDGETS: {
-        return {
-          ...state,
-          budgets: action.payload,
-          loading: false,
-        };
-      }
+      return {
+        ...state,
+        budgets: action.payload,
+        loading: false,
+      };
+    }
+    case ADD_BUDGET: {
+      return {
+        ...state,
+        budgets: [...state.budgets, action.payload],
+        loading: false,
+      };
+    }
     case SET_LOADING: {
       return {
         ...state,

@@ -4,9 +4,28 @@ export const DELETE_BUDGET = "DELETE_BUDGET";
 export const SET_CURRENT = "SET_CURRENT";
 export const CLEAR_CURRENT = "CLEAR_CURRENT";
 export const UPDATE_BUDGET = "UPDATE_BUDGET";
-export const CLEAR_BUDGETS  = "CLEAR_BUDGETS";
+export const CLEAR_BUDGETS = "CLEAR_BUDGETS";
 export const SET_LOADING = "SET_LOADING";
 export const BUDGETS_ERROR = "BUDGETS_ERROR";
+
+export const BUDGET_ID = "BUDGET_ID";
+export const BUDGET_TITLE = "BUDGET_TITLE";
+export const CURRENCY = "CURRENCY";
+export const BUDGET_AMOUNT = "BUDGET_AMOUNT";
+export const BALANCE = "BALANCE"
+export const DATE_UPDATED = "DATE_UPDATED"
+export const DATE_CREATED = "DATE_CREATED"
+
+
+
+export const GUEST_BUDGET ="GUEST_BUDGET"
+
+export const EXPENSES ="EXPENSES"
+export const EXPENSE ="EXPENSE"
+export const EXP_ID ="EXP_ID"
+export const EXPENSE_NAME ="EXPENSE_NAME"
+export const EXPENSE_AMOUNT ="EXPENSE_AMOUNT"
+export const EXPENSE_DATE ="EXPENSE_DATE"
 
 export const SEARCH_BUDGETS = "SEARCH_BUDGETS";
 
