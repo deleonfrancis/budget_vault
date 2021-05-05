@@ -29,7 +29,7 @@ const initialState = {
   balance: null,
   dateUpdated: null,
   dateCreated: null,
-  expense: null,
+  expense: {},
   expenseID: null,
   expenseName: "",
   expenseAmount: "",
@@ -96,16 +96,22 @@ export default (state = initialState, action) => {
       };
     }
     case EXPENSES_ERROR: {
-        console.error(action.payload)
+      console.error(action.payload);
       return {
         ...state,
-        expenseError: action.payload
+        expenseError: action.payload,
       };
     }
     case ADD_EXPENSE: {
       return {
         ...state,
+        expense: action.payload,
+        // expense: [...state.expense, action.payload],
         expenses: [...state.expenses, action.payload],
+        expenseID: null,
+        expenseName: "",
+        expenseAmount: "",
+        expenseDate: null,
       };
     }
 

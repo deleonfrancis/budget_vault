@@ -64,12 +64,11 @@ export const setBalance = (balance) => (dispatch) => {
 };
 
 // Create Expense ID
-export const createExpId = () => {
-  const id = uuidv4();
-  return {
+export const createExpId = (id) => (dispatch) => {
+  dispatch ({
     type: EXP_ID,
     payload: id,
-  };
+  });
 };
 
 // For Setting the Expense Name

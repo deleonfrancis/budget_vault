@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import {createExpId, setExpName, setExpAmount, createExpDate, addExpense,} from "../../../actions/mainActions" 
-// import { v4 as uuidv4 } from "uuid";
+import { v4 as uuidv4 } from "uuid";
 import numeral from "numeral";
 
 function AddExpense({
@@ -10,8 +10,11 @@ function AddExpense({
 }) {
 
   const onAddExpenseClick = () => {
-    const id = createExpId();
-    const date = createExpDate();
+    const id = uuidv4();
+    const date = new Date();
+
+    createExpId(id)
+    createExpDate(date)
 
     const expense = {
       id: id,
@@ -21,6 +24,7 @@ function AddExpense({
     };
 
     addExpense(expense);
+    // console.log(expense);
     setExpName("");
     setExpAmount("");
   };
