@@ -7,10 +7,10 @@ import Moment from "react-moment";
 function ExpenseItem({ expense, currency }) {
   const dispatch = useDispatch();
 
-  const { id, expName, expAmount, date } = expense;
+  const { expName, expAmount, date } = expense;
 
   const handleClick = () => {
-    dispatch(deleteExpense(id));
+    dispatch(deleteExpense(expense));
   };
 
   return (

@@ -122,7 +122,7 @@ export const addExpense = (expense) => async (dispatch) => {
 };
 
 // For Setting the Balance
-export const deleteExpense = (id) => async (dispatch) => {
+export const deleteExpense = (expense) => async (dispatch) => {
   try {
     // setLoading();
     // const res = await fetch("/budgets",{
@@ -133,10 +133,10 @@ export const deleteExpense = (id) => async (dispatch) => {
     //       },
     // });
     // const data = await res.json();
-    console.log(id);
+    console.log(expense);
     dispatch({
       type: DELETE_EXPENSE,
-      payload: id,
+      payload: expense,
     });
     // setLoading(false);
   } catch (error) {

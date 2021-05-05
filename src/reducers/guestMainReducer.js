@@ -19,7 +19,7 @@ import {
   EXPENSE_DATE,
   // EXPENSES,
 } from "../actions/types";
-import { subtractFromBalanceService } from "../utils/budgetTransactions";
+import { subtractFromBalanceService, addToBalanceService } from "../utils/budgetTransactions";
 
 
 
@@ -123,7 +123,8 @@ export default (state = initialState, action) => {
       console.log(action.payload);
       return {
         ...state,
-        expenses: state.expenses.filter((exp) => exp.id !== action.payload),
+        expenses: state.expenses.filter((exp) => exp.id !== action.payload.id),
+        balance: addToBalanceService(state.balance,action.payload.expAmount),
       };
     }
 
