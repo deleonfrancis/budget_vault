@@ -19,6 +19,9 @@ import {
   EXPENSE_DATE,
   // EXPENSES,
 } from "../actions/types";
+import { subtractFromBalanceService } from "../utils/budgetTransactions";
+
+
 
 const initialState = {
   budget: null,
@@ -103,10 +106,13 @@ export default (state = initialState, action) => {
       };
     }
     case ADD_EXPENSE: {
+      console.log(state.balance)
+      console.log(action.payload)
       return {
         ...state,
         expense: action.payload,
         expenses: [...state.expenses, action.payload],
+        balance: subtractFromBalanceService(state.balance,action.payload.expAmount),
         expenseID: null,
         expenseName: "",
         expenseAmount: "",
@@ -114,10 +120,10 @@ export default (state = initialState, action) => {
       };
     }
     case DELETE_EXPENSE: {
-      console.log(action.payload)
+      console.log(action.payload);
       return {
         ...state,
-        expenses: state.expenses.filter((exp)=> exp.id !== action.payload),
+        expenses: state.expenses.filter((exp) => exp.id !== action.payload),
       };
     }
 
