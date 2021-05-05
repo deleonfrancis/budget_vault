@@ -1,35 +1,38 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { deleteExpense } from "../../../actions/mainActions";
 import Moment from "react-moment";
 // import numeral from "numeral";
 
 function ExpenseItem({ expense, currency }) {
-  const { expName, expAmount, date } = expense;
-  console.log(expense);
+  const dispatch = useDispatch();
+
+  const { id, expName, expAmount, date } = expense;
+
+  const handleClick = () => {
+    dispatch(deleteExpense(id));
+  };
 
   return (
-    <div className="row">
-      <div style={{ color: "teal" }} className="">
-        Name: {expName}
-      </div>
-      <div style={{ color: "teal" }} className="">
-        Amount: {currency}
+    <tr className="hoverable">
+      <td style={{ color: "teal" }} className="">
+        {expName}
+      </td>
+      <td style={{ color: "teal" }} className="">
+        {currency}
         {expAmount}
-      </div>
-      <Moment style={{ color: "teal" }} format="MMMM Do YYYY, h:mm:ss a">
-        {date}
-      </Moment>
-
-      {/* <div>{date}</div> */}
-      <div className="">
-        <button
-          className=""
-          type=""
-          //   onClick={onDeleteClick}
-        >
+      </td>
+      <td>
+        <Moment style={{ color: "teal" }} format="MMMM Do YYYY">
+          {date}
+        </Moment>
+      </td>
+      <td className="center-align">
+        <a onClick={handleClick} href="#!" className="">
           <i className="material-icons red-text">delete</i>
-        </button>
-      </div>
-    </div>
+        </a>
+      </td>
+    </tr>
   );
 }
 

@@ -4,6 +4,10 @@
   /* padding: 5%; */
 } /* increase the height and width as you desire */
 
+.smallForm {
+  width: 60%;
+  margin: auto;
+}
 
 .inputColor{
     color: red

@@ -10,28 +10,31 @@ function BudgetDetails({
 }) {
   return (
     <div>
-      <div>
-        <h4 style={{ color: "black" }}>{title}</h4>
-      </div>
-      <div>
-        <h5 style={{ color: "black" }}>
-          Budget: {`${currency}${budgetAmount}`}
-        </h5>
-        <h5 style={{ color: "black" }}>Balance: {`${currency}${balance}`}</h5>
-      </div>
-      <div className="center-align" style={{ margin: "15px auto 50px auto " }}>
-        <a
-          href="#!"
-          className="waves-effect waves-light btn-large modal-trigger"
-        >
-          <i className="material-icons left">save</i>Save and Exit
-        </a>
-      </div>
       <div className="row">
         <div className="col s6">
+          <h4 style={{ color: "black" }}>{title}</h4>
+          <h6 style={{ color: "black" }}>
+            Budget: {`${currency}${budgetAmount}`}
+          </h6>
+          <h6 style={{ color: "black" }}>Balance: {`${currency}${balance}`}</h6>
+        </div>
+        <div
+          className="center-align col s6"
+          style={{ margin: "15px auto 50px auto " }}
+        >
+          <a
+            href="#!"
+            className="waves-effect waves-light btn modal-trigger"
+          >
+            <i className="material-icons left">save</i>Save and Exit
+          </a>
+        </div>
+      </div>
+      <div className="row">
+        <div className={expenses.length === 0 ? "center-align smallForm" : "col s4"}>
           <AddExpense />
         </div>
-        <div className="col s6">{expenses.length > 0 && <ExpenseList />}</div>
+        <div className="col s8">{expenses.length > 0 && <ExpenseList />}</div>
       </div>
     </div>
   );

@@ -11,7 +11,7 @@ import {
   ADD_EXPENSE,
   EXPENSES_ERROR,
   // UPDATE_EXPENSE,
-  // DELETE_EXPENSE,
+  DELETE_EXPENSE,
 
   // EXPENSE,
   EXP_ID,
@@ -95,7 +95,7 @@ export const createExpDate = (date) => (dispatch) => {
   });
 };
 
-// For Setting the Balance
+// For adding an expense to the expenses array
 export const addExpense = (expense) => async (dispatch) => {
   try {
     // setLoading();
@@ -112,6 +112,32 @@ export const addExpense = (expense) => async (dispatch) => {
       payload: expense,
     });
     setLoading(false);
+  } catch (error) {
+    dispatch({
+      type: EXPENSES_ERROR,
+      payload: error.response.statusText,
+    });
+  }
+};
+
+// For Setting the Balance
+export const deleteExpense = (id) => async (dispatch) => {
+  try {
+    // setLoading();
+    // const res = await fetch("/budgets",{
+    //     method: "POST",
+    //     body: JSON.stringify(expense),
+    //     headers: {
+    //         "Content-Type": "application/json",
+    //       },
+    // });
+    // const data = await res.json();
+    console.log(id);
+    dispatch({
+      type: DELETE_EXPENSE,
+      payload: id,
+    });
+    // setLoading(false);
   } catch (error) {
     dispatch({
       type: EXPENSES_ERROR,

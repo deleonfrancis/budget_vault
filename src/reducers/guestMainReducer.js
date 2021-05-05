@@ -10,7 +10,7 @@ import {
   ADD_EXPENSE,
   EXPENSES_ERROR,
   // UPDATE_EXPENSE,
-  // DELETE_EXPENSE,
+  DELETE_EXPENSE,
 
   // EXPENSE,
   EXP_ID,
@@ -106,12 +106,18 @@ export default (state = initialState, action) => {
       return {
         ...state,
         expense: action.payload,
-        // expense: [...state.expense, action.payload],
         expenses: [...state.expenses, action.payload],
         expenseID: null,
         expenseName: "",
         expenseAmount: "",
         expenseDate: null,
+      };
+    }
+    case DELETE_EXPENSE: {
+      console.log(action.payload)
+      return {
+        ...state,
+        expenses: state.expenses.filter((exp)=> exp.id !== action.payload),
       };
     }
 
