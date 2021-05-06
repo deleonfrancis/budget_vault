@@ -19,6 +19,7 @@ import {
   EXPENSE_AMOUNT,
   EXPENSE_DATE,
   CLEAR_BUDGET,
+  SET_MODIFY_BUDGET,
   // EXPENSES,
 } from "../actions/types";
 // import { subtractFromBudgetService } from "../utils/budgetTransactions";
@@ -156,3 +157,12 @@ export const clearBudget = () => (dispatch) => {
     // payload: budget,
   });
 };
+
+// To Clear out a budget
+export const setShowModifyBudget = (bool) => (dispatch) => {
+  dispatch({
+    type: SET_MODIFY_BUDGET,
+    payload: bool,
+  });
+};
+

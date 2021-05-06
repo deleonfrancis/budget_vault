@@ -1,6 +1,6 @@
 import React from "react";
-import { connect } from "react-redux";
-import { addBudget } from "../../../actions/budgetActions";
+import { connect, useDispatch } from "react-redux";
+import { setShowModifyBudget } from "../../../actions/mainActions";
 import ModifyBudget from "../budget/ModifyBudget";
 
 import AddExpense from "../expense/AddExpense";
@@ -8,15 +8,21 @@ import ExpenseList from "../expense/ExpenseList";
 import BudgetOptions from "./BudgetOptions";
 
 function BudgetDetails({
-  guestMain: { title, currency, budgetAmount, balance, expenses },
+  guestMain: { title, currency, budgetAmount, balance, expenses, showModifyBudget, },
 }) {
+  const dispatch = useDispatch();
+
+  const handleShowModify = () => {
+    dispatch(setShowModifyBudget(!showModifyBudget));
+  };
+
   return (
     <div>
       <div className="row" style={{ marginBottom: "50px" }}>
         <div className="col m4">
           <h5 style={{ color: "black" }}>{title}</h5>
           <div>
-            <a href="#!" className="">
+            <a onClick={handleShowModify} href="#!" className="">
               <h6 style={{ color: "black" }}>
                 Budget: {`${currency}${budgetAmount}`}
                 <i
@@ -51,7 +57,7 @@ function BudgetDetails({
           )}
         </div>
         <div className="col s5">
-          <ModifyBudget />
+          {(showModifyBudget || balance < 0) && <ModifyBudget />}
         </div>
 
         <div
@@ -82,4 +88,4 @@ const mapStateToProps = (state) => ({
   guestMain: state.guestMain,
 });
 
-export default connect(mapStateToProps, { addBudget })(BudgetDetails);
+export default connect(mapStateToProps)(BudgetDetails);

@@ -18,6 +18,7 @@ import {
   EXPENSE_AMOUNT,
   EXPENSE_DATE,
   CLEAR_BUDGET,
+  SET_MODIFY_BUDGET,
   // EXPENSES,
 } from "../actions/types";
 import {
@@ -41,6 +42,7 @@ const initialState = {
   expenseDate: null,
   expenses: [],
   expenseError: null,
+  showModifyBudget: false,
 };
 
 // eslint-disable-next-line
@@ -147,6 +149,13 @@ export default (state = initialState, action) => {
         expenseName: "",
         expenseAmount: "",
         expenseDate: null,
+      };
+    }
+
+    case SET_MODIFY_BUDGET: {
+      return {
+        ...state,
+        showModifyBudget: action.payload,
       };
     }
     default:
