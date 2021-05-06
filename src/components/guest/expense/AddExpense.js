@@ -41,8 +41,7 @@ function AddExpense({
   return (
     <div className="row">
       <form className="">
-
-      {/* Expense Name */}
+        {/* Expense Name */}
         <div className="input-field">
           <i className="material-icons prefix center-align teal-text">
             drive_file_rename_outline
@@ -51,7 +50,9 @@ function AddExpense({
             id="expenseName"
             type="text"
             className="validate"
-            onFocus={(e) => (e.target.placeholder = "lodging, flight, shopping, etc")}
+            onFocus={(e) =>
+              (e.target.placeholder = "lodging, flight, shopping, etc")
+            }
             // onBlur={(e) => (e.target.placeholder = "")}
             name="expenseName"
             value={expenseName}
@@ -60,11 +61,9 @@ function AddExpense({
           <label htmlFor="expenseName">Expense Name</label>
         </div>
 
-      {/* Expense Amount */}
-      <div className="input-field">
-          <h4 className="prefix teal-text center-align">
-            {currency}
-          </h4>
+        {/* Expense Amount */}
+        <div className="input-field">
+          <h4 className="prefix teal-text center-align">{currency}</h4>
           <input
             type="text"
             className="validate"
@@ -74,75 +73,21 @@ function AddExpense({
             name="expenseAmount"
             value={expenseAmount}
             onChange={(event) => setExpAmount(event.target.value)}
-
           />
           <label htmlFor="expenseAmount">Expense Amount</label>
         </div>
 
-
-        {/* <div style={{ marginBottom: "15px" }} className="form-group">
-          <label className="" htmlFor="expenseName">
-            Expense Name
-          </label>
-          <input
-            // style={{ width: "85%" }}
-            type="text"
-            className="form-control"
-            id="expenseName"
-            aria-describedby="expenseName"
-            placeholder="lodging, flight, shopping, etc"
-            name="expenseName"
-            value={expenseName}
-            onChange={(event) => setExpName(event.target.value)}
-          /> */}
-          {/* <small
-            id="nameRequired"
-            className={!expenseName ? "form-text text-danger" : "form-text text-muted"}
-          >
-            An expense name is required.
-          </small> */}
-        {/* </div> */}
-
-
-
-
-        {/* <div className="form-group mt-4">
-          <label className="labelText" htmlFor="expenseAmount">
-            Expense Amount
-          </label>
-          <input
-            // style={{ width: "85%" }}
-            type="text"
-            className="form-control"
-            id="expenseAmount"
-            placeholder="0.00"
-            name="expenseAmount"
-            value={expenseAmount}
-            onChange={(event) => setExpAmount(event.target.value)}
-          /> */}
-          {/* <small
-            id="amountRequired"
-            className={
-              !numeral.validate(amount)
-                ? "form-text text-danger"
-                : "form-text text-muted"
-            }
-          >
-            A valid expense amount is required.
-          </small> */}
-        {/* </div> */}
+        {/* Confirm button */}
         <div className="">
           <button
-            // type="button"
-            // className={
-            //   !numeral.validate(amount) || !name
-            //     ? "btn btn-block btn-outline-secondary mt-2"
-            //     : "btn btn-block btn-primary mt-2"
-            // }
+            className="btn green waves-effect waves-light"
+            type="submit"
+            name="action"
             onClick={onAddExpenseClick}
             disabled={!numeral.validate(expenseAmount) || !expenseName}
           >
             Confirm
+            <i className="material-icons right">send</i>
           </button>
         </div>
       </form>
