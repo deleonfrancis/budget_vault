@@ -176,6 +176,7 @@ export default (state = initialState, action) => {
         expenseName: "",
         expenseAmount: "",
         expenseDate: null,
+        showModifyBudget: false,
       };
     }
 
