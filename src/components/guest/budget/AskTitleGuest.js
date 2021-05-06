@@ -8,12 +8,6 @@ function AskTitleGuest({ guestMain: { title }, setTitle}) {
   };
 
   return (
-    <div className="row">
-      <h4 className="center-align teal-text" style={{ marginBottom: "50px" }}>
-        Compose a budget!
-      </h4>
-      <div className="">
-        <form className="col s12">
           <div className="row">
             <div
               style={{ width: "100%", margin: "auto" }}
@@ -34,9 +28,6 @@ function AskTitleGuest({ guestMain: { title }, setTitle}) {
               <label htmlFor="guestTitleInput">Budget Name</label>
             </div>
           </div>
-        </form>
-      </div>
-    </div>
   );
 }
 
