@@ -4,6 +4,7 @@ import { addBudget } from "../../../actions/budgetActions";
 
 import AddExpense from "../expense/AddExpense";
 import ExpenseList from "../expense/ExpenseList";
+import BudgetOptions from "./BudgetOptions";
 
 function BudgetDetails({
   guestMain: { title, currency, budgetAmount, balance, expenses },
@@ -11,30 +12,55 @@ function BudgetDetails({
   return (
     <div>
       <div className="row">
-        <div className="col s6">
-          <h4 style={{ color: "black" }}>{title}</h4>
-          <h6 style={{ color: "black" }}>
-            Budget: {`${currency}${budgetAmount}`}
+        <div className="col m4">
+          <h5 style={{ color: "black" }}>{title}</h5>
+          <div>
+            <a href="#!" className="">
+              <h6 style={{ color: "black" }}>
+                Budget: {`${currency}${budgetAmount}`}
+                <i
+                  style={{
+                    fontSize: "17px",
+                    position: "relative",
+                    top: "2px",
+                    left: "3px",
+                  }}
+                  className="material-icons center-align  light-blue-text lighten-5"
+                >
+                  edit
+                </i>
+              </h6>
+            </a>
+          </div>
+
+          {/* style={{fontSize:"40px"}} */}
+          <h6 className={balance >= 0 ? "green-text" : "red-text"} style={balance < 0 ? {fontSize:"27px"}:{}}>
+            {balance >= 0
+              ? `Balance: ${currency}${balance}`
+              : `Balance: ${balance}${currency}`}
           </h6>
-          <h6 style={{ color: "black" }}>Balance: {`${currency}${balance}`}</h6>
         </div>
+        <div className="col s5"></div>
+
         <div
-          className="center-align col s6"
-          style={{ margin: "15px auto 50px auto " }}
+          className="center-align col m3"
+          style={{ margin: "15px auto 50px auto", padding: "0%" }}
         >
-          <a
-            href="#!"
-            className="waves-effect waves-light btn modal-trigger"
-          >
-            <i className="material-icons left">save</i>Save and Exit
-          </a>
+          <BudgetOptions />
         </div>
       </div>
       <div className="row">
-        <div className={expenses.length === 0 ? "center-align smallForm" : "col s4"}>
+        <div
+          className={
+            expenses.length === 0 ? "center-align smallForm" : "col s5"
+          }
+        >
           <AddExpense />
         </div>
-        <div className="col s8">{expenses.length > 0 && <ExpenseList />}</div>
+        <div className="col m1"></div>
+        <div style={{ width: "45%" }} className="col s6">
+          {expenses.length > 0 && <ExpenseList />}
+        </div>
       </div>
     </div>
   );

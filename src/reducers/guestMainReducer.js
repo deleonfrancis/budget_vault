@@ -106,8 +106,8 @@ export default (state = initialState, action) => {
       };
     }
     case ADD_EXPENSE: {
-      console.log(state.balance)
-      console.log(action.payload)
+      // console.log(state.balance)
+      // console.log(action.payload)
       return {
         ...state,
         expense: action.payload,
@@ -120,7 +120,7 @@ export default (state = initialState, action) => {
       };
     }
     case DELETE_EXPENSE: {
-      console.log(action.payload);
+      // console.log(action.payload);
       return {
         ...state,
         expenses: state.expenses.filter((exp) => exp.id !== action.payload.id),

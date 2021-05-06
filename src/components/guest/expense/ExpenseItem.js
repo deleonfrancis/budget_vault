@@ -23,7 +23,7 @@ function ExpenseItem({ expense, currency }) {
         {expAmount}
       </td>
       <td>
-        <Moment style={{ color: "teal" }} format="MMMM Do YYYY">
+        <Moment style={{ color: "teal" }} format="MM/DD/YY">
           {date}
         </Moment>
       </td>
