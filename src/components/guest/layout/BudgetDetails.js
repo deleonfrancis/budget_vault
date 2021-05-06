@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { addBudget } from "../../../actions/budgetActions";
+import ModifyBudget from "../budget/ModifyBudget";
 
 import AddExpense from "../expense/AddExpense";
 import ExpenseList from "../expense/ExpenseList";
@@ -11,7 +12,7 @@ function BudgetDetails({
 }) {
   return (
     <div>
-      <div className="row" style={{marginBottom:"50px"}}>
+      <div className="row" style={{ marginBottom: "50px" }}>
         <div className="col m4">
           <h5 style={{ color: "black" }}>{title}</h5>
           <div>
@@ -44,13 +45,14 @@ function BudgetDetails({
           )}
           {balance < 0 && (
             <h6 className="red-text" style={{ fontSize: "27px" }}>
-              Balance: {" "}
-              {balance}
+              Balance: {balance}
               {currency}
             </h6>
           )}
         </div>
-        <div className="col s5"></div>
+        <div className="col s5">
+          <ModifyBudget />
+        </div>
 
         <div
           className="center-align col m3"
