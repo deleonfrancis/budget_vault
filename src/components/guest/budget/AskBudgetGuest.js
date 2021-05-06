@@ -45,7 +45,9 @@ function AskBudget({
                   }}
                 />
                 <label htmlFor="guestBudgetInput">What's your budget?</label>
-                <span className="helper-text " data-error="wrong" data-success="right">Example: 300.00</span>
+                <span className="helper-text" data-error="wrong" data-success="right">
+         <span style={{fontStyle:"italic"}}>Example:</span> 300.00
+        </span>
               </div>
             </div>
             <button
