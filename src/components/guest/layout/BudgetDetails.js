@@ -71,7 +71,7 @@ function BudgetDetails({
               </h6>
             )}
           </div>
-          <div className="col s6">
+          <div style={{marginBottom:"10px"}} className="col s6">
             {(showModifyBudget || balance < 0) && <ModifyBudget />}
           </div>
         </div>
