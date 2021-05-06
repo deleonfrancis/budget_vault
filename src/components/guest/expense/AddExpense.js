@@ -11,7 +11,7 @@ import { v4 as uuidv4 } from "uuid";
 import numeral from "numeral";
 
 function AddExpense({
-  guestMain: { expenseID, expenseName, expenseAmount, expenseDate, currency },
+  guestMain: { expenseID, expenseName, expenseAmount, expenseDate, currency, balance },
   createExpId,
   setExpName,
   setExpAmount,
@@ -80,7 +80,7 @@ function AddExpense({
         {/* Confirm button */}
         <div className="">
           <button
-            className="btn green waves-effect waves-light"
+            className={balance >= 0 ? "btn green waves-effect waves-light": "btn orange waves-effect waves-light"}
             type="submit"
             name="action"
             onClick={onAddExpenseClick}
@@ -89,6 +89,7 @@ function AddExpense({
             Confirm
             <i className="material-icons right">send</i>
           </button>
+          {balance < 0 && <div> <p style={{fontStyle:"italic", margin:"3px", fontSize:"12px"}} className="red-text">Your balance is in the red.</p></div> }
         </div>
       </form>
     </div>
