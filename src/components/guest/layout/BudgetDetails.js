@@ -33,12 +33,22 @@ function BudgetDetails({
             </a>
           </div>
 
-          {/* style={{fontSize:"40px"}} */}
-          <h6 className={balance >= 0 ? "green-text" : "red-text"} style={balance < 0 ? {fontSize:"27px"}:{}}>
-            {balance >= 0
-              ? `Balance: ${currency}${balance}`
-              : `Balance: ${balance}${currency}`}
-          </h6>
+          {balance >= 0 && (
+            <h6 className="black-text">
+              Balance:{" "}
+              <span className="green-text">
+                {currency}
+                {balance}
+              </span>
+            </h6>
+          )}
+          {balance < 0 && (
+            <h6 className="red-text" style={{ fontSize: "27px" }}>
+              Balance: {" "}
+              {balance}
+              {currency}
+            </h6>
+          )}
         </div>
         <div className="col s5"></div>
 
