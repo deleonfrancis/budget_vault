@@ -18,6 +18,7 @@ import {
   EXPENSE_NAME,
   EXPENSE_AMOUNT,
   EXPENSE_DATE,
+  CLEAR_BUDGET,
   // EXPENSES,
 } from "../actions/types";
 // import { subtractFromBudgetService } from "../utils/budgetTransactions";
@@ -147,3 +148,11 @@ export const deleteExpense = (expense) => async (dispatch) => {
   }
 };
 
+
+// To Clear out a budget
+export const clearBudget = () => (dispatch) => {
+  dispatch({
+    type: CLEAR_BUDGET,
+    // payload: budget,
+  });
+};

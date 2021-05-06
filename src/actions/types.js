@@ -16,6 +16,7 @@ export const BUDGET_AMOUNT = "BUDGET_AMOUNT";
 export const BALANCE = "BALANCE"
 export const DATE_UPDATED = "DATE_UPDATED"
 export const DATE_CREATED = "DATE_CREATED"
+export const CLEAR_BUDGET = "CLEAR_BUDGET"
 
 
 export const GUEST_BUDGET ="GUEST_BUDGET"

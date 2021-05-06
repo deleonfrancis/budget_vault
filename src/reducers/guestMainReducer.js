@@ -17,11 +17,13 @@ import {
   EXPENSE_NAME,
   EXPENSE_AMOUNT,
   EXPENSE_DATE,
+  CLEAR_BUDGET,
   // EXPENSES,
 } from "../actions/types";
-import { subtractFromBalanceService, addToBalanceService } from "../utils/budgetTransactions";
-
-
+import {
+  subtractFromBalanceService,
+  addToBalanceService,
+} from "../utils/budgetTransactions";
 
 const initialState = {
   budget: null,
@@ -112,7 +114,10 @@ export default (state = initialState, action) => {
         ...state,
         expense: action.payload,
         expenses: [...state.expenses, action.payload],
-        balance: subtractFromBalanceService(state.balance,action.payload.expAmount),
+        balance: subtractFromBalanceService(
+          state.balance,
+          action.payload.expAmount
+        ),
         expenseID: null,
         expenseName: "",
         expenseAmount: "",
@@ -124,10 +129,26 @@ export default (state = initialState, action) => {
       return {
         ...state,
         expenses: state.expenses.filter((exp) => exp.id !== action.payload.id),
-        balance: addToBalanceService(state.balance,action.payload.expAmount),
+        balance: addToBalanceService(state.balance, action.payload.expAmount),
       };
     }
-
+    case CLEAR_BUDGET: {
+      return {
+        ...state,
+        budget: null,
+        id: null,
+        title: "",
+        currency: "",
+        budgetAmount: null,
+        expense: {},
+        expenses: [],
+        balance: null,
+        expenseID: null,
+        expenseName: "",
+        expenseAmount: "",
+        expenseDate: null,
+      };
+    }
     default:
       return state;
   }

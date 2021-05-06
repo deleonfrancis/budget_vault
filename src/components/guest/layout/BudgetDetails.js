@@ -11,7 +11,7 @@ function BudgetDetails({
 }) {
   return (
     <div>
-      <div className="row">
+      <div className="row" style={{marginBottom:"50px"}}>
         <div className="col m4">
           <h5 style={{ color: "black" }}>{title}</h5>
           <div>
@@ -25,7 +25,7 @@ function BudgetDetails({
                     top: "2px",
                     left: "3px",
                   }}
-                  className="material-icons center-align  light-blue-text lighten-5"
+                  className="material-icons center-align  teal-text"
                 >
                   edit
                 </i>
