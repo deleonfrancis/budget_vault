@@ -8,7 +8,14 @@ import ExpenseList from "../expense/ExpenseList";
 import BudgetOptions from "./BudgetOptions";
 
 function BudgetDetails({
-  guestMain: { title, currency, budgetAmount, balance, expenses, showModifyBudget, },
+  guestMain: {
+    title,
+    currency,
+    budgetAmount,
+    balance,
+    expenses,
+    showModifyBudget,
+  },
 }) {
   const dispatch = useDispatch();
 
@@ -19,49 +26,54 @@ function BudgetDetails({
   return (
     <div>
       <div className="row" style={{ marginBottom: "50px" }}>
-        <div className="col m4">
-          <h5 className="teal-text">{title}</h5>
-          <div>
-            <a onClick={handleShowModify} href="#!" className="">
+        <div className="row" style={{ marginBottom: "0px" }}>
+          <div className="col s6">
+            <h5 className="teal-text">{title}</h5>
+            <div>
               <h6 style={{ color: "black" }}>
-                Budget: {`${currency}${budgetAmount}`}
-                <i
-                  style={{
-                    fontSize: "17px",
-                    position: "relative",
-                    top: "2px",
-                    left: "3px",
-                  }}
-                  className="material-icons center-align  teal-text"
-                >
-                  edit
-                </i>
+                Budget:{" "}
+                <span>
+                  <a onClick={handleShowModify} href="#!" className="black-text">
+                    {`${currency}${budgetAmount}`}
+                    <i
+                      style={{
+                        fontSize: "17px",
+                        position: "relative",
+                        top: "2px",
+                        left: "3px",
+                      }}
+                      className="material-icons center-align  teal-text"
+                    >
+                      edit
+                    </i>
+                  </a>
+                </span>
               </h6>
-            </a>
-          </div>
+            </div>
 
-          {balance >= 0 && (
-            <h6 className="black-text">
-              Balance:{" "}
-              <span className="green-text">
+            {balance >= 0 && (
+              <h6 className="black-text">
+                Balance:{" "}
+                <span className="green-text">
+                  {currency}
+                  {balance}
+                </span>
+              </h6>
+            )}
+            {balance < 0 && (
+              <h6 className="red-text" style={{ fontSize: "27px" }}>
+                Balance: {balance}
                 {currency}
-                {balance}
-              </span>
-            </h6>
-          )}
-          {balance < 0 && (
-            <h6 className="red-text" style={{ fontSize: "27px" }}>
-              Balance: {balance}
-              {currency}
-            </h6>
-          )}
-        </div>
-        <div className="col s5">
-          {(showModifyBudget || balance < 0) && <ModifyBudget />}
+              </h6>
+            )}
+          </div>
+          <div className="col s6">
+            {(showModifyBudget || balance < 0) && <ModifyBudget />}
+          </div>
         </div>
 
         <div
-          className="center-align col m3"
+          className="center-align row"
           style={{ margin: "15px auto 50px auto", padding: "0%" }}
         >
           <BudgetOptions />

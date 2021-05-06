@@ -12,7 +12,7 @@ function BudgetOptions() {
 
 
   return (
-    <div className="right">
+    <div className="">
       <div style={{}} className="col s6">
         <a onClick={handleReset} href="#!" className="">
           <i

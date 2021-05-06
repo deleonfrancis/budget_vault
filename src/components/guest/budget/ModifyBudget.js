@@ -22,14 +22,13 @@ function ModifyBudget({ guestMain: { currency, balance } }) {
   };
 
   const handleAdd = () => {
-    console.log("handleAdd");
-
     dispatch(addToBudget(numeral(modifyAmount).value()));
+    setModifyAmount("")
   };
 
   const handleSubtract = () => {
-      console.log("handleSubtract");
     dispatch(subtractFromBudget(numeral(modifyAmount).value()));
+    setModifyAmount("")
   };
 
   if (modifyAmount === 0 || NaN) {
@@ -37,8 +36,8 @@ function ModifyBudget({ guestMain: { currency, balance } }) {
   }
 
   return (
-    <div className="row z-depth-2 yellow lighten-5" style={{ padding: "20px" }}>
-      <div className="input-field">
+    <div className="row z-depth-2 yellow lighten-5" style={{ padding: "10px", marginBottom:"0px" }}>
+      <div className="input-field" style={{ width:"90%", margin:"7px auto 5px"}}>
         <h4 className="prefix teal-text center-align">{currency}</h4>
         <input
           onChange={(e) => setModifyAmount(e.target.value)}
@@ -49,7 +48,7 @@ function ModifyBudget({ guestMain: { currency, balance } }) {
           className="validate"
         />
         <label htmlFor="icon_prefix">Modify Budget</label>
-        <span className="helper-text" data-error="wrong" data-success="right">
+        <span className="helper-text">
           <span style={{ fontStyle: "italic" }}>Example:</span> 300.00
         </span>
       </div>
