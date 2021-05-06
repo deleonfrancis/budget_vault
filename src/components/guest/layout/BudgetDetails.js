@@ -20,7 +20,7 @@ function BudgetDetails({
     <div>
       <div className="row" style={{ marginBottom: "50px" }}>
         <div className="col m4">
-          <h5 style={{ color: "black" }}>{title}</h5>
+          <h5 className="teal-text">{title}</h5>
           <div>
             <a onClick={handleShowModify} href="#!" className="">
               <h6 style={{ color: "black" }}>

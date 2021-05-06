@@ -19,11 +19,15 @@ import {
   EXPENSE_DATE,
   CLEAR_BUDGET,
   SET_MODIFY_BUDGET,
+  ADD_TO_BUDGET,
+  SUBTRACT_FROM_BUDGET,
   // EXPENSES,
 } from "../actions/types";
 import {
   subtractFromBalanceService,
   addToBalanceService,
+  addToBudgetService,
+  subtractFromBudgetService
 } from "../utils/budgetTransactions";
 
 const initialState = {
@@ -133,6 +137,29 @@ export default (state = initialState, action) => {
         expenses: state.expenses.filter((exp) => exp.id !== action.payload.id),
         balance: addToBalanceService(state.balance, action.payload.expAmount),
       };
+    }
+    case ADD_TO_BUDGET: {
+      console.log("ADD_TO_BUDGET");
+      console.log(action.payload);
+      console.log(state.budgetAmount);
+      console.log(state.balance);
+
+      return {
+        ...state,
+        budgetAmount: addToBudgetService(state.budgetAmount, action.payload),
+        balance: addToBalanceService(state.balance, action.payload),
+      }
+    }
+    case SUBTRACT_FROM_BUDGET: {
+      console.log("SUBTRACT_FROM_BUDGET");
+      console.log(action.payload);
+      console.log(state.budgetAmount);
+      console.log(state.balance);
+      return {
+        ...state,
+        budgetAmount: subtractFromBudgetService(state.budgetAmount, action.payload),
+        balance: subtractFromBalanceService(state.balance, action.payload),
+      }
     }
     case CLEAR_BUDGET: {
       return {

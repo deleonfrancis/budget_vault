@@ -20,6 +20,8 @@ import {
   EXPENSE_DATE,
   CLEAR_BUDGET,
   SET_MODIFY_BUDGET,
+  ADD_TO_BUDGET,
+  SUBTRACT_FROM_BUDGET,
   // EXPENSES,
 } from "../actions/types";
 // import { subtractFromBudgetService } from "../utils/budgetTransactions";
@@ -166,3 +168,54 @@ export const setShowModifyBudget = (bool) => (dispatch) => {
   });
 };
 
+// For Adding to the Budget
+export const addToBudget = (amount) => async (dispatch) => {
+  try {
+    // setLoading();
+    // const res = await fetch("/budgets",{
+    //     method: "POST",
+    //     body: JSON.stringify(expense),
+    //     headers: {
+    //         "Content-Type": "application/json",
+    //       },
+    // });
+    // const data = await res.json();
+    // console.log(amount);
+    dispatch({
+      type: ADD_TO_BUDGET,
+      payload: amount,
+    });
+    // setLoading(false);
+  } catch (error) {
+    dispatch({
+      type: EXPENSES_ERROR,
+      payload: error.response.statusText,
+    });
+  }
+};
+
+// For Subtracting from the Budget
+export const subtractFromBudget = (amount) => async (dispatch) => {
+  try {
+    // setLoading();
+    // const res = await fetch("/budgets",{
+    //     method: "POST",
+    //     body: JSON.stringify(expense),
+    //     headers: {
+    //         "Content-Type": "application/json",
+    //       },
+    // });
+    // const data = await res.json();
+    // console.log(amount);
+    dispatch({
+      type: SUBTRACT_FROM_BUDGET,
+      payload: amount,
+    });
+    // setLoading(false);
+  } catch (error) {
+    dispatch({
+      type: EXPENSES_ERROR,
+      payload: error.response.statusText,
+    });
+  }
+};
