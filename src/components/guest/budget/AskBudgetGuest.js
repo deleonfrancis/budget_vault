@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { connect, useDispatch } from "react-redux";
-import { setBudgetAmount, setBalance, clearBudget } from "../../../actions/mainActions";
+import { setBudgetAmount, setBalance, clearBudget, setDateCreated, setBudgetId } from "../../../actions/mainActions";
 
 import AskCurrencyGuest from "./AskCurrencyGuest";
 import AskTitleGuest from "./AskTitleGuest";
 import numeral from "numeral";
+import { v4 as uuidv4 } from "uuid";
+
 
 function AskBudget({
   guestMain: { title, currency },
@@ -19,16 +21,16 @@ function AskBudget({
     // eslint-disable-next-line
   }, [])
 
-
-
-
   const [userBudget, setUserBudget] = useState("");
+  const dateNow = new Date()
+  const budgetID = uuidv4()
 
   const handleClick = (e) => {
     e.preventDefault();
     setBudgetAmount(numeral(userBudget).value());
     setBalance(numeral(userBudget).value());
-    // console.log(numeral(userBudget).value());
+    dispatch(setDateCreated(dateNow))
+    dispatch(setBudgetId(budgetID))
     setUserBudget("");
   };
 

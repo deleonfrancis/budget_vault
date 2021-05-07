@@ -48,7 +48,6 @@ function ModifyBudget({ guestMain: { currency, balance, budgetAmount } }) {
         <div className="col s8">
           <div
             className="input-field"
-            // style={{ margin: "7px auto 5px" }}
           >
             <h4 className="prefix teal-text center-align">{currency}</h4>
             <input

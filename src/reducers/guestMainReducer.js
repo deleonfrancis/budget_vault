@@ -4,8 +4,8 @@ import {
   CURRENCY,
   BUDGET_AMOUNT,
   BALANCE,
+  DATE_CREATED,
   // DATE_UPDATED,
-  // DATE_CREATED,
   // GUEST_BUDGET,
   ADD_EXPENSE,
   EXPENSES_ERROR,
@@ -80,6 +80,12 @@ export default (state = initialState, action) => {
       return {
         ...state,
         balance: action.payload,
+      };
+    }
+    case DATE_CREATED: {
+      return {
+        ...state,
+        dateCreated: action.payload,
       };
     }
     case EXP_ID: {
@@ -169,6 +175,7 @@ export default (state = initialState, action) => {
         title: "",
         currency: "",
         budgetAmount: null,
+        dateCreated: null,
         expense: {},
         expenses: [],
         balance: null,

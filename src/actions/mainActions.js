@@ -1,12 +1,11 @@
-import { v4 as uuidv4 } from "uuid";
 import {
   BUDGET_ID,
   BUDGET_TITLE,
   CURRENCY,
   BUDGET_AMOUNT,
   BALANCE,
+  DATE_CREATED,
   // DATE_UPDATED,
-  // DATE_CREATED,
   // GUEST_BUDGET,
   ADD_EXPENSE,
   EXPENSES_ERROR,
@@ -28,9 +27,8 @@ import {
 import { setLoading } from "./budgetActions";
 
 // Create the budget ID
-export const createId = () => {
-  const id = uuidv4();
-  return({
+export const setBudgetId = (id) => (dispatch) => {
+  dispatch ({
     type: BUDGET_ID,
     payload: id,
   });
@@ -218,4 +216,28 @@ export const subtractFromBudget = (amount) => async (dispatch) => {
       payload: error.response.statusText,
     });
   }
+};
+
+// Create the budget date created
+export const setDateCreated = (date) => (dispatch) => {
+  dispatch ({
+    type: DATE_CREATED,
+    payload: date,
+  });
+};
+
+// Fills the budget with the data
+export const setBudget = (budget) => (dispatch) => {
+  dispatch ({
+    type: DATE_CREATED,
+    payload: budget,
+  });
+};
+
+// Clears the main budget of the data
+export const clearMainBudget = () => (dispatch) => {
+  dispatch ({
+    type: DATE_CREATED,
+    // payload: budget,
+  });
 };
