@@ -37,10 +37,10 @@ import {
 const initialState = {
   budgets: [],
   current: null,
+  filtered: null,
   loading: false,
   error: null,
 };
-
 
 // eslint-disable-next-line
 export default (state = initialState, action) => {
@@ -77,7 +77,11 @@ export default (state = initialState, action) => {
     case SEARCH_BUDGETS: {
       return {
         ...state,
-        budgets: action.payload,
+        filtered: state.budgets.filter((budget) => {
+          const regex = new RegExp(`${action.payload}`, "gi");
+          return budget.title.match(
+            regex);
+        }),
         loading: false,
       };
     }

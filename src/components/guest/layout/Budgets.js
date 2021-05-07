@@ -7,7 +7,7 @@ import { getBudgets, setLoading } from "../../../actions/budgetActions";
 
 function Budgets({
   theme,
-  guestBudget: { budgets, loading },
+  guestBudget: { budgets, loading, filtered },
   getBudgets,
   setLoading,
 }) {
@@ -58,7 +58,7 @@ function Budgets({
         <tbody>
           {!loading &&
             budgets.length > 0 &&
-            budgets.map((budget) => (
+            filtered !== null ? filtered.map((budget)=> <BudgetItem key={budget.id} budget={budget} theme={theme} />) : budgets.map((budget) => (
               <BudgetItem key={budget.id} budget={budget} theme={theme} />
             ))}
         </tbody>

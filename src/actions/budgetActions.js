@@ -72,17 +72,6 @@ export const addBudget = (budget) => (dispatch) => {
   }
 };
 
-// const putBudgetsInDB = (budgets) => async (dispatch) => {
-//   try {
-//     db.collection("Budget Vault").add({budgets})
-
-//   } catch (error) {
-//     dispatch({
-//       type: BUDGETS_ERROR,
-//       payload: error.response.statusText,
-//     });
-//   }
-// };
 
 // Set loading to true
 export const setLoading = () => {
@@ -95,11 +84,9 @@ export const setLoading = () => {
 export const searchBudgets = (text) => async (dispatch) => {
   try {
     setLoading();
-    const res = await fetch(`/budgets?q=${text}`);
-    const data = await res.json();
     dispatch({
       type: SEARCH_BUDGETS,
-      payload: data,
+      payload: text,
     });
   } catch (error) {
     dispatch({

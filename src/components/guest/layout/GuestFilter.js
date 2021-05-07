@@ -1,9 +1,15 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { connect } from "react-redux";
 import { searchBudgets } from "../../../actions/budgetActions";
 
-function GuestFilter({ searchBudgets }) {
+function GuestFilter({ searchBudgets, guestBudget:{filtered} }) {
   const text = useRef("");
+
+  useEffect(() => {
+    if (filtered === null) {
+      text.current.value = "";
+    }
+  });
 
   const onChange = () => {
     searchBudgets(text.current.value);
@@ -29,4 +35,8 @@ function GuestFilter({ searchBudgets }) {
   );
 }
 
-export default connect(null, { searchBudgets })(GuestFilter);
+const mapStateToProps = (state) => ({
+  guestBudget: state.guestBudget
+})
+
+export default connect(mapStateToProps, { searchBudgets })(GuestFilter);
