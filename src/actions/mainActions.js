@@ -227,3 +227,13 @@ export const setGuestBudget = (budget) => (dispatch) => {
   });
   dispatch(addBudget(budget))
 };
+
+// Fills the budget with the data
+export const onlySetGuestBudget = (budget) => (dispatch) => {
+  console.log("onlySetGuestBudget():");
+  console.log(budget);
+  dispatch ({
+    type: SET_GUEST_BUDGET,
+    payload: budget,
+  });
+};

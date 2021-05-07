@@ -32,7 +32,7 @@ import {
 } from "../utils/budgetTransactions";
 
 const initialState = {
-  budget: null,
+  budget: {},
   id: null,
   title: "",
   currency: "",

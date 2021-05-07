@@ -1,18 +1,41 @@
-import React from 'react'
+import React from "react";
+import { connect,useDispatch } from "react-redux";
+import { clearBudget } from "../../../actions/mainActions";
 
-function DeleteBudgetModal() {
-    return (
-        <div id="deleteBudgetModal" className="modal" style={modalStyle}>
-        <div className="modal-content">
-            <h4>Delete Budget?</h4>
-        </div>
+function DeleteBudgetModal({ guestMain: { budget } }) {
+    const dispatch = useDispatch()
+  const { title } = budget;
+
+  const handleYesDelete = () =>{
+
+    
+    dispatch(clearBudget())
+  }
+
+  const handleNoDelete = () =>{
+    dispatch(clearBudget())
+  }
+
+  return (
+    <div id="deleteBudgetModal" className="modal" style={modalStyle} >
+      <div className="modal-content">
+        {title && (
+          <h5 className="teal-text">Delete <span style={{fontStyle:"italic"}} className="teal-text">{title}</span> ?</h5>
+        )}
+      </div>
+      <a onClick={handleYesDelete} href="#!" className="waves-effect waves-light btn-small red modal-close">Yes</a>
+      <a onClick={handleNoDelete} href="#!" className="waves-effect waves-light btn-small teal-text grey lighten-5 modal-close">No</a>
     </div>
-    )
+  );
 }
 
 const modalStyle = {
-    width:"50%",
-    height:"30%"
+    width:"30%",
+    height:"auto",
 }
 
-export default DeleteBudgetModal
+const mapStateToProps = (state) => ({
+  guestMain: state.guestMain,
+});
+
+export default connect(mapStateToProps)(DeleteBudgetModal);
