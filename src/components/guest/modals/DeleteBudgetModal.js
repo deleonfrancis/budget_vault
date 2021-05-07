@@ -19,13 +19,13 @@ function DeleteBudgetModal({ guestMain: { budget } }) {
 
   return (
     <div id="deleteBudgetModal" className="modal" style={modalStyle} >
-      <div className="modal-content">
+      <div className="modal-content center-align">
         {title && (
           <h5 className="teal-text">Delete <span style={{fontStyle:"italic"}} className="teal-text">{title}</span> ?</h5>
         )}
+        <a onClick={handleYesDelete} style={{margin:"5px"}} href="#!" className="waves-effect waves-light btn-small red modal-close">Yes</a>
+      <a onClick={handleNoDelete} style={{margin:"5px"}} href="#!" className="waves-effect waves-light btn-small teal-text grey lighten-5 modal-close">No</a>
       </div>
-      <a onClick={handleYesDelete} href="#!" className="waves-effect waves-light btn-small red modal-close">Yes</a>
-      <a onClick={handleNoDelete} href="#!" className="waves-effect waves-light btn-small teal-text grey lighten-5 modal-close">No</a>
     </div>
   );
 }
