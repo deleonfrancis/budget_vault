@@ -80,7 +80,7 @@ function AddExpense({
         {/* Confirm button */}
         <div className="">
           <button
-            className={balance >= 0 ? "btn green waves-effect waves-light": "btn orange waves-effect waves-light"}
+            className={balance >= 0 ? "btn green waves-effect waves-light": "btn red waves-effect waves-light"}
             type="submit"
             name="action"
             onClick={onAddExpenseClick}

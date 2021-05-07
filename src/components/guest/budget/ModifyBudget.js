@@ -7,7 +7,7 @@ import {
   subtractFromBudget,
 } from "../../../actions/mainActions";
 
-function ModifyBudget({ guestMain: { currency, balance } }) {
+function ModifyBudget({ guestMain: { currency, balance, budgetAmount } }) {
   const inputEl = useRef(null);
   useEffect(() => {
     inputEl.current.focus();
@@ -30,6 +30,10 @@ function ModifyBudget({ guestMain: { currency, balance } }) {
     dispatch(subtractFromBudget(numeral(modifyAmount).value()));
     setModifyAmount("");
   };
+
+  const disablePlus = !numeral.validate(modifyAmount)
+  const disableMinus = !numeral.validate(modifyAmount) || modifyAmount >= budgetAmount
+
 
   if (modifyAmount === 0 || NaN) {
     return null;
@@ -64,24 +68,24 @@ function ModifyBudget({ guestMain: { currency, balance } }) {
 
         <div style={{marginTop:"20px", paddingLeft:"0px"}} className="col s4">
           <div className="col s6">
-            <a onClick={handleAdd} href="#!" style={{ marginRight: "10px" }}>
+            <button onClick={handleAdd} href="#!" className="transparent" style={{ marginRight: "5px", border:"none" }} disabled={disablePlus}>
               <i
                 style={{ fontSize: "35px" }}
-                className="material-icons prefix green-text"
+                className={disablePlus? "material-icons prefix grey-text" : "material-icons prefix green-text"}
               >
                 add
               </i>
-            </a>
+            </button>
           </div>
           <div className="col s6">
-            <a onClick={handleSubtract} href="#!">
+            <button onClick={handleSubtract} href="#!" disabled={disableMinus} className="transparent" style={{border:"none"}} >
               <i
                 style={{ fontSize: "35px" }}
-                className="material-icons prefix red-text"
+                className={disableMinus? "material-icons prefix grey-text" : "material-icons prefix red-text"}
               >
                 remove
               </i>
-            </a>
+            </button>
           </div>
         </div>
       </div>

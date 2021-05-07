@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import { connect } from "react-redux";
-import { setBudgetAmount, setBalance } from "../../../actions/mainActions";
+import React, { useState, useEffect } from "react";
+import { connect, useDispatch } from "react-redux";
+import { setBudgetAmount, setBalance, clearBudget } from "../../../actions/mainActions";
+
 import AskCurrencyGuest from "./AskCurrencyGuest";
 import AskTitleGuest from "./AskTitleGuest";
 import numeral from "numeral";
@@ -10,6 +11,17 @@ function AskBudget({
   setBudgetAmount,
   setBalance,
 }) {
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(clearBudget())
+    // eslint-disable-next-line
+  }, [])
+
+
+
+
   const [userBudget, setUserBudget] = useState("");
 
   const handleClick = (e) => {
