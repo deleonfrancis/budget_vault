@@ -182,7 +182,7 @@ export default (state = initialState, action) => {
     case CLEAR_BUDGET: {
       return {
         ...state,
-        budget: null,
+        budget: {},
         id: null,
         title: "",
         currency: "",

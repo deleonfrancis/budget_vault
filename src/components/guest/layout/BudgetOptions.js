@@ -28,7 +28,6 @@ function BudgetOptions({
     expenses,
   },
 }) {
-
   const guestBudget = {
     id,
     title,
@@ -38,7 +37,7 @@ function BudgetOptions({
     dateUpdated,
     dateCreated,
     expenses,
-  }
+  };
 
   const dispatch = useDispatch();
 
@@ -47,8 +46,7 @@ function BudgetOptions({
   };
 
   const handleDone = () => {
-dispatch(setGuestBudget(guestBudget))
-
+    dispatch(setGuestBudget(guestBudget));
   };
 
   return (
@@ -68,7 +66,7 @@ dispatch(setGuestBudget(guestBudget))
           reset
         </a>
         <a
-        onClick={handleDone}
+          onClick={handleDone}
           style={{ marginLeft: "15px" }}
           href="#!"
           className="waves-effect waves-light btn-small"

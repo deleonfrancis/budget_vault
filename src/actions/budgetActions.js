@@ -20,23 +20,24 @@ import {
   // EXPENSES_ERROR,
 } from "./types";
 
-let db = new Localbase("db")
-
+let db = new Localbase("db");
 
 // Get the Budgets from the server
 export const getBudgets = () => (dispatch) => {
   try {
     setLoading();
-    db.collection("Budget Vault").get()
+    db.collection("Budget Vault")
+      .get()
 
-    // const res = await fetch("/budgets");
-    // const data = await res.json();
-    .then((data) => {
-      dispatch({
-        type: GET_BUDGETS,
-        payload: data,
+      // const res = await fetch("/budgets");
+      // const data = await res.json();
+      .then((data) => {
+        console.log(data);
+        dispatch({
+          type: GET_BUDGETS,
+          payload: data,
+        });
       });
-    }) 
   } catch (error) {
     dispatch({
       type: BUDGETS_ERROR,
@@ -46,26 +47,22 @@ export const getBudgets = () => (dispatch) => {
 };
 
 //
-export const addBudget = (budget) => async (dispatch) => {
+export const addBudget = (budget) => (dispatch) => {
   try {
-
-    // console.log(budget);
-    // setLoading();
-    // const res = await fetch("/budgets", {
-    //   method: "POST",
-    //   body: JSON.stringify(budget),
-    //   headers: {
-    //     "Content-Type": "application.json",
-    //   },
-    // });
-    // console.log("res:");
-    // console.log(res);
-    // const data = await res.json();
-    // // console.log("data:");
-    // // console.log(data);
+    console.log("addBudget:");
+    console.log(budget);
+    db.collection("Budget Vault").add({
+      id: budget.id,
+      title: budget.title,
+      currency: budget.currency,
+      budgetAmount: budget.budgetAmount,
+      dateCreated: budget.dateCreated,
+      expenses: budget.expenses,
+      balance: budget.balance,
+    });
     dispatch({
       type: ADD_BUDGET,
-      // payload: data,
+      payload: budget,
     });
   } catch (error) {
     dispatch({
@@ -74,6 +71,18 @@ export const addBudget = (budget) => async (dispatch) => {
     });
   }
 };
+
+// const putBudgetsInDB = (budgets) => async (dispatch) => {
+//   try {
+//     db.collection("Budget Vault").add({budgets})
+
+//   } catch (error) {
+//     dispatch({
+//       type: BUDGETS_ERROR,
+//       payload: error.response.statusText,
+//     });
+//   }
+// };
 
 // Set loading to true
 export const setLoading = () => {

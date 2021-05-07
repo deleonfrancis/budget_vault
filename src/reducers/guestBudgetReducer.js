@@ -35,11 +35,12 @@ import {
 } from "../actions/types";
 
 const initialState = {
-  budgets: null,
+  budgets: [],
   current: null,
   loading: false,
   error: null,
 };
+
 
 // eslint-disable-next-line
 export default (state = initialState, action) => {
