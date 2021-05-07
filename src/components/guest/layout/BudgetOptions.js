@@ -47,6 +47,7 @@ function BudgetOptions({
 
   const handleDone = () => {
     dispatch(setGuestBudget(guestBudget));
+    dispatch(clearBudget())
   };
 
   return (
@@ -69,7 +70,7 @@ function BudgetOptions({
           onClick={handleDone}
           style={{ marginLeft: "15px" }}
           href="#!"
-          className="waves-effect waves-light btn-small"
+          className="modal-close waves-effect waves-light btn-small"
         >
           <i
             className="material-icons left"

@@ -5,13 +5,6 @@ import BudgetDetails from "../layout/BudgetDetails";
 
 function ComposeBudgetModal({guestMain: {title, currency, budgetAmount}}) {
 
-  // const [expId, setExId] = useState(null);
-  // const [expenses, setExpenses] = useState([]);
-  // const [expense, setExpense] = useState({});
-  // const [expName, setExpName] = useState("");
-  // const [expAmount, setExpAmount] = useState(0);
-  // const [guestBudget, setGuestBudget] = useState({});
-
   console.log(`${title}, ${currency}${budgetAmount}`);
 
   return (
@@ -22,18 +15,6 @@ function ComposeBudgetModal({guestMain: {title, currency, budgetAmount}}) {
         )}
         {budgetAmount && (
           <BudgetDetails
-            // expId={expId}
-            // setExId={setExId}
-            // expense={expense}
-            // expenses={expenses}
-            // setExpense={setExpense}
-            // setExpenses={setExpenses}
-            // expName={expName}
-            // setExpName={setExpName}
-            // expAmount={expAmount}
-            // setExpAmount={setExpAmount}
-            // guestBudget={guestBudget}
-            // setGuestBudget={setGuestBudget}
           />
         )}
       </div>
