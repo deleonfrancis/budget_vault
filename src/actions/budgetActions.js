@@ -3,7 +3,7 @@ import Localbase from "localbase";
 import {
   GET_BUDGETS,
   ADD_BUDGET,
-  //   DELETE_BUDGET,
+    DELETE_BUDGET,
   //   SET_CURRENT,
   //   CLEAR_CURRENT,
   //   UPDATE_BUDGET,
@@ -69,6 +69,23 @@ export const addBudget = (budget) => (dispatch) => {
     });
   }
 };
+
+// Delete a Budget
+export const deleteBudget = (id) => (dispatch) => {
+  try {
+    setLoading();
+    dispatch({
+      type: DELETE_BUDGET,
+      payload: id,
+    });
+  } catch (error) {
+    dispatch({
+      type: BUDGETS_ERROR,
+      payload: error.response.statusText,
+    });
+  }
+};
+
 
 
 // Set loading to true

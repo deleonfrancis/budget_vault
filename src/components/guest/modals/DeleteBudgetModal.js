@@ -1,14 +1,15 @@
 import React from "react";
 import { connect,useDispatch } from "react-redux";
+import { deleteBudget } from "../../../actions/budgetActions";
 import { clearBudget } from "../../../actions/mainActions";
 
 function DeleteBudgetModal({ guestMain: { budget } }) {
     const dispatch = useDispatch()
-  const { title } = budget;
+  const { title, id } = budget;
 
   const handleYesDelete = () =>{
 
-    
+    dispatch(deleteBudget(id))
     dispatch(clearBudget())
   }
 

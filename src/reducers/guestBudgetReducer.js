@@ -1,7 +1,7 @@
 import {
   GET_BUDGETS,
   ADD_BUDGET,
-  //   DELETE_BUDGET,
+  DELETE_BUDGET,
   //   SET_CURRENT,
   //   CLEAR_CURRENT,
   //   UPDATE_BUDGET,
@@ -53,11 +53,18 @@ export default (state = initialState, action) => {
       };
     }
     case ADD_BUDGET: {
-      // console.log("ADD_BUDGET Reducer");
-      // console.log(action.payload);
       return {
         ...state,
         budgets: [...state.budgets, action.payload],
+        loading: false,
+      };
+    }
+    case DELETE_BUDGET: {
+      console.log("DELETE_BUDGET Reducer");
+      console.log(action.payload);
+      return {
+        ...state,
+        budgets: state.budgets.filter((budget)=> budget.id !== action.payload),
         loading: false,
       };
     }
