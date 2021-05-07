@@ -1,5 +1,6 @@
 import React from "react";
 import { connect, useDispatch } from "react-redux";
+import numeral from "numeral";
 import { setShowModifyBudget } from "../../../actions/mainActions";
 import ModifyBudget from "../budget/ModifyBudget";
 
@@ -38,7 +39,7 @@ function BudgetDetails({
                     href="#!"
                     className="black-text"
                   >
-                    {`${currency}${budgetAmount}`}
+                    {`${currency}${numeral(budgetAmount).format("0,0.00")}`}
                     <i
                       style={{
                         fontSize: "17px",
@@ -60,13 +61,13 @@ function BudgetDetails({
                 Balance:{" "}
                 <span className="green-text">
                   {currency}
-                  {balance}
+                  {numeral(balance).format("0,0.00")}
                 </span>
               </h6>
             )}
             {balance < 0 && (
               <h6 className="red-text" style={{ fontSize: "27px" }}>
-                Balance: {balance}
+                Balance: {numeral(balance).format("0,0.00")}
                 {currency}
               </h6>
             )}

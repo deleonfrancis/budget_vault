@@ -1,6 +1,5 @@
 import React from 'react'
 import numeral from "numeral";
-
 import Moment from "react-moment"
 
 function BudgetItem({budget, theme}) {
