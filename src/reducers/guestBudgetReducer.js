@@ -53,8 +53,8 @@ export default (state = initialState, action) => {
       };
     }
     case ADD_BUDGET: {
-      console.log("ADD_BUDGET Reducer");
-      console.log(action.payload);
+      // console.log("ADD_BUDGET Reducer");
+      // console.log(action.payload);
       return {
         ...state,
         budgets: [...state.budgets, action.payload],

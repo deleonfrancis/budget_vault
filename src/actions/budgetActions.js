@@ -32,7 +32,7 @@ export const getBudgets = () => (dispatch) => {
       // const res = await fetch("/budgets");
       // const data = await res.json();
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         dispatch({
           type: GET_BUDGETS,
           payload: data,
@@ -49,8 +49,6 @@ export const getBudgets = () => (dispatch) => {
 //
 export const addBudget = (budget) => (dispatch) => {
   try {
-    console.log("addBudget:");
-    console.log(budget);
     db.collection("Budget Vault").add({
       id: budget.id,
       title: budget.title,

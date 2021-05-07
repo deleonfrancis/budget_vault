@@ -146,10 +146,10 @@ export default (state = initialState, action) => {
       };
     }
     case ADD_TO_BUDGET: {
-      console.log("ADD_TO_BUDGET");
-      console.log(action.payload);
-      console.log(state.budgetAmount);
-      console.log(state.balance);
+      // console.log("ADD_TO_BUDGET");
+      // console.log(action.payload);
+      // console.log(state.budgetAmount);
+      // console.log(state.balance);
 
       return {
         ...state,
@@ -158,10 +158,10 @@ export default (state = initialState, action) => {
       };
     }
     case SUBTRACT_FROM_BUDGET: {
-      console.log("SUBTRACT_FROM_BUDGET");
-      console.log(action.payload);
-      console.log(state.budgetAmount);
-      console.log(state.balance);
+      // console.log("SUBTRACT_FROM_BUDGET");
+      // console.log(action.payload);
+      // console.log(state.budgetAmount);
+      // console.log(state.balance);
       return {
         ...state,
         budgetAmount: subtractFromBudgetService(
