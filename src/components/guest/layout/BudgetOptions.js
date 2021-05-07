@@ -1,6 +1,6 @@
 import React from "react";
 import { connect, useDispatch } from "react-redux";
-import { clearBudget } from "../../../actions/mainActions";
+import { clearBudget, setGuestBudget } from "../../../actions/mainActions";
 
 // id,
 // title,
@@ -25,21 +25,31 @@ function BudgetOptions({
     balance,
     dateUpdated,
     dateCreated,
-    expense,
-    expenseID,
-    expenseName,
-    expenseAmount,
-    expenseDate,
     expenses,
   },
 }) {
+
+  const guestBudget = {
+    id,
+    title,
+    currency,
+    budgetAmount,
+    balance,
+    dateUpdated,
+    dateCreated,
+    expenses,
+  }
+
   const dispatch = useDispatch();
 
   const handleReset = () => {
     dispatch(clearBudget());
   };
 
-  const handleDone = () => {};
+  const handleDone = () => {
+dispatch(setGuestBudget(guestBudget))
+
+  };
 
   return (
     <div className="">
@@ -58,6 +68,7 @@ function BudgetOptions({
           reset
         </a>
         <a
+        onClick={handleDone}
           style={{ marginLeft: "15px" }}
           href="#!"
           className="waves-effect waves-light btn-small"

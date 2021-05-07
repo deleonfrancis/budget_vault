@@ -6,6 +6,11 @@ function BudgetItem({budget, theme}) {
 
     const { title, currency, expenses, dateCreated, balance, budgetAmount } = budget
 
+    if (expenses===undefined){
+        return null
+    }
+
+
     return (
         <tr className="hoverable" style={theme==="dark" ? {borderColor:"teal"} : {}}>
             <td><a className="modal-trigger" style={theme==="dark" ? {fontSize:"18px", color: "white"} : {fontSize:"18px", color: "black"}} href="#editBudgetModal">{title}</a></td>

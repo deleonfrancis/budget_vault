@@ -6,7 +6,8 @@ import {
   BALANCE,
   DATE_CREATED,
   // DATE_UPDATED,
-  // GUEST_BUDGET,
+  SET_GUEST_BUDGET,
+  // CLEAR_GUEST_BUDGET,
   ADD_EXPENSE,
   EXPENSES_ERROR,
   // UPDATE_EXPENSE,
@@ -27,7 +28,7 @@ import {
   subtractFromBalanceService,
   addToBalanceService,
   addToBudgetService,
-  subtractFromBudgetService
+  subtractFromBudgetService,
 } from "../utils/budgetTransactions";
 
 const initialState = {
@@ -154,7 +155,7 @@ export default (state = initialState, action) => {
         ...state,
         budgetAmount: addToBudgetService(state.budgetAmount, action.payload),
         balance: addToBalanceService(state.balance, action.payload),
-      }
+      };
     }
     case SUBTRACT_FROM_BUDGET: {
       console.log("SUBTRACT_FROM_BUDGET");
@@ -163,9 +164,20 @@ export default (state = initialState, action) => {
       console.log(state.balance);
       return {
         ...state,
-        budgetAmount: subtractFromBudgetService(state.budgetAmount, action.payload),
+        budgetAmount: subtractFromBudgetService(
+          state.budgetAmount,
+          action.payload
+        ),
         balance: subtractFromBalanceService(state.balance, action.payload),
-      }
+      };
+    }
+    case SET_GUEST_BUDGET: {
+      // console.log("SET_GUEST_BUDGET");
+      // console.log(action.payload);
+      return {
+        ...state,
+        budget: action.payload,
+      };
     }
     case CLEAR_BUDGET: {
       return {

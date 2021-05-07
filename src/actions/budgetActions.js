@@ -1,3 +1,5 @@
+// import { openDB, deleteDB, wrap, unwrap } from 'idb';
+import Localbase from "localbase";
 import {
   GET_BUDGETS,
   ADD_BUDGET,
@@ -18,16 +20,23 @@ import {
   // EXPENSES_ERROR,
 } from "./types";
 
+let db = new Localbase("db")
+
+
 // Get the Budgets from the server
-export const getBudgets = () => async (dispatch) => {
+export const getBudgets = () => (dispatch) => {
   try {
     setLoading();
-    const res = await fetch("/budgets");
-    const data = await res.json();
-    dispatch({
-      type: GET_BUDGETS,
-      payload: data,
-    });
+    db.collection("Budget Vault").get()
+
+    // const res = await fetch("/budgets");
+    // const data = await res.json();
+    .then((data) => {
+      dispatch({
+        type: GET_BUDGETS,
+        payload: data,
+      });
+    }) 
   } catch (error) {
     dispatch({
       type: BUDGETS_ERROR,
@@ -39,18 +48,24 @@ export const getBudgets = () => async (dispatch) => {
 //
 export const addBudget = (budget) => async (dispatch) => {
   try {
-    setLoading();
-    const res = await fetch("/budgets", {
-      method: "POST",
-      body: JSON.stringify(),
-      headers: {
-        "Content-Type": "application.json",
-      },
-    });
-    const data = await res.json();
+
+    // console.log(budget);
+    // setLoading();
+    // const res = await fetch("/budgets", {
+    //   method: "POST",
+    //   body: JSON.stringify(budget),
+    //   headers: {
+    //     "Content-Type": "application.json",
+    //   },
+    // });
+    // console.log("res:");
+    // console.log(res);
+    // const data = await res.json();
+    // // console.log("data:");
+    // // console.log(data);
     dispatch({
       type: ADD_BUDGET,
-      payload: data,
+      // payload: data,
     });
   } catch (error) {
     dispatch({

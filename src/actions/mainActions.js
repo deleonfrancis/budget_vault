@@ -6,7 +6,8 @@ import {
   BALANCE,
   DATE_CREATED,
   // DATE_UPDATED,
-  // GUEST_BUDGET,
+  SET_GUEST_BUDGET,
+  // CLEAR_GUEST_BUDGET,
   ADD_EXPENSE,
   EXPENSES_ERROR,
   // UPDATE_EXPENSE,
@@ -24,7 +25,7 @@ import {
   // EXPENSES,
 } from "../actions/types";
 // import { subtractFromBudgetService } from "../utils/budgetTransactions";
-import { setLoading } from "./budgetActions";
+import { addBudget, setLoading } from "./budgetActions";
 
 // Create the budget ID
 export const setBudgetId = (id) => (dispatch) => {
@@ -227,17 +228,10 @@ export const setDateCreated = (date) => (dispatch) => {
 };
 
 // Fills the budget with the data
-export const setBudget = (budget) => (dispatch) => {
+export const setGuestBudget = (budget) => (dispatch) => {
   dispatch ({
-    type: DATE_CREATED,
+    type: SET_GUEST_BUDGET,
     payload: budget,
   });
-};
-
-// Clears the main budget of the data
-export const clearMainBudget = () => (dispatch) => {
-  dispatch ({
-    type: DATE_CREATED,
-    // payload: budget,
-  });
+  dispatch(addBudget(budget))
 };
