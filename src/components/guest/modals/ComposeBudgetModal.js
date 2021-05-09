@@ -5,7 +5,7 @@ import BudgetDetails from "../layout/BudgetDetails";
 
 function ComposeBudgetModal({guestMain: {title, currency, budgetAmount}}) {
 
-  console.log(`${title}, ${currency}${budgetAmount}`);
+  // console.log(`${title}, ${currency}${budgetAmount}`);
 
   return (
     <div id="composeBudget" className="modal">

@@ -3,19 +3,8 @@ import { connect } from "react-redux";
 import ExpenseItem from "./ExpenseItem";
 
 function ExpenseList({ guestMain: { expenses, currency } }) {
-  console.log("ExpenseList:");
-  console.log(expenses);
-
-//   useEffect(() => {
-
-//     if(!expenses){
-//       return null
-//     }else {
-//       console.log("ExpenseList useEffect:");
-//       console.log(expenses);
-      
-//     }
-// }, [expenses])
+  // console.log("ExpenseList:");
+  // console.log(expenses);
 
   return (
     <div id="expensesList">

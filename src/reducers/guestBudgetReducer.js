@@ -60,8 +60,8 @@ export default (state = initialState, action) => {
       };
     }
     case DELETE_BUDGET: {
-      console.log("DELETE_BUDGET Reducer");
-      console.log(action.payload);
+      // console.log("DELETE_BUDGET Reducer");
+      // console.log(action.payload);
       return {
         ...state,
         budgets: state.budgets.filter((budget)=> budget.id !== action.payload),

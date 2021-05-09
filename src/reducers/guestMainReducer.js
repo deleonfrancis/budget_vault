@@ -181,8 +181,8 @@ export default (state = initialState, action) => {
       };
     }
     case SET_GUEST_BUDGET_AND_SUB_BUDGET: {
-      console.log("SET_GUEST_BUDGET_AND_SUB_BUDGET:");
-      console.log(action.payload);
+      // console.log("SET_GUEST_BUDGET_AND_SUB_BUDGET:");
+      // console.log(action.payload);
       return {
         ...state,
         budget: action.payload,

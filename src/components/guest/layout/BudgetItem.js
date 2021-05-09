@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import { useDispatch } from 'react-redux'
 import numeral from "numeral";
 import Moment from "react-moment"

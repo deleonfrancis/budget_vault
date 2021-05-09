@@ -3,10 +3,9 @@ import { connect, useDispatch } from "react-redux";
 import { setShowModifyBudget } from "../../../actions/mainActions";
 import numeral from "numeral";
 import ModifyBudget from "../budget/ModifyBudget";
-import BudgetOptions from "../layout/BudgetOptions";
+// import BudgetOptions from "../layout/BudgetOptions";
 import AddExpense from "../expense/AddExpense";
 import ExpenseList from "../expense/ExpenseList";
-import ExpenseItem from "../expense/ExpenseItem";
 
 function EditBudgetModal({ guestMain: { budget, showModifyBudget } }) {
   const dispatch = useDispatch();
@@ -40,9 +39,9 @@ function EditBudgetModal({ guestMain: { budget, showModifyBudget } }) {
       return null;
     } else {
       setUserExpenses(expenses);
-      console.log("getExpenses:");
-      console.log(expenses);
-      console.log(userExpenses);
+    //   console.log("getExpenses:");
+    //   console.log(expenses);
+    //   console.log(userExpenses);
     }
   };
 
@@ -119,24 +118,6 @@ function EditBudgetModal({ guestMain: { budget, showModifyBudget } }) {
             <div style={{ width: "45%" }} className="col s6">
               {userExpenses.length > 0 && <ExpenseList />}
             </div>
-            {/* <div style={{ width: "45%" }} className="col s6">
-              {userExpenses.length > 0 && (
-                <table className="highlight">
-                    <thead>
-                        <tr style={{color:"black"}}>
-                            <th style={{marginBottom: "0%", paddingTop: "0px", paddingBottom: "2px"}}>Name</th>
-                            <th style={{marginBottom: "0%", paddingTop: "0px", paddingBottom: "2px"}}>Amount</th>
-                            <th style={{marginBottom: "0%", paddingTop: "0px", paddingBottom: "2px"}}>Date</th>
-                            <th style={{marginBottom: "0%", paddingTop: "0px", paddingBottom: "2px"}} className="center-align">Delete</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    {expenses.map((exp) => (
-                        <ExpenseItem key={exp.id} expense={exp} currency={currency} />
-                    ))}
-                    </tbody>
-            </table>)}
-            </div> */}
           </div>
         </div>
       </div>

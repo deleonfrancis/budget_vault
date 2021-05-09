@@ -129,7 +129,7 @@ export const addExpense = (expense) => async (dispatch) => {
 export const deleteExpense = (expense) => async (dispatch) => {
   try {
 
-    console.log(expense);
+    // console.log(expense);
     dispatch({
       type: DELETE_EXPENSE,
       payload: expense,
@@ -231,8 +231,8 @@ export const setGuestBudget = (budget) => (dispatch) => {
 
 // Fills the budget with the data
 export const onlySetGuestBudget = (budget) => (dispatch) => {
-  console.log("onlySetGuestBudget():");
-  console.log(budget);
+  // console.log("onlySetGuestBudget():");
+  // console.log(budget);
   dispatch ({
     type: SET_GUEST_BUDGET_AND_SUB_BUDGET,
     payload: budget,
