@@ -7,11 +7,13 @@ import {
   subtractFromBudget,
 } from "../../../actions/mainActions";
 
-function ModifyBudget({ guestMain: { currency, balance, budgetAmount } }) {
+function ModifyBudget({ guestMain: { budget } }) {
   const inputEl = useRef(null);
   useEffect(() => {
     inputEl.current.focus();
-  }, []);
+  }, [budget]);
+
+  const {currency, balance, budgetAmount} = budget
 
   const dispatch = useDispatch();
 

@@ -7,6 +7,7 @@ import {
   DATE_CREATED,
   // DATE_UPDATED,
   SET_GUEST_BUDGET,
+  SET_GUEST_BUDGET_AND_SUB_BUDGET,
   // CLEAR_GUEST_BUDGET,
   ADD_EXPENSE,
   EXPENSES_ERROR,
@@ -233,7 +234,7 @@ export const onlySetGuestBudget = (budget) => (dispatch) => {
   console.log("onlySetGuestBudget():");
   console.log(budget);
   dispatch ({
-    type: SET_GUEST_BUDGET,
+    type: SET_GUEST_BUDGET_AND_SUB_BUDGET,
     payload: budget,
   });
 };

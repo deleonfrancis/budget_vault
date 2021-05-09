@@ -22,6 +22,7 @@ import {
   SET_MODIFY_BUDGET,
   ADD_TO_BUDGET,
   SUBTRACT_FROM_BUDGET,
+  SET_GUEST_BUDGET_AND_SUB_BUDGET,
   // EXPENSES,
 } from "../actions/types";
 import {
@@ -177,6 +178,21 @@ export default (state = initialState, action) => {
       return {
         ...state,
         budget: action.payload,
+      };
+    }
+    case SET_GUEST_BUDGET_AND_SUB_BUDGET: {
+      console.log("SET_GUEST_BUDGET_AND_SUB_BUDGET:");
+      console.log(action.payload);
+      return {
+        ...state,
+        budget: action.payload,
+        id: action.payload.id,
+        title: action.payload.title,
+        currency: action.payload.currency,
+        budgetAmount: action.payload.budgetAmount,
+        dateCreated: action.payload.dateCreated,
+        expenses: action.payload.expenses,
+        balance: action.payload.balance,
       };
     }
     case CLEAR_BUDGET: {
