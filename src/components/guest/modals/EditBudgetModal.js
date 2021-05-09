@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { connect, useDispatch } from "react-redux";
 import { setShowModifyBudget } from "../../../actions/mainActions";
 import numeral from "numeral";
@@ -16,10 +16,22 @@ function EditBudgetModal({ guestMain: { budget, showModifyBudget } }) {
         dispatch(setShowModifyBudget(!showModifyBudget));
       };
 
-    console.log("EditBudgetModal");
+      const { title, currency, expenses, dateCreated, balance, budgetAmount } = budget
+    console.log("EditBudgetModal:");
     console.log(budget);
+    console.log(expenses);
 
-    const { title, currency, expenses, dateCreated, balance, budgetAmount } = budget
+    const [userExpenses, setUserExpenses] = useState([])
+
+    useEffect(() => {
+        if(expenses){
+            setUserExpenses(expenses)
+        }else {
+            return null
+        }
+    }, [expenses])
+
+
     return (
         <div id="editBudgetModal" className="modal" style={modalStyle}>
             <div className="modal-content">
@@ -83,15 +95,15 @@ function EditBudgetModal({ guestMain: { budget, showModifyBudget } }) {
         </div>
         <div className="row">
           <div
-            // className={
-            //   expenses.length === 0 ? "center-align smallForm" : "col s5"
-            // }
+            className={
+                userExpenses.length === 0 ? "center-align smallForm" : "col s5"
+            }
           >
             <AddExpense />
           </div>
           <div className="col m1"></div>
           <div style={{ width: "45%" }} className="col s6">
-            {/* {expenses.length > 0 && <ExpenseList />} */}
+            {userExpenses.length > 0 && <ExpenseList />}
           </div>
         </div>
       </div>
