@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { useDispatch } from 'react-redux'
 import numeral from "numeral";
 import Moment from "react-moment"
@@ -7,11 +7,14 @@ import { clearBudget, onlySetGuestBudget } from '../../../actions/mainActions';
 function BudgetItem({budget, theme}) {
 const dispatch = useDispatch()
 
-    const { title, currency, expenses, dateCreated, balance, budgetAmount } = budget
+const { title, currency, expenses, dateCreated, balance, budgetAmount } = budget
 
     if (expenses === undefined){
         return null
     }
+
+
+
 
 
 const handleOpenEditModal = () => {
