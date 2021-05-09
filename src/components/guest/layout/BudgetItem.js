@@ -9,11 +9,15 @@ const dispatch = useDispatch()
 
     const { title, currency, expenses, dateCreated, balance, budgetAmount } = budget
 
-    if (expenses===undefined){
+    if (expenses === undefined){
         return null
     }
 
 
+const handleOpenEditModal = () => {
+    dispatch(clearBudget())
+    dispatch(onlySetGuestBudget(budget))
+}
 const handleOpenDeleteModal = () => {
     dispatch(clearBudget())
     dispatch(onlySetGuestBudget(budget))
@@ -28,7 +32,7 @@ const handleOpenDeleteModal = () => {
             <td>{expenses.map((exp)=> <div key={exp.id}>{exp.expName} {" "}({budget.currency}{numeral(exp.expAmount).format("0,0.00")})</div>)}</td>
             <td className="center-align"><Moment format="MMMM Do, YYYY">{dateCreated}</Moment></td>
             <td className="center-align"> 
-                <a href="#editBudgetModal" className="modal-trigger"><i className="material-icons teal-text">edit</i></a> 
+                <a href="#editBudgetModal" className="modal-trigger"onClick={handleOpenEditModal} ><i className="material-icons teal-text">edit</i></a> 
                 <a href="#deleteBudgetModal" className="modal-trigger" onClick={handleOpenDeleteModal}><i className="material-icons red-text">delete</i></a></td>
         </tr>
     )
