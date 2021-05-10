@@ -7,7 +7,7 @@ import ModifyBudget from "../budget/ModifyBudget";
 import AddExpense from "../expense/AddExpense";
 import ExpenseList from "../expense/ExpenseList";
 
-function EditBudgetModal({ guestMain: { budget, showModifyBudget } }) {
+function EditBudgetModal({ guestMain: { budget, showModifyBudget, budgetAmount, balance } }) {
   const dispatch = useDispatch();
 
   const handleShowModify = () => {
@@ -19,8 +19,8 @@ function EditBudgetModal({ guestMain: { budget, showModifyBudget } }) {
     currency,
     expenses,
     // dateUpdated,
-    balance,
-    budgetAmount,
+    // balance,
+    // budgetAmount,
   } = budget;
   // console.log("EditBudgetModal:");
   // console.log(budget);
