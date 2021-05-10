@@ -11,6 +11,7 @@ import {
   SET_LOADING,
   BUDGETS_ERROR,
   SEARCH_BUDGETS,
+  CLEAR_FILTER,
   // GET_EXPENSES,
   // SET_CURRENT_EXPENSE,
   // CLEAR_CURRENT_EXPENSE,
@@ -150,6 +151,21 @@ export const searchBudgets = (text) => async (dispatch) => {
     dispatch({
       type: SEARCH_BUDGETS,
       payload: text,
+    });
+  } catch (error) {
+    dispatch({
+      type: BUDGETS_ERROR,
+      payload: error.response.statusText,
+    });
+  }
+};
+
+// Sets filter to null
+export const clearFilter = () => (dispatch) => {
+  try {
+    setLoading();
+    dispatch({
+      type: CLEAR_FILTER,
     });
   } catch (error) {
     dispatch({

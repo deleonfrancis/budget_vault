@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import { connect,useDispatch } from "react-redux";
-import { deleteBudget } from "../../../actions/budgetActions";
+import { clearFilter, deleteBudget } from "../../../actions/budgetActions";
 import { clearBudget } from "../../../actions/mainActions";
 
 import M from "materialize-css";
@@ -47,6 +47,8 @@ function DeleteBudgetModal({ guestMain: { budget } }) {
     dispatch(deleteBudget(id))
     M.toast({html: `${title} has been deleted.`});
     dispatch(clearBudget())
+    dispatch(clearFilter())
+
   }
 
   const handleNoDelete = () =>{

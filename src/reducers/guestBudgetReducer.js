@@ -4,11 +4,12 @@ import {
   DELETE_BUDGET,
   //   SET_CURRENT,
   //   CLEAR_CURRENT,
-    UPDATE_BUDGET,
-    CLEAR_BUDGETS,
+  UPDATE_BUDGET,
+  CLEAR_BUDGETS,
   SET_LOADING,
   BUDGETS_ERROR,
   SEARCH_BUDGETS,
+  CLEAR_FILTER,
   // GET_EXPENSES,
   // SET_CURRENT_EXPENSE,
   // CLEAR_CURRENT_EXPENSE,
@@ -62,7 +63,9 @@ export default (state = initialState, action) => {
     case UPDATE_BUDGET: {
       return {
         ...state,
-        budgets: state.budgets.map((budget)=> budget.id ===  action.payload.id ? action.payload : budget ),
+        budgets: state.budgets.map((budget) =>
+          budget.id === action.payload.id ? action.payload : budget
+        ),
         loading: false,
       };
     }
@@ -71,7 +74,7 @@ export default (state = initialState, action) => {
       // console.log(action.payload);
       return {
         ...state,
-        budgets: state.budgets.filter((budget)=> budget.id !== action.payload),
+        budgets: state.budgets.filter((budget) => budget.id !== action.payload),
         loading: false,
       };
     }
@@ -79,6 +82,13 @@ export default (state = initialState, action) => {
       return {
         ...state,
         budgets: [],
+      };
+    }
+    case CLEAR_FILTER: {
+      return {
+        ...state,
+        filtered: null,
+        loading: false,
       };
     }
     case SET_LOADING: {
@@ -99,8 +109,7 @@ export default (state = initialState, action) => {
         ...state,
         filtered: state.budgets.filter((budget) => {
           const regex = new RegExp(`${action.payload}`, "gi");
-          return budget.title.match(
-            regex);
+          return budget.title.match(regex);
         }),
         loading: false,
       };
