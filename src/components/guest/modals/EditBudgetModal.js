@@ -7,6 +7,7 @@ import ModifyBudget from "../budget/ModifyBudget";
 import AddExpense from "../expense/AddExpense";
 import ExpenseList from "../expense/ExpenseList";
 import EditTitle from "../layout/EditTitle";
+import EditBudgetOptions from "../layout/EditBudgetOptions";
 
 function EditBudgetModal({ guestMain: { budget, showModifyBudget, budgetAmount, balance, title, currency,
     expenses } }) {
@@ -96,7 +97,7 @@ function EditBudgetModal({ guestMain: { budget, showModifyBudget, budgetAmount, 
             className="row"
             style={{ margin: "15px auto 30px auto", padding: "0%" }}
           >
-            {/* <BudgetOptions /> */}
+           <EditBudgetOptions />
           </div>
           <div className="row">
             <div

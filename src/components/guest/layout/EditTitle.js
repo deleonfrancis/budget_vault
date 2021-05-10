@@ -23,15 +23,9 @@ function EditTitle({
         type="text"
         className="validate"
         onChange={handleNameChange}
-        // onFocus={(e) =>
-        //   (e.target.placeholder = "lodging, flight, shopping, etc")
-        // }
-        // onBlur={(e) => (e.target.placeholder = "")}
         name="editTitle"
         value={title}
-        // onChange={(event) => setExpName(event.target.value)}
       />
-      {/* <label htmlFor="expenseName">Title</label> */}
     </div>
   );
 }

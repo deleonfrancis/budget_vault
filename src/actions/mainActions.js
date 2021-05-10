@@ -222,8 +222,16 @@ export const setDateCreated = (date) => (dispatch) => {
   });
 };
 
-// Fills the budget with the data
+// Fills the budget with the data and adds it to the database
 export const setGuestBudget = (budget) => (dispatch) => {
+  dispatch ({
+    type: SET_GUEST_BUDGET,
+    payload: budget,
+  });
+  dispatch(addBudget(budget))
+};
+// Fills the budget with the data
+export const setAndUpdate = (budget) => (dispatch) => {
   dispatch ({
     type: SET_GUEST_BUDGET,
     payload: budget,
