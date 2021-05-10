@@ -47,12 +47,12 @@ function Budgets({
               borderWidth: "5px",
             }}
           >
-            <th>Budget Name</th>
-            <th className="center-align">Budget</th>
-            <th className="center-align">Balance</th>
-            <th>Expenses</th>
-            <th className="center-align">Date</th>
-            <th className="center-align">Options</th>
+            <th style={{paddingBottom: "2px"}}>Budget Name</th>
+            <th style={{paddingBottom: "2px"}} className="center-align">Budget</th>
+            <th style={{paddingBottom: "2px"}} className="center-align">Balance</th>
+            <th style={{paddingBottom: "2px"}}>Expenses</th>
+            <th style={{paddingBottom: "2px"}} className="center-align">Date</th>
+            <th style={{paddingBottom: "2px"}} className="center-align">Options</th>
           </tr>
         </thead>
         <tbody>
@@ -64,7 +64,7 @@ function Budgets({
         </tbody>
       </table>
       {!loading && budgets.length === 0 && (
-        <div style={{ margin: "0 auto" }} className="">
+        <div style={{ margin: "10px" }} className="">
           No Budgets To Show
         </div>
       )}
