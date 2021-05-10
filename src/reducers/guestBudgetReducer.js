@@ -5,7 +5,7 @@ import {
   //   SET_CURRENT,
   //   CLEAR_CURRENT,
     UPDATE_BUDGET,
-  //   CLEAR_BUDGETS,
+    CLEAR_BUDGETS,
   SET_LOADING,
   BUDGETS_ERROR,
   SEARCH_BUDGETS,
@@ -73,6 +73,12 @@ export default (state = initialState, action) => {
         ...state,
         budgets: state.budgets.filter((budget)=> budget.id !== action.payload),
         loading: false,
+      };
+    }
+    case CLEAR_BUDGETS: {
+      return {
+        ...state,
+        budgets: [],
       };
     }
     case SET_LOADING: {

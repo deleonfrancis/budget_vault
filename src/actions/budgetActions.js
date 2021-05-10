@@ -7,7 +7,7 @@ import {
   //   SET_CURRENT,
   //   CLEAR_CURRENT,
     UPDATE_BUDGET,
-  //   CLEAR_BUDGETS,
+    CLEAR_BUDGETS,
   SET_LOADING,
   BUDGETS_ERROR,
   SEARCH_BUDGETS,
@@ -109,6 +109,24 @@ export const deleteBudget = (id) => (dispatch) => {
           payload: id,
         })
       );
+  } catch (error) {
+    dispatch({
+      type: BUDGETS_ERROR,
+      payload: error.response.statusText,
+    });
+  }
+};
+// Delete a Budget
+export const deleteAllBudgets = () => (dispatch) => {
+  try {
+    console.log("deleteAllBudgets function");
+    setLoading();
+    db.collection("Budget Vault")
+      .delete().then(
+        dispatch({
+          type: CLEAR_BUDGETS,
+        })
+      )
   } catch (error) {
     dispatch({
       type: BUDGETS_ERROR,

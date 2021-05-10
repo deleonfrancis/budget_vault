@@ -21,6 +21,8 @@ import ComposeBudgetBtn from "./components/guest/layout/ComposeBudgetBtn";
 import ComposeBudgetModal from "./components/guest/modals/ComposeBudgetModal";
 import DeleteBudgetModal from "./components/guest/modals/DeleteBudgetModal";
 import EditBudgetModal from "./components/guest/modals/EditBudgetModal";
+import DeleteAllBudgetsBtn from "./components/guest/layout/DeleteAllBudgetsBtn";
+import DeleteAllBudgetsModal from "./components/guest/modals/DeleteAllBudgetsModal";
 
 const Container = styled.div`
   max-width: 80%;
@@ -49,9 +51,11 @@ function App() {
           <GuestFilter theme={theme} />
           <ComposeBudgetBtn />
           <Budgets theme={theme} />
+          <DeleteAllBudgetsBtn />
           <ComposeBudgetModal />
-          <DeleteBudgetModal />
+          <DeleteAllBudgetsModal />
           <EditBudgetModal />
+          <DeleteBudgetModal />
         </Container>
       </ThemeProvider>
     </Provider>
