@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { connect, useDispatch } from "react-redux";
-import { setShowModifyBudget } from "../../../actions/mainActions";
+import { clearBudget, setShowModifyBudget } from "../../../actions/mainActions";
 import numeral from "numeral";
 import ModifyBudget from "../budget/ModifyBudget";
-// import BudgetOptions from "../layout/BudgetOptions";
 import AddExpense from "../expense/AddExpense";
 import ExpenseList from "../expense/ExpenseList";
 import EditTitle from "../layout/EditTitle";
 import EditBudgetOptions from "../layout/EditBudgetOptions";
+import M from "materialize-css";
+// import "materialize-css/dist/css/materialize.min.css";
 
 function EditBudgetModal({ guestMain: { budget, showModifyBudget, budgetAmount, balance, title, currency,
     expenses } }) {
@@ -20,7 +21,34 @@ function EditBudgetModal({ guestMain: { budget, showModifyBudget, budgetAmount, 
 
   useEffect(() => {
     getExpenses();
-    // eslint-disable-next-line
+
+    const element = document.getElementById('editBudgetModal')
+
+    const options = {
+        // onOpenStart: () => {
+        //   console.log("Open Start");
+        // },
+        // onOpenEnd: () => {
+        //   console.log("Open End");
+        // },
+        // onCloseStart: () => {
+        //   console.log("Close Start");
+        // },
+        onCloseEnd: () => {
+          console.log("Close End");
+          dispatch(clearBudget())
+        },
+        // inDuration: 250,
+        // outDuration: 250,
+        // opacity: 0.5,
+        dismissible: true,
+        // startingTop: "4%",
+        // endingTop: "10%"
+      };
+
+M.Modal.init(element, options )
+
+    // eslint-disable-next-line    
   }, [budget]);
 
   const [userExpenses, setUserExpenses] = useState([]);
@@ -38,14 +66,13 @@ function EditBudgetModal({ guestMain: { budget, showModifyBudget, budgetAmount, 
   };
 
   return (
-    <div id="editBudgetModal" className="modal" style={modalStyle}>
+    <div id="editBudgetModal" className="modal no-autoinit" style={modalStyle}>
       <div className="modal-content">
         <h4 className="teal-text">View/Update</h4>
         <div className="row" style={{ marginBottom: "10px" }}>
           <div className="row" style={{ marginBottom: "0px" }}>
             <div className="col s6">
             <EditTitle />
-              {/* <h5 className="teal-text">{title}</h5> */}
               <div>
                 <h6 style={{ color: "black" }}>
                   Budget:{" "}

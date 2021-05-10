@@ -2,6 +2,7 @@ import React from "react";
 import { connect, useDispatch } from "react-redux";
 import { clearBudget, setGuestBudget } from "../../../actions/mainActions";
 
+
 function BudgetOptions({
   guestMain: {
     id,
@@ -14,13 +15,17 @@ function BudgetOptions({
     expenses,
   },
 }) {
+
+  const date = new Date()
+
+
   const guestBudget = {
     id,
     title,
     currency,
     budgetAmount,
     balance,
-    dateUpdated,
+    dateUpdated: date,
     dateCreated,
     expenses,
   };

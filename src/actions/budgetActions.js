@@ -6,7 +6,7 @@ import {
   DELETE_BUDGET,
   //   SET_CURRENT,
   //   CLEAR_CURRENT,
-  //   UPDATE_BUDGET,
+    UPDATE_BUDGET,
   //   CLEAR_BUDGETS,
   SET_LOADING,
   BUDGETS_ERROR,
@@ -46,7 +46,7 @@ export const getBudgets = () => (dispatch) => {
   }
 };
 
-//
+// adds the budget to the database
 export const addBudget = (budget) => (dispatch) => {
   try {
     db.collection("Budget Vault").add({
@@ -60,6 +60,32 @@ export const addBudget = (budget) => (dispatch) => {
     });
     dispatch({
       type: ADD_BUDGET,
+      payload: budget,
+    });
+  } catch (error) {
+    dispatch({
+      type: BUDGETS_ERROR,
+      payload: error.response.statusText,
+    });
+  }
+};
+
+// Updates the budget in the database
+export const updateBudget = (budget) => (dispatch) => {
+  try {
+    db.collection("Budget Vault").doc({
+      id: budget.id,
+    }).update({
+      title: budget.title,
+      currency: budget.currency,
+      budgetAmount: budget.budgetAmount,
+      dateCreated: budget.dateCreated,
+      dateUpdated: budget.dateUpdated,
+      expenses: budget.expenses,
+      balance: budget.balance,
+    });
+    dispatch({
+      type: UPDATE_BUDGET,
       payload: budget,
     });
   } catch (error) {

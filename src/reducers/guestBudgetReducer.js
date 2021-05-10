@@ -4,7 +4,7 @@ import {
   DELETE_BUDGET,
   //   SET_CURRENT,
   //   CLEAR_CURRENT,
-  //   UPDATE_BUDGET,
+    UPDATE_BUDGET,
   //   CLEAR_BUDGETS,
   SET_LOADING,
   BUDGETS_ERROR,
@@ -56,6 +56,13 @@ export default (state = initialState, action) => {
       return {
         ...state,
         budgets: [...state.budgets, action.payload],
+        loading: false,
+      };
+    }
+    case UPDATE_BUDGET: {
+      return {
+        ...state,
+        budgets: state.budgets.map((budget)=> budget.id ===  action.payload.id ? action.payload : budget ),
         loading: false,
       };
     }

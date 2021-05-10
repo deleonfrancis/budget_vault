@@ -26,7 +26,7 @@ import {
   // EXPENSES,
 } from "../actions/types";
 // import { subtractFromBudgetService } from "../utils/budgetTransactions";
-import { addBudget, setLoading } from "./budgetActions";
+import { addBudget, setLoading, updateBudget } from "./budgetActions";
 
 // Create the budget ID
 export const setBudgetId = (id) => (dispatch) => {
@@ -230,13 +230,13 @@ export const setGuestBudget = (budget) => (dispatch) => {
   });
   dispatch(addBudget(budget))
 };
-// Fills the budget with the data
+// Fills the budget with the data and updates the database
 export const setAndUpdate = (budget) => (dispatch) => {
   dispatch ({
     type: SET_GUEST_BUDGET,
     payload: budget,
   });
-  dispatch(addBudget(budget))
+  dispatch(updateBudget(budget))
 };
 
 // Fills the budget with the data

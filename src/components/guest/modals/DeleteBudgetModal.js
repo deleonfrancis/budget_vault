@@ -1,9 +1,44 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { connect,useDispatch } from "react-redux";
 import { deleteBudget } from "../../../actions/budgetActions";
 import { clearBudget } from "../../../actions/mainActions";
 
+import M from "materialize-css";
+
+
 function DeleteBudgetModal({ guestMain: { budget } }) {
+
+  useEffect(() => {
+    const element = document.getElementById('deleteBudgetModal')
+
+    const options = {
+        // onOpenStart: () => {
+        //   console.log("Open Start");
+        // },
+        // onOpenEnd: () => {
+        //   console.log("Open End");
+        // },
+        // onCloseStart: () => {
+        //   console.log("Close Start");
+        // },
+        onCloseEnd: () => {
+          handleNoDelete()
+        },
+        // inDuration: 250,
+        // outDuration: 250,
+        // opacity: 0.5,
+        dismissible: true,
+        // startingTop: "4%",
+        // endingTop: "10%"
+      };
+
+
+  M.Modal.init(element, options )
+
+  // eslint-disable-next-line
+  }, [])
+
+
     const dispatch = useDispatch()
   const { title, id } = budget;
 
@@ -18,7 +53,7 @@ function DeleteBudgetModal({ guestMain: { budget } }) {
   }
 
   return (
-    <div id="deleteBudgetModal" className="modal" style={modalStyle} >
+    <div id="deleteBudgetModal" className="modal no-autoinit" style={modalStyle} >
       <div className="modal-content center-align">
         {title && (
           <h5 className="teal-text">Delete <span style={{fontStyle:"italic"}} className="teal-text">{title}</span> ?</h5>

@@ -31,6 +31,30 @@ function App() {
   const themeMode = theme === "light" ? lightTheme : darkTheme;
 
   useEffect(() => {
+    // const options = 
+    // const options = {
+    //   onOpenStart: () => {
+    //     console.log("Open Start");
+    //   },
+    //   onOpenEnd: () => {
+    //     console.log("Open End");
+    //   },
+    //   onCloseStart: () => {
+    //     console.log("Close Start");
+    //   },
+    //   onCloseEnd: () => {
+    //     console.log("Close End");
+    //   },
+    //   inDuration: 250,
+    //   outDuration: 250,
+    //   opacity: 0.5,
+    //   dismissible: false,
+    //   startingTop: "4%",
+    //   endingTop: "10%"
+    // };
+    // document.getElementById('editBudgetModal').leanModal({
+    //   dismissible: false
+    // });
     M.AutoInit();
   });
   return (
