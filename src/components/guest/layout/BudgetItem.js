@@ -29,13 +29,13 @@ const handleOpenDeleteModal = () => {
 
     return (
         <tr className="hoverable" style={theme==="dark" ? {borderColor:"teal"} : {}}>
-            <td><a className="modal-trigger" style={theme==="dark" ? {fontSize:"18px", color: "white"} : {fontSize:"18px", color: "black"}} href="#editBudgetModal">{title}</a></td>
+            <td><a onClick={handleOpenEditModal} className="modal-trigger" style={theme==="dark" ? {fontSize:"18px", color: "white"} : {fontSize:"18px", color: "black"}} href="#editBudgetModal">{title}</a></td>
             <td className="center-align">{currency}{numeral(budgetAmount).format("0,0.00")}</td>
             {balance>=0?<td className="green-text center-align">{currency}{numeral(balance).format("0,0.00")}</td>:<td className="red-text center-align">{numeral(balance).format("0,0.00")}{currency}</td>}
             <td>{expenses.map((exp)=> <div key={exp.id}>{exp.expName} {" "}({budget.currency}{numeral(exp.expAmount).format("0,0.00")})</div>)}</td>
             <td className="center-align"><Moment format="MMMM Do, YYYY">{dateCreated}</Moment></td>
             <td className="center-align"> 
-                <a href="#editBudgetModal" className="modal-trigger"onClick={handleOpenEditModal} ><i className="material-icons teal-text">edit</i></a> 
+                <a href="#editBudgetModal" className="modal-trigger" onClick={handleOpenEditModal} ><i className="material-icons teal-text">edit</i></a> 
                 <a href="#deleteBudgetModal" className="modal-trigger" onClick={handleOpenDeleteModal}><i className="material-icons red-text">delete</i></a></td>
         </tr>
     )
