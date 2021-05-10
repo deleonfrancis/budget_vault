@@ -1,9 +1,12 @@
 import React from "react";
 import { connect, useDispatch } from "react-redux";
 import { clearBudget, setAndUpdate } from "../../../actions/mainActions";
+import M from "materialize-css";
+
 
 function EditBudgetOptions({
   guestMain: {
+    budget,
     id,
     title,
     currency,
@@ -36,6 +39,7 @@ const date = new Date()
 
   const handleDone = () => {
     dispatch(setAndUpdate(guestBudget));
+    M.toast({html: `${budget.title} has been updated.`});
     dispatch(clearBudget())
   };
 

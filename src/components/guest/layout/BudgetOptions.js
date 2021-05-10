@@ -1,6 +1,7 @@
 import React from "react";
 import { connect, useDispatch } from "react-redux";
 import { clearBudget, setGuestBudget } from "../../../actions/mainActions";
+import M from "materialize-css";
 
 
 function BudgetOptions({
@@ -38,6 +39,7 @@ function BudgetOptions({
 
   const handleDone = () => {
     dispatch(setGuestBudget(guestBudget));
+    M.toast({html: `New budget. "${guestBudget.title}" has been created.`});
     dispatch(clearBudget())
   };
 

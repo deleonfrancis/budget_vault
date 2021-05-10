@@ -45,6 +45,7 @@ function DeleteBudgetModal({ guestMain: { budget } }) {
   const handleYesDelete = () =>{
 
     dispatch(deleteBudget(id))
+    M.toast({html: `${title} has been deleted.`});
     dispatch(clearBudget())
   }
 

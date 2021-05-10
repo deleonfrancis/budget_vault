@@ -134,7 +134,7 @@ function EditBudgetModal({
 
           <div
             className="row"
-            style= {{ margin: "15px auto 15px auto", padding: "0%" } }
+            style= {{ margin: "20px auto 15px auto", padding: "0%" } }
           >
             <EditBudgetOptions />
           </div>
