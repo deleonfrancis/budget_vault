@@ -232,6 +232,8 @@ export const setGuestBudget = (budget) => (dispatch) => {
 };
 // Fills the budget with the data and updates the database
 export const setAndUpdate = (budget) => (dispatch) => {
+  console.log("setAndUpdate budget:");
+  console.log(budget);
   dispatch ({
     type: SET_GUEST_BUDGET,
     payload: budget,

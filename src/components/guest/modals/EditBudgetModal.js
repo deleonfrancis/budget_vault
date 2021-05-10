@@ -8,48 +8,61 @@ import ExpenseList from "../expense/ExpenseList";
 import EditTitle from "../layout/EditTitle";
 import EditBudgetOptions from "../layout/EditBudgetOptions";
 import M from "materialize-css";
+import Moment from "react-moment";
+
 // import "materialize-css/dist/css/materialize.min.css";
 
-function EditBudgetModal({ guestMain: { budget, showModifyBudget, budgetAmount, balance, title, currency,
-    expenses } }) {
+function EditBudgetModal({
+  guestMain: {
+    budget,
+    showModifyBudget,
+    budgetAmount,
+    balance,
+    dateUpdated,
+    currency,
+    expenses,
+  },
+}) {
   const dispatch = useDispatch();
 
   const handleShowModify = () => {
     dispatch(setShowModifyBudget(!showModifyBudget));
   };
 
-
   useEffect(() => {
     getExpenses();
 
-    const element = document.getElementById('editBudgetModal')
+    const element = document.getElementById("editBudgetModal");
 
     const options = {
-        // onOpenStart: () => {
-        //   console.log("Open Start");
-        // },
-        // onOpenEnd: () => {
-        //   console.log("Open End");
-        // },
-        // onCloseStart: () => {
-        //   console.log("Close Start");
-        // },
-        onCloseEnd: () => {
-          console.log("Close End");
-          dispatch(clearBudget())
-        },
-        // inDuration: 250,
-        // outDuration: 250,
-        // opacity: 0.5,
-        dismissible: true,
-        // startingTop: "4%",
-        // endingTop: "10%"
-      };
+      // onOpenStart: () => {
+      //   console.log("Open Start");
+      // },
+      // onOpenEnd: () => {
+      //   console.log("Open End");
+      // },
+      // onCloseStart: () => {
+      //   console.log("Close Start");
+      // },
+      onCloseEnd: () => {
+        console.log("Close End");
+        dispatch(clearBudget());
+      },
+      // inDuration: 250,
+      // outDuration: 250,
+      // opacity: 0.5,
+      dismissible: true,
+      // startingTop: "4%",
+      // endingTop: "10%"
+    };
 
-M.Modal.init(element, options )
+    M.Modal.init(element, options);
 
-    // eslint-disable-next-line    
+    // eslint-disable-next-line
   }, [budget]);
+
+//   console.log("DateUpdated:");
+//   console.log(dateUpdated);
 
   const [userExpenses, setUserExpenses] = useState([]);
   // setUserExpenses(expenses)
@@ -59,9 +72,9 @@ M.Modal.init(element, options )
       return null;
     } else {
       setUserExpenses(expenses);
-    //   console.log("getExpenses:");
-    //   console.log(expenses);
-    //   console.log(userExpenses);
+      //   console.log("getExpenses:");
+      //   console.log(expenses);
+      //   console.log(userExpenses);
     }
   };
 
@@ -72,7 +85,7 @@ M.Modal.init(element, options )
         <div className="row" style={{ marginBottom: "10px" }}>
           <div className="row" style={{ marginBottom: "0px" }}>
             <div className="col s6">
-            <EditTitle />
+              <EditTitle />
               <div>
                 <h6 style={{ color: "black" }}>
                   Budget:{" "}
@@ -122,10 +135,26 @@ M.Modal.init(element, options )
 
           <div
             className="row"
-            style={{ margin: "15px auto 30px auto", padding: "0%" }}
+            style= {!dateUpdated ? { margin: "15px auto 30px auto", padding: "0%" } : { margin: "15px auto 5px auto", padding: "0%" } }
           >
-           <EditBudgetOptions />
+            <EditBudgetOptions />
           </div>
+          {dateUpdated && <div
+            className="row"
+            style={{ margin: "5px auto 30px auto", padding: "0%" }}
+          >
+                     {dateUpdated && (
+              <p className="black-text center-align">
+                Last Updated:{" "}
+                {
+                  <Moment style={{ color: "teal" }} format="MMMM Do YYYY, h:mm a">
+                    {dateUpdated}
+                  </Moment>
+                }
+              </p>
+            )}
+          </div>}
+
           <div className="row">
             <div
               className={

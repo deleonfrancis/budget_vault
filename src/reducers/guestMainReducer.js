@@ -192,6 +192,7 @@ export default (state = initialState, action) => {
         currency: action.payload.currency,
         budgetAmount: action.payload.budgetAmount,
         dateCreated: action.payload.dateCreated,
+        dateUpdated: action.payload.dateUpdated,
         expenses: action.payload.expenses,
         balance: action.payload.balance,
       };

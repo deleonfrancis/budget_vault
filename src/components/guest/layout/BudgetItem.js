@@ -14,9 +14,6 @@ const { title, currency, expenses, dateCreated, balance, budgetAmount } = budget
     }
 
 
-
-
-
 const handleOpenEditModal = () => {
     dispatch(clearBudget())
     dispatch(onlySetGuestBudget(budget))

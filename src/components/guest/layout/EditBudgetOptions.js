@@ -14,13 +14,16 @@ function EditBudgetOptions({
     expenses,
   },
 }) {
+
+const date = new Date()
+
   const guestBudget = {
     id,
     title,
     currency,
     budgetAmount,
     balance,
-    dateUpdated,
+    dateUpdated: date,
     dateCreated,
     expenses,
   };
