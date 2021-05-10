@@ -6,25 +6,16 @@ import ModifyBudget from "../budget/ModifyBudget";
 // import BudgetOptions from "../layout/BudgetOptions";
 import AddExpense from "../expense/AddExpense";
 import ExpenseList from "../expense/ExpenseList";
+import EditTitle from "../layout/EditTitle";
 
-function EditBudgetModal({ guestMain: { budget, showModifyBudget, budgetAmount, balance } }) {
+function EditBudgetModal({ guestMain: { budget, showModifyBudget, budgetAmount, balance, title, currency,
+    expenses } }) {
   const dispatch = useDispatch();
 
   const handleShowModify = () => {
     dispatch(setShowModifyBudget(!showModifyBudget));
   };
 
-  const {
-    title,
-    currency,
-    expenses,
-    // dateUpdated,
-    // balance,
-    // budgetAmount,
-  } = budget;
-  // console.log("EditBudgetModal:");
-  // console.log(budget);
-  // console.log(expenses);
 
   useEffect(() => {
     getExpenses();
@@ -48,11 +39,12 @@ function EditBudgetModal({ guestMain: { budget, showModifyBudget, budgetAmount, 
   return (
     <div id="editBudgetModal" className="modal" style={modalStyle}>
       <div className="modal-content">
-        <h4 className="teal-text">View/Update "{title}"</h4>
+        <h4 className="teal-text">View/Update</h4>
         <div className="row" style={{ marginBottom: "10px" }}>
           <div className="row" style={{ marginBottom: "0px" }}>
             <div className="col s6">
-              <h5 className="teal-text">{title}</h5>
+            <EditTitle />
+              {/* <h5 className="teal-text">{title}</h5> */}
               <div>
                 <h6 style={{ color: "black" }}>
                   Budget:{" "}
@@ -70,7 +62,7 @@ function EditBudgetModal({ guestMain: { budget, showModifyBudget, budgetAmount, 
                           top: "2px",
                           left: "3px",
                         }}
-                        className="material-icons center-align  teal-text"
+                        className="material-icons center-align teal-text"
                       >
                         edit
                       </i>

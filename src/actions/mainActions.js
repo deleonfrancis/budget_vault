@@ -38,6 +38,8 @@ export const setBudgetId = (id) => (dispatch) => {
 
 // For Setting the budget TITLE
 export const setTitle = (text) => (dispatch) => {
+  // console.log("setTitle:");
+  // console.log(text);
   dispatch({
     type: BUDGET_TITLE,
     payload: text,

@@ -49,6 +49,7 @@ const initialState = {
   expenses: [],
   expenseError: null,
   showModifyBudget: false,
+
 };
 
 // eslint-disable-next-line
@@ -221,6 +222,7 @@ export default (state = initialState, action) => {
         showModifyBudget: action.payload,
       };
     }
+
     default:
       return state;
   }
