@@ -10,14 +10,13 @@ import EditBudgetOptions from "../layout/EditBudgetOptions";
 import M from "materialize-css";
 import Moment from "react-moment";
 
-// import "materialize-css/dist/css/materialize.min.css";
-
 function EditBudgetModal({
   guestMain: {
     budget,
     showModifyBudget,
     budgetAmount,
     balance,
+    dateCreated,
     dateUpdated,
     currency,
     expenses,
@@ -135,16 +134,24 @@ function EditBudgetModal({
 
           <div
             className="row"
-            style= {!dateUpdated ? { margin: "15px auto 30px auto", padding: "0%" } : { margin: "15px auto 5px auto", padding: "0%" } }
+            style= {{ margin: "15px auto 15px auto", padding: "0%" } }
           >
             <EditBudgetOptions />
           </div>
-          {dateUpdated && <div
+          <div
             className="row"
             style={{ margin: "5px auto 30px auto", padding: "0%" }}
           >
+          <p className="black-text center-align" style={{margin:"0px"}}>
+                Date Created:{" "}
+                {
+                  <Moment style={{ color: "teal" }} format="MMMM Do YYYY, h:mm a">
+                    {dateCreated}
+                  </Moment>
+                }
+              </p>
                      {dateUpdated && (
-              <p className="black-text center-align">
+              <p className="black-text center-align" style={{margin:"0px"}}>
                 Last Updated:{" "}
                 {
                   <Moment style={{ color: "teal" }} format="MMMM Do YYYY, h:mm a">
@@ -153,7 +160,7 @@ function EditBudgetModal({
                 }
               </p>
             )}
-          </div>}
+          </div>
 
           <div className="row">
             <div

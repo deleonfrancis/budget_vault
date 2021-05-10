@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Provider } from "react-redux";
 import store from "./store";
 
+import DarkModeToggle from "./components/themes/DarkModeToggle";
 import styled, { ThemeProvider } from "styled-components";
 import { useDarkMode } from "./components/themes/useDarkMode";
 import {
@@ -10,9 +11,10 @@ import {
   darkTheme,
 } from "./components/themes/globalStyles";
 import "./App.css";
+
 import "materialize-css/dist/css/materialize.min.css";
 import M from "materialize-css/dist/js/materialize.min.js";
-import DarkModeToggle from "./components/themes/DarkModeToggle";
+
 import GuestFilter from "./components/guest/layout/GuestFilter";
 import Budgets from "./components/guest/layout/Budgets";
 import ComposeBudgetBtn from "./components/guest/layout/ComposeBudgetBtn";
@@ -31,30 +33,6 @@ function App() {
   const themeMode = theme === "light" ? lightTheme : darkTheme;
 
   useEffect(() => {
-    // const options = 
-    // const options = {
-    //   onOpenStart: () => {
-    //     console.log("Open Start");
-    //   },
-    //   onOpenEnd: () => {
-    //     console.log("Open End");
-    //   },
-    //   onCloseStart: () => {
-    //     console.log("Close Start");
-    //   },
-    //   onCloseEnd: () => {
-    //     console.log("Close End");
-    //   },
-    //   inDuration: 250,
-    //   outDuration: 250,
-    //   opacity: 0.5,
-    //   dismissible: false,
-    //   startingTop: "4%",
-    //   endingTop: "10%"
-    // };
-    // document.getElementById('editBudgetModal').leanModal({
-    //   dismissible: false
-    // });
     M.AutoInit();
   });
   return (
