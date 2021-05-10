@@ -40,7 +40,6 @@ function DeleteAllBudgetsModal({ guestMain: { budget } }) {
 
 
     const dispatch = useDispatch()
-  const { title, id } = budget;
 
   const handleYesDeleteAll = () =>{
 

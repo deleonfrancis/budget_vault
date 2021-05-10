@@ -60,8 +60,8 @@ function EditBudgetModal({
     // eslint-disable-next-line
   }, [budget]);
 
-//   console.log("DateUpdated:");
-//   console.log(dateUpdated);
+  //   console.log("DateUpdated:");
+  //   console.log(dateUpdated);
 
   const [userExpenses, setUserExpenses] = useState([]);
   // setUserExpenses(expenses)
@@ -134,7 +134,7 @@ function EditBudgetModal({
 
           <div
             className="row"
-            style= {{ margin: "20px auto 15px auto", padding: "0%" } }
+            style={{ margin: "20px auto 15px auto", padding: "0%" }}
           >
             <EditBudgetOptions />
           </div>
@@ -142,24 +142,27 @@ function EditBudgetModal({
             className="row"
             style={{ margin: "5px auto 30px auto", padding: "0%" }}
           >
-          <p className="black-text center-align" style={{margin:"0px"}}>
-                Date Created:{" "}
-                {
-                  <Moment style={{ color: "teal" }} format="MMMM Do YYYY, h:mm a">
-                    {dateCreated}
-                  </Moment>
-                }
-              </p>
-                     {dateUpdated && (
-              <p className="black-text center-align" style={{margin:"0px"}}>
+            <p className="black-text center-align" style={{ margin: "0px" }}>
+              Date Created:{" "}
+              {
+                <Moment style={{ color: "teal" }} format="MMMM Do YYYY, h:mm a">
+                  {dateCreated}
+                </Moment>
+              }
+            </p>
+            {/* {dateUpdated && (
+              <p className="black-text center-align" style={{ margin: "0px" }}>
                 Last Updated:{" "}
                 {
-                  <Moment style={{ color: "teal" }} format="MMMM Do YYYY, h:mm a">
+                  <Moment
+                    style={{ color: "teal" }}
+                    format="MMMM Do YYYY, h:mm a"
+                  >
                     {dateUpdated}
                   </Moment>
                 }
               </p>
-            )}
+            )} */}
           </div>
 
           <div className="row">

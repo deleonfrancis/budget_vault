@@ -55,6 +55,7 @@ export const addBudget = (budget) => (dispatch) => {
       currency: budget.currency,
       budgetAmount: budget.budgetAmount,
       dateCreated: budget.dateCreated,
+      dateUpdated: null,
       expenses: budget.expenses,
       balance: budget.balance,
     });
