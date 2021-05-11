@@ -28,10 +28,10 @@ function BudgetDetails({
     <div>
       <div className="row" style={{ marginBottom: "10px" }}>
         <div className="row" style={{ marginBottom: "0px" }}>
-          <div className="col s6">
+          <div className="col s12 m6">
             <h5 className="teal-text">{title}</h5>
             <div>
-              <h6 style={{ color: "black" }}>
+              <h6 className = "center-align" style={{ color: "black" }}>
                 Budget:{" "}
                 <span>
                   <a
@@ -57,7 +57,7 @@ function BudgetDetails({
             </div>
 
             {balance >= 0 && (
-              <h6 className="black-text">
+              <h6 className="black-text center-align">
                 Balance:{" "}
                 <span className="green-text">
                   {currency}
@@ -72,7 +72,7 @@ function BudgetDetails({
               </h6>
             )}
           </div>
-          <div style={{marginBottom:"10px"}} className="col s6">
+          <div style={{marginBottom:"10px"}} className="col s12 m6">
             {(showModifyBudget || balance < 0) && <ModifyBudget />}
           </div>
         </div>
@@ -86,13 +86,13 @@ function BudgetDetails({
         <div className="row">
           <div
             className={
-              expenses.length === 0 ? "center-align smallForm" : "col s5"
+              expenses.length === 0 ? "center-align smallForm" : "col s12 m5"
             }
           >
             <AddExpense />
           </div>
           <div className="col m1"></div>
-          <div style={{ width: "45%" }} className="col s6">
+          <div style={{ width: "45%" }} className="col s12 m6">
             {expenses.length > 0 && <ExpenseList />}
           </div>
         </div>
