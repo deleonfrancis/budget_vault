@@ -6,6 +6,7 @@ import { useMediaQuery } from "react-responsive";
 
 import BudgetItem from "./BudgetItem";
 import { getBudgets, setLoading } from "../../../actions/budgetActions";
+import BudgetItemMobile from "./BudgetItemMobile";
 
 function Budgets({
   theme,
@@ -43,7 +44,15 @@ function Budgets({
 
   return (
     <section className="">
-      {smallerThanIPad && <div>Smaller than iPad </div>}
+      {smallerThanIPad && <div className= "row">
+      {!loading && budgets.length > 0 && filtered !== null
+              ? filtered.map((budget) => (
+                  <BudgetItemMobile key={budget.id} budget={budget} theme={theme} />
+                ))
+              : budgets.map((budget) => (
+                  <BudgetItemMobile key={budget.id} budget={budget} theme={theme} />
+                ))}
+      </div>}
 
       {!smallerThanIPad && (
         <table className={theme === "dark" ? "highlight" : "highlight"}>
