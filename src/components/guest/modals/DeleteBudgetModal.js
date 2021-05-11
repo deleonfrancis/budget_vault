@@ -1,5 +1,7 @@
 import React, {useEffect} from "react";
 import { connect,useDispatch } from "react-redux";
+import { useMediaQuery } from "react-responsive";
+
 import { clearFilter, deleteBudget } from "../../../actions/budgetActions";
 import { clearBudget } from "../../../actions/mainActions";
 
@@ -38,6 +40,24 @@ function DeleteBudgetModal({ guestMain: { budget } }) {
   // eslint-disable-next-line
   }, [])
 
+  // For Screen Size Detection
+  const smallerThanIPad = useMediaQuery({ query: "(max-width: 767px)" });
+
+
+  let modalStyle = {}
+  if (smallerThanIPad){
+    modalStyle = {
+      width:"80%",
+      height:"auto",}
+    } else {
+      modalStyle={
+        width:"30%",
+      height:"auto",
+      }
+    };
+
+
+
 
     const dispatch = useDispatch()
   const { title, id } = budget;
@@ -68,10 +88,15 @@ function DeleteBudgetModal({ guestMain: { budget } }) {
   );
 }
 
-const modalStyle = {
-    width:"30%",
-    height:"auto",
-}
+
+// const modalStyle = {
+//     width:"30%",
+//     height:"auto",
+// }
+
+
+
+
 
 const mapStateToProps = (state) => ({
   guestMain: state.guestMain,

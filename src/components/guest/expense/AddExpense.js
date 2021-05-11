@@ -39,7 +39,7 @@ function AddExpense({
   };
 
   return (
-    <div className="row">
+    <div className="row" style={{margin:"5px"}}>
       <form className="">
         {/* Expense Name */}
         <div className="input-field">

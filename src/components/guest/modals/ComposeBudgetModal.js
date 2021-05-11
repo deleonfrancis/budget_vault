@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import AskBudgetGuest from "../budget/AskBudgetGuest";
 import BudgetDetails from "../layout/BudgetDetails";
 
+
 function ComposeBudgetModal({guestMain: {title, currency, budgetAmount}}) {
 
   // console.log(`${title}, ${currency}${budgetAmount}`);

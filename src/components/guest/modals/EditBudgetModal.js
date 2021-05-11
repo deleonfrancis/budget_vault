@@ -173,8 +173,8 @@ function EditBudgetModal({
             >
               <AddExpense />
             </div>
-            <div className="col m1"></div>
-            <div style={{ width: "45%" }} className="col s12 m6">
+            {/* <div className="col m1"></div> */}
+            <div style={{ width: "58%" }} className="col s12 m6">
               {userExpenses.length > 0 && <ExpenseList />}
             </div>
           </div>

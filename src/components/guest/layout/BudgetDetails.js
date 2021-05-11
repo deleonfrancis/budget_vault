@@ -91,8 +91,8 @@ function BudgetDetails({
           >
             <AddExpense />
           </div>
-          <div className="col m1"></div>
-          <div style={{ width: "45%" }} className="col s12 m6">
+          
+          <div style={{ width: "58%" }} className="col s12 m6">
             {expenses.length > 0 && <ExpenseList />}
           </div>
         </div>
