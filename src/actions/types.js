@@ -8,7 +8,6 @@ export const CLEAR_BUDGETS = "CLEAR_BUDGETS";
 export const SET_LOADING = "SET_LOADING";
 export const BUDGETS_ERROR = "BUDGETS_ERROR";
 
-
 export const BUDGET_ID = "BUDGET_ID";
 export const BUDGET_TITLE = "BUDGET_TITLE";
 export const CURRENCY = "CURRENCY";
@@ -26,8 +25,6 @@ export const SET_GUEST_BUDGET_AND_SUB_BUDGET ="SET_GUEST_BUDGET_AND_SUB_BUDGET"
 export const CLEAR_GUEST_BUDGET ="CLEAR_GUEST_BUDGET"
 
 export const CLEAR_FILTER ="CLEAR_FILTER"
-
-
 
 export const EXPENSES ="EXPENSES"
 export const EXPENSE ="EXPENSE"
