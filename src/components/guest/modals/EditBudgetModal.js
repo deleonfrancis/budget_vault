@@ -80,13 +80,13 @@ function EditBudgetModal({
   return (
     <div id="editBudgetModal" className="modal no-autoinit" style={modalStyle}>
       <div className="modal-content">
-        <h4 className="teal-text">View/Update</h4>
+        <h4 className="teal-text">View/Edit</h4>
         <div className="row" style={{ marginBottom: "10px" }}>
           <div className="row" style={{ marginBottom: "0px" }}>
-            <div className="col s6">
+            <div className="col s12 m6">
               <EditTitle />
               <div>
-                <h6 style={{ color: "black" }}>
+                <h6 className="center-align" style={{ color: "black" }}>
                   Budget:{" "}
                   <span>
                     <a
@@ -112,7 +112,7 @@ function EditBudgetModal({
               </div>
 
               {balance >= 0 && (
-                <h6 className="black-text">
+                <h6 className="black-text center-align">
                   Balance:{" "}
                   <span className="green-text">
                     {currency}
@@ -127,7 +127,7 @@ function EditBudgetModal({
                 </h6>
               )}
             </div>
-            <div style={{ marginBottom: "10px" }} className="col s6">
+            <div style={{ marginBottom: "10px" }} className="col s12 m6">
               {(showModifyBudget || balance < 0) && <ModifyBudget />}
             </div>
           </div>
@@ -168,13 +168,13 @@ function EditBudgetModal({
           <div className="row">
             <div
               className={
-                userExpenses.length === 0 ? "center-align smallForm" : "col s5"
+                userExpenses.length === 0 ? "center-align smallForm" : "col s12 m5"
               }
             >
               <AddExpense />
             </div>
-            <div className="col m1"></div>
-            <div style={{ width: "45%" }} className="col s6">
+            {/* <div className="col m1"></div> */}
+            <div style={{ width: "58%" }} className="col s12 m6">
               {userExpenses.length > 0 && <ExpenseList />}
             </div>
           </div>

@@ -1,5 +1,6 @@
 import React, {useEffect} from "react";
 import { connect,useDispatch } from "react-redux";
+import { useMediaQuery } from "react-responsive";
 import { deleteAllBudgets } from "../../../actions/budgetActions";
 import { clearBudget } from "../../../actions/mainActions";
 
@@ -37,6 +38,22 @@ function DeleteAllBudgetsModal({ guestMain: { budget } }) {
 
   // eslint-disable-next-line
   }, [])
+
+    // For Screen Size Detection
+    const smallerThanIPad = useMediaQuery({ query: "(max-width: 767px)" });
+
+  let modalStyle = {}
+  if (smallerThanIPad){
+    modalStyle = {
+      width:"80%",
+      height:"auto",}
+    } else {
+      modalStyle={
+        width:"30%",
+      height:"auto",
+      }
+    };
+
 
 
     const dispatch = useDispatch()

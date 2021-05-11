@@ -15,14 +15,11 @@ import "./App.css";
 import "materialize-css/dist/css/materialize.min.css";
 import M from "materialize-css/dist/js/materialize.min.js";
 
-import GuestFilter from "./components/guest/layout/GuestFilter";
-import Budgets from "./components/guest/layout/Budgets";
-import ComposeBudgetBtn from "./components/guest/layout/ComposeBudgetBtn";
 import ComposeBudgetModal from "./components/guest/modals/ComposeBudgetModal";
 import DeleteBudgetModal from "./components/guest/modals/DeleteBudgetModal";
 import EditBudgetModal from "./components/guest/modals/EditBudgetModal";
-import DeleteAllBudgetsBtn from "./components/guest/layout/DeleteAllBudgetsBtn";
 import DeleteAllBudgetsModal from "./components/guest/modals/DeleteAllBudgetsModal";
+import GuestHome from "./pages/GuestHome";
 
 const Container = styled.div`
   max-width: 80%;
@@ -48,10 +45,7 @@ function App() {
             theme={theme}
             toggleTheme={toggleTheme}
           />
-          <GuestFilter theme={theme} />
-          <ComposeBudgetBtn />
-          <Budgets theme={theme} />
-          <DeleteAllBudgetsBtn />
+          <GuestHome theme={theme} />
           <ComposeBudgetModal />
           <DeleteAllBudgetsModal />
           <EditBudgetModal />

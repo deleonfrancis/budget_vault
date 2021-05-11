@@ -2,8 +2,11 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { css } from "@emotion/core";
 import RingLoader from "react-spinners/RingLoader";
+import { useMediaQuery } from "react-responsive";
+
 import BudgetItem from "./BudgetItem";
 import { getBudgets, setLoading } from "../../../actions/budgetActions";
+import BudgetItemMobile from "./BudgetItemMobile";
 
 function Budgets({
   theme,
@@ -16,6 +19,9 @@ function Budgets({
     getBudgets();
     // eslint-disable-next-line
   }, []);
+
+  // For Screen Size Detection
+  const smallerThanIPad = useMediaQuery({ query: "(max-width: 767px)" });
 
   //   For Spinner
   const spinnerColor = "#008080";
@@ -38,31 +44,53 @@ function Budgets({
 
   return (
     <section className="">
-      <table className={theme === "dark" ? "highlight" : "highlight"}>
-        <thead className="">
-          <tr
-            style={{
-              fontSize: "20px",
-              borderColor: "teal",
-              borderWidth: "5px",
-            }}
-          >
-            <th style={{paddingBottom: "2px"}}>Budget Name</th>
-            <th style={{paddingBottom: "2px"}} className="center-align">Budget</th>
-            <th style={{paddingBottom: "2px"}} className="center-align">Balance</th>
-            <th style={{paddingBottom: "2px"}}>Expenses</th>
-            <th style={{paddingBottom: "2px"}} className="center-align">Date</th>
-            <th style={{paddingBottom: "2px"}} className="center-align">Options</th>
-          </tr>
-        </thead>
-        <tbody>
-          {!loading &&
-            budgets.length > 0 &&
-            filtered !== null ? filtered.map((budget)=> <BudgetItem key={budget.id} budget={budget} theme={theme} />) : budgets.map((budget) => (
-              <BudgetItem key={budget.id} budget={budget} theme={theme} />
-            ))}
-        </tbody>
-      </table>
+      {smallerThanIPad && <div className= "row">
+      {!loading && budgets.length > 0 && filtered !== null
+              ? filtered.map((budget) => (
+                  <BudgetItemMobile key={budget.id} budget={budget} theme={theme} />
+                ))
+              : budgets.map((budget) => (
+                  <BudgetItemMobile key={budget.id} budget={budget} theme={theme} />
+                ))}
+      </div>}
+
+      {!smallerThanIPad && (
+        <table className={theme === "dark" ? "highlight" : "highlight"}>
+          <thead className="">
+            <tr
+              style={{
+                fontSize: "20px",
+                borderColor: "teal",
+                borderWidth: "5px",
+              }}
+            >
+              <th style={{ paddingBottom: "2px" }}>Budget Name</th>
+              <th style={{ paddingBottom: "2px" }} className="center-align">
+                Budget
+              </th>
+              <th style={{ paddingBottom: "2px" }} className="center-align">
+                Balance
+              </th>
+              <th style={{ paddingBottom: "2px" }}>Expenses</th>
+              <th style={{ paddingBottom: "2px" }} className="center-align">
+                Date
+              </th>
+              <th style={{ paddingBottom: "2px" }} className="center-align">
+                Options
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {!loading && budgets.length > 0 && filtered !== null
+              ? filtered.map((budget) => (
+                  <BudgetItem key={budget.id} budget={budget} theme={theme} />
+                ))
+              : budgets.map((budget) => (
+                  <BudgetItem key={budget.id} budget={budget} theme={theme} />
+                ))}
+          </tbody>
+        </table>
+      )}
       {!loading && budgets.length === 0 && (
         <div style={{ margin: "10px" }} className="">
           No Budgets To Show
