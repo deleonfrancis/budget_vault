@@ -1,20 +1,11 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import { connect, useDispatch } from "react-redux";
 import { clearFilter, searchBudgets } from "../../../actions/budgetActions";
 
 function GuestFilter({ searchBudgets, guestBudget: { filtered, budgets } }) {
   const text = useRef("");
   
-  useEffect(() => {
-    if (filtered === null) {
-      text.current.value = "";
-    }
-  });
   const dispatch = useDispatch();
-  
-  // if (text === "") {
-  //   dispatch(clearFilter());
-  // }
 
   const onChange = (e) => {
     if (text.current.value !== ""){
@@ -26,7 +17,7 @@ function GuestFilter({ searchBudgets, guestBudget: { filtered, budgets } }) {
   };
   return (
     <div className="row">
-      {/* {budgets.length > 1 && <form className="col s12">
+      {budgets.length > 1 && <form className="col s12">
         <div className="row">
           <div className="input-field col s12">
             <i className="material-icons prefix">search</i>
@@ -40,22 +31,7 @@ function GuestFilter({ searchBudgets, guestBudget: { filtered, budgets } }) {
             <label htmlFor="searchBudgets">Search</label>
           </div>
         </div>
-      </form>} */}
-      <form className="col s12">
-        <div className="row">
-          <div className="input-field col s12">
-            <i className="material-icons prefix">search</i>
-            <input
-              id="searchBudgets"
-              type="text"
-              className=""
-              onChange={onChange}
-              ref={text}
-            />
-            <label htmlFor="searchBudgets">Search</label>
-          </div>
-        </div>
-      </form>
+      </form>}
     </div>
   );
 }
