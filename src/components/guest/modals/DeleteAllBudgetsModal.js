@@ -42,6 +42,7 @@ function DeleteAllBudgetsModal({ guestMain: { budget } }) {
     // For Screen Size Detection
     const smallerThanIPad = useMediaQuery({ query: "(max-width: 767px)" });
 
+    // Modal Style
   let modalStyle = {}
   if (smallerThanIPad){
     modalStyle = {
@@ -53,7 +54,6 @@ function DeleteAllBudgetsModal({ guestMain: { budget } }) {
       height:"auto",
       }
     };
-
 
 
     const dispatch = useDispatch()
@@ -80,11 +80,6 @@ console.log("handleYesDeleteAll clicked!");
       </div>
     </div>
   );
-}
-
-const modalStyle = {
-    width:"30%",
-    height:"auto",
 }
 
 const mapStateToProps = (state) => ({
