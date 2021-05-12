@@ -36,9 +36,9 @@ function AskBudget({
 
   return (
     <div>
-      <h4 className="center-align teal-text" style={{ marginBottom: "40px" }}>
+      <h5 className="center-align teal-text" style={{ marginTop:"0px", marginBottom: "30px" }}>
         Compose a budget!
-      </h4>
+      </h5>
       <div className="" style={{width:"80%", margin:"auto"}}>
         <AskTitleGuest />
         <AskCurrencyGuest />
@@ -58,7 +58,7 @@ function AskBudget({
                     setUserBudget(e.target.value);
                   }}
                 />
-                <label htmlFor="guestBudgetInput">What's your budget?</label>
+                <label htmlFor="guestBudgetInput">Amount</label>
                 <span className="helper-text" data-error="wrong" data-success="right">
          <span style={{fontStyle:"italic"}}>Example:</span> 300.00
         </span>

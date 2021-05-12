@@ -9,7 +9,7 @@ function AskCurrency({ guestMain: { currency }, setCurrency }) {
 
 
   return (
-    <div className="center-align inputColor">
+    <div style={{marginBottom: "10px"}} className="center-align inputColor">
       <div
         style={!smallerThanIPad?{ width: "50%", margin: "auto" }:{ width: "85%", margin: "auto" }}
         className="col s12 center-align"

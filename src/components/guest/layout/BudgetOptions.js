@@ -48,6 +48,7 @@ function BudgetOptions({
       <div className="center-align">
         <a
           onClick={handleReset}
+          style={{ margin: "5px" }}
           href="#!"
           className="waves-effect waves-light btn-small"
         >
@@ -61,7 +62,7 @@ function BudgetOptions({
         </a>
         <a
           onClick={handleDone}
-          style={{ marginLeft: "15px" }}
+          style={{ margin: "5px" }}
           href="#!"
           className="modal-close waves-effect waves-light btn-small"
         >

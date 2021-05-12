@@ -80,7 +80,7 @@ function EditBudgetModal({
   return (
     <div id="editBudgetModal" className="modal no-autoinit" style={modalStyle}>
       <div className="modal-content">
-        <h4 className="teal-text">View/Edit</h4>
+        <h5 className="teal-text">View/Edit</h5>
         <div className="row" style={{ marginBottom: "10px" }}>
           <div className="row" style={{ marginBottom: "0px" }}>
             <div className="col s12 m6">

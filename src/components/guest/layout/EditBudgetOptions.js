@@ -48,6 +48,7 @@ const date = new Date()
       <div className="center-align">
         <a
           onClick={handleCancel}
+          style={{ margin: "5px" }}
           href="#!"
           className="modal-close waves-effect waves-light btn-small "
         >
@@ -61,7 +62,7 @@ const date = new Date()
         </a>
         <a
           onClick={handleDone}
-          style={{ marginLeft: "15px" }}
+          style={{ margin: "5px" }}
           href="#!"
           className="modal-close waves-effect waves-light btn-small"
         >
