@@ -168,14 +168,14 @@ function EditBudgetModal({
           <div className="row">
             <div
               className={
-                userExpenses.length === 0 ? "center-align smallForm" : "col s12 m5"
+                expenses.length === 0 ? "center-align smallForm" : "col s12 m5"
               }
             >
               <AddExpense />
             </div>
             {/* <div className="col m1"></div> */}
             <div style={{ width: "58%" }} className="col s12 m6">
-              {userExpenses.length > 0 && <ExpenseList />}
+              {expenses.length > 0 && <ExpenseList />}
             </div>
           </div>
         </div>
