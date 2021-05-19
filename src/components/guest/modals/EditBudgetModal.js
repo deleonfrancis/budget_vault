@@ -29,7 +29,7 @@ function EditBudgetModal({
   };
 
   useEffect(() => {
-    getExpenses();
+    // getExpenses();
 
     const element = document.getElementById("editBudgetModal");
 
@@ -63,19 +63,19 @@ function EditBudgetModal({
   //   console.log("DateUpdated:");
   //   console.log(dateUpdated);
 
-  const [userExpenses, setUserExpenses] = useState([]);
+  // const [userExpenses, setUserExpenses] = useState([]);
   // setUserExpenses(expenses)
 
-  const getExpenses = () => {
-    if (!expenses) {
-      return null;
-    } else {
-      setUserExpenses(expenses);
-      //   console.log("getExpenses:");
-      //   console.log(expenses);
-      //   console.log(userExpenses);
-    }
-  };
+  // const getExpenses = () => {
+  //   if (!expenses) {
+  //     return null;
+  //   } else {
+  //     setUserExpenses(expenses);
+  //     //   console.log("getExpenses:");
+  //     //   console.log(expenses);
+  //     //   console.log(userExpenses);
+  //   }
+  // };
 
   return (
     <div id="editBudgetModal" className="modal no-autoinit" style={modalStyle}>
@@ -173,7 +173,6 @@ function EditBudgetModal({
             >
               <AddExpense />
             </div>
-            {/* <div className="col m1"></div> */}
             <div style={{ width: "58%" }} className="col s12 m6">
               {expenses.length > 0 && <ExpenseList />}
             </div>
