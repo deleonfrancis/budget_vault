@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { connect, useDispatch } from "react-redux";
 import { clearBudget, setShowModifyBudget } from "../../../actions/mainActions";
 import numeral from "numeral";
@@ -29,7 +29,7 @@ function EditBudgetModal({
   };
 
   useEffect(() => {
-    getExpenses();
+    // getExpenses();
 
     const element = document.getElementById("editBudgetModal");
 
@@ -63,24 +63,24 @@ function EditBudgetModal({
   //   console.log("DateUpdated:");
   //   console.log(dateUpdated);
 
-  const [userExpenses, setUserExpenses] = useState([]);
+  // const [userExpenses, setUserExpenses] = useState([]);
   // setUserExpenses(expenses)
 
-  const getExpenses = () => {
-    if (!expenses) {
-      return null;
-    } else {
-      setUserExpenses(expenses);
-      //   console.log("getExpenses:");
-      //   console.log(expenses);
-      //   console.log(userExpenses);
-    }
-  };
+  // const getExpenses = () => {
+  //   if (!expenses) {
+  //     return null;
+  //   } else {
+  //     setUserExpenses(expenses);
+  //     //   console.log("getExpenses:");
+  //     //   console.log(expenses);
+  //     //   console.log(userExpenses);
+  //   }
+  // };
 
   return (
     <div id="editBudgetModal" className="modal no-autoinit" style={modalStyle}>
       <div className="modal-content">
-        <h4 className="teal-text">View/Edit</h4>
+        <h5 className="teal-text">View/Edit</h5>
         <div className="row" style={{ marginBottom: "10px" }}>
           <div className="row" style={{ marginBottom: "0px" }}>
             <div className="col s12 m6">
@@ -168,14 +168,13 @@ function EditBudgetModal({
           <div className="row">
             <div
               className={
-                userExpenses.length === 0 ? "center-align smallForm" : "col s12 m5"
+                expenses.length === 0 ? "center-align smallForm" : "col s12 m5"
               }
             >
               <AddExpense />
             </div>
-            {/* <div className="col m1"></div> */}
             <div style={{ width: "58%" }} className="col s12 m6">
-              {userExpenses.length > 0 && <ExpenseList />}
+              {expenses.length > 0 && <ExpenseList />}
             </div>
           </div>
         </div>
