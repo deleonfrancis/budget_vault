@@ -1,4 +1,5 @@
 import React from 'react'
+import AboutTrigger from '../components/guest/layout/AboutTrigger'
 import Budgets from '../components/guest/layout/Budgets'
 import ComposeBudgetBtn from '../components/guest/layout/ComposeBudgetBtn'
 import DeleteAllBudgetsBtn from '../components/guest/layout/DeleteAllBudgetsBtn'
@@ -11,6 +12,7 @@ function GuestHome({theme}) {
             <ComposeBudgetBtn />
             <Budgets theme={theme} />
             <DeleteAllBudgetsBtn />
+            <AboutTrigger />
         </div>
     )
 }

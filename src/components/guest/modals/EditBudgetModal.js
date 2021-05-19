@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { connect, useDispatch } from "react-redux";
 import { clearBudget, setShowModifyBudget } from "../../../actions/mainActions";
 import numeral from "numeral";
