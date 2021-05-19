@@ -2,7 +2,7 @@ import React from "react";
 
 function AboutTrigger() {
   return (
-    <div className="center-align">
+    <div className="center-align" style={{margin:"30px"}}>
       <a
         href="#aboutModal"
         className="modal-trigger btn-floating waves-effect waves-light"
