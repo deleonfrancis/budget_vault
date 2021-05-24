@@ -66,7 +66,7 @@ function BudgetDetails({
               </h6>
             )}
             {balance < 0 && (
-              <h6 className="red-text" style={{ fontSize: "27px" }}>
+              <h6 className="red-text center-align" style={{ fontSize: "27px" }}>
                 Balance: {numeral(balance).format("0,0.00")}
                 {currency}
               </h6>
