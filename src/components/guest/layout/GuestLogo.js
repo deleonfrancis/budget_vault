@@ -9,7 +9,7 @@ function GuestLogo({ theme }) {
         {theme === "dark" && (
           <img
             src={darkLogo}
-            style={{ width: "150px", height: "auto" }}
+            style={{ width: "100px", height: "auto" }}
             alt=" budget vault logo dark"
             className="responsive-img"
           />
@@ -17,7 +17,7 @@ function GuestLogo({ theme }) {
         {theme === "light" && (
           <img
             src={lightLogo}
-            style={{ width: "150px", height: "auto" }}
+            style={{ width: "100px", height: "auto" }}
             alt=" budget vault logo light"
             className="responsive-img"
 
