@@ -11,7 +11,7 @@ import { v4 as uuidv4 } from "uuid";
 import numeral from "numeral";
 
 function AddExpense({
-  guestMain: { expenseID, expenseName, expenseAmount, expenseDate, currency, balance },
+  guestMain: { expenseID, expenseName, expenseAmount, expenseDate, currency, balance, expenses },
   createExpId,
   setExpName,
   setExpAmount,
@@ -50,15 +50,13 @@ function AddExpense({
             id="expenseName"
             type="text"
             className="validate"
-            onFocus={(e) =>
-              (e.target.placeholder = "lodging, flight, shopping, etc")
-            }
-            // onBlur={(e) => (e.target.placeholder = "")}
             name="expenseName"
+            placeholder="lodging, flight, shopping, etc"
             value={expenseName}
             onChange={(event) => setExpName(event.target.value)}
           />
-          <label htmlFor="expenseName">Expense Name</label>
+          {!expenses && <small  className="grey-text" htmlFor="expenseName">Expense Name</small>}
+          
         </div>
 
         {/* Expense Amount */}
@@ -67,14 +65,13 @@ function AddExpense({
           <input
             type="text"
             className="validate"
-            onFocus={(e) => (e.target.placeholder = "0.00")}
-            // onBlur={(e) => (e.target.placeholder = "")}
+            placeholder = "0.00"
             id="expenseAmount"
             name="expenseAmount"
             value={expenseAmount}
             onChange={(event) => setExpAmount(event.target.value)}
           />
-          <label htmlFor="expenseAmount">Expense Amount</label>
+          {!expenses && <small  className="grey-text" htmlFor="expenseAmount">Expense Amount</small>}
         </div>
 
         {/* Confirm button */}
