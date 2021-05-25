@@ -9,7 +9,7 @@ function ComposeBudgetModal({guestMain: {title, currency, budgetAmount}}) {
   // console.log(`${title}, ${currency}${budgetAmount}`);
 
   return (
-    <div id="composeBudget" className="modal">
+    <div id="composeBudget" className="modal" style={{width:"90%"}}>
       <div className="modal-content">
         {!budgetAmount && (
           <AskBudgetGuest />

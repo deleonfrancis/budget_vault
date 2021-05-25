@@ -17,15 +17,19 @@ function EditTitle({
 
   return (
     <div className="input-field">
-      <i className="material-icons prefix center-align teal-text">title</i>
-      <input
+      <span style={{fontSize:"15px"}} className="helper-text"> Budget Title: </span>
+      <div className="center-align"><input
         id="editTitle"
         type="text"
         className="validate"
         onChange={handleNameChange}
         name="editTitle"
         value={title}
-      />
+        style={{width:"80%"}}
+      /></div>
+      
+    
+      
     </div>
   );
 }

@@ -7,7 +7,7 @@ function ExpenseList({ guestMain: { expenses, currency } }) {
   // console.log(expenses);
 
   return (
-    <div id="expensesList">
+    <div id="expensesList" style={{margin: "25px"}}>
       <table className="highlight">
         <thead>
           <tr style={{color:"black"}}>

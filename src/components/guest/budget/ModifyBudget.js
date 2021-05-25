@@ -59,8 +59,9 @@ function ModifyBudget({ guestMain: { budget } }) {
               id="icon_prefix"
               type="text"
               className="validate"
+              placeholder="Modify Budget"
             />
-            <label htmlFor="icon_prefix">Modify Budget</label>
+            {/* <label htmlFor="icon_prefix">Modify Budget</label> */}
             <span className="helper-text">
               <span style={{ fontStyle: "italic" }}>Example:</span> 300.00
             </span>
