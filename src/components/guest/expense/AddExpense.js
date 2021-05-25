@@ -11,7 +11,7 @@ import { v4 as uuidv4 } from "uuid";
 import numeral from "numeral";
 
 function AddExpense({
-  guestMain: { expenseID, expenseName, expenseAmount, expenseDate, currency, balance, expenses },
+  guestMain: { expenseID, expenseName, expenseAmount, expenseDate, currency, balance, expenses, budget },
   createExpId,
   setExpName,
   setExpAmount,
@@ -39,7 +39,8 @@ function AddExpense({
   };
 
   return (
-    <div className="row" style={{margin:"5px"}}>
+    <div className="row z-depth-2 teal lighten-5" style={{margin:"5px", padding:"15px"}}>
+      <h5 className="teal-text center-align">Add Expense</h5>
       <form className="">
         {/* Expense Name */}
         <div className="input-field">
@@ -55,7 +56,7 @@ function AddExpense({
             value={expenseName}
             onChange={(event) => setExpName(event.target.value)}
           />
-          <span className="helper-text"> Expense Name </span>
+          <span className="helper-text left-align"> Expense Name </span>
           {/* {!expenses && <small  className="grey-text" htmlFor="expenseName">Expense Name</small>} */}          
         </div>
 
@@ -71,7 +72,10 @@ function AddExpense({
             value={expenseAmount}
             onChange={(event) => setExpAmount(event.target.value)}
           />
-          <span className="helper-text"> Expense Amount </span>
+          
+          <span className="helper-text left-align"> Expense Amount </span>
+          
+          
           {/* {!expenses && <small  className="grey-text" htmlFor="expenseAmount">Expense Amount</small>} */}
         </div>
 

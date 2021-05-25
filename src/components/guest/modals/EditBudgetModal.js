@@ -57,8 +57,15 @@ function EditBudgetModal({
 
     M.Modal.init(element, options);
 
+    if(balance<0){
+      dispatch(setShowModifyBudget(true))
+    }
+
     // eslint-disable-next-line
   }, [budget]);
+
+
+
 
   return (
     <div id="editBudgetModal" className="modal no-autoinit">
@@ -112,7 +119,7 @@ function EditBudgetModal({
               )}
             </div>
             <div style={{ marginBottom: "10px" }} className="col s12 m6">
-              {(showModifyBudget || balance < 0) && <ModifyBudget />}
+              {(showModifyBudget) && <ModifyBudget />}
             </div>
           </div>
 
