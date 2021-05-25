@@ -12,7 +12,7 @@ function AboutModal() {
         <p className="black-text" style={{margin:"0px auto 20px"}}>Save your budget and expenses with {" "}
        <span className="teal-text">Budget Vault</span>.</p> 
         <h6 className="teal-text ">
-          Version: <span className="black-text">1.05</span>
+          Version: <span className="black-text">1.06</span>
         </h6>
       </div>
     </div>
