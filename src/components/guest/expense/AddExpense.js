@@ -55,8 +55,8 @@ function AddExpense({
             value={expenseName}
             onChange={(event) => setExpName(event.target.value)}
           />
-          {!expenses && <small  className="grey-text" htmlFor="expenseName">Expense Name</small>}
-          
+          <span className="helper-text"> Expense Name </span>
+          {/* {!expenses && <small  className="grey-text" htmlFor="expenseName">Expense Name</small>} */}          
         </div>
 
         {/* Expense Amount */}
@@ -71,7 +71,8 @@ function AddExpense({
             value={expenseAmount}
             onChange={(event) => setExpAmount(event.target.value)}
           />
-          {!expenses && <small  className="grey-text" htmlFor="expenseAmount">Expense Amount</small>}
+          <span className="helper-text"> Expense Amount </span>
+          {/* {!expenses && <small  className="grey-text" htmlFor="expenseAmount">Expense Amount</small>} */}
         </div>
 
         {/* Confirm button */}
