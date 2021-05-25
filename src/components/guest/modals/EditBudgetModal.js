@@ -60,30 +60,14 @@ function EditBudgetModal({
     // eslint-disable-next-line
   }, [budget]);
 
-  //   console.log("DateUpdated:");
-  //   console.log(dateUpdated);
-
-  // const [userExpenses, setUserExpenses] = useState([]);
-  // setUserExpenses(expenses)
-
-  // const getExpenses = () => {
-  //   if (!expenses) {
-  //     return null;
-  //   } else {
-  //     setUserExpenses(expenses);
-  //     //   console.log("getExpenses:");
-  //     //   console.log(expenses);
-  //     //   console.log(userExpenses);
-  //   }
-  // };
-
   return (
-    <div id="editBudgetModal" className="modal no-autoinit" style={modalStyle}>
+    <div id="editBudgetModal" className="modal no-autoinit">
       <div className="modal-content">
         <h5 className="teal-text">View/Edit</h5>
         <div className="row" style={{ marginBottom: "10px" }}>
           <div className="row" style={{ marginBottom: "0px" }}>
-            <div className="col s12 m6">
+            <div className={showModifyBudget? "col s12 m6" : ""} 
+                  style={!showModifyBudget?{width:"70%", margin:"auto"}:{}}>
               <EditTitle />
               <div>
                 <h6 className="center-align" style={{ color: "black" }}>
@@ -150,19 +134,6 @@ function EditBudgetModal({
                 </Moment>
               }
             </p>
-            {/* {dateUpdated && (
-              <p className="black-text center-align" style={{ margin: "0px" }}>
-                Last Updated:{" "}
-                {
-                  <Moment
-                    style={{ color: "teal" }}
-                    format="MMMM Do YYYY, h:mm a"
-                  >
-                    {dateUpdated}
-                  </Moment>
-                }
-              </p>
-            )} */}
           </div>
 
           <div className="row">
@@ -173,7 +144,7 @@ function EditBudgetModal({
             >
               <AddExpense />
             </div>
-            <div style={{ width: "58%" }} className="col s12 m6">
+            <div className="col s12 m7">
               {expenses.length > 0 && <ExpenseList />}
             </div>
           </div>
@@ -182,10 +153,6 @@ function EditBudgetModal({
     </div>
   );
 }
-const modalStyle = {
-  width: "95%",
-  height: "100%",
-};
 
 const mapStateToProps = (state) => ({
   guestMain: state.guestMain,
