@@ -20,3 +20,9 @@
 .logoVault{
   font-family: 'Italianno', cursive;
 }
+
+.budgetTr:hover{
+cursor: pointer;
+}
+
+/* .budgetTr  */

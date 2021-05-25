@@ -1,6 +1,6 @@
 import React from "react";
 import { connect, useDispatch } from "react-redux";
-import { clearBudget, setAndUpdate } from "../../../actions/mainActions";
+import { clearBudget, setAndUpdate, onlySetGuestBudget } from "../../../actions/mainActions";
 import M from "materialize-css";
 
 
@@ -43,6 +43,11 @@ const date = new Date()
     dispatch(clearBudget())
   };
 
+  const handleOpenDeleteModal = () => {
+    // dispatch(clearBudget())
+    dispatch(onlySetGuestBudget(budget))
+}
+
   return (
     <div className="">
       <div className="center-align">
@@ -52,13 +57,27 @@ const date = new Date()
           href="#!"
           className="modal-close waves-effect waves-light btn-small "
         >
+          {/* <i
+            className="material-icons left "
+            style={{ fontSize: "25px", marginRight: "3px" }}
+          >
+            close
+          </i> */}
+          Cancel
+        </a>
+        <a
+          onClick={handleOpenDeleteModal}
+          style={{ margin: "5px" }}
+          href="#deleteBudgetOnEditModal"
+          className="modal-trigger waves-effect waves-light btn-small"
+        >
           <i
             className="material-icons left red-text"
             style={{ fontSize: "25px", marginRight: "3px" }}
           >
-            close
+            delete
           </i>
-          Cancel
+          delete
         </a>
         <a
           onClick={handleDone}

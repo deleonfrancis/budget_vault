@@ -73,10 +73,10 @@ function Budgets({
               </th>
               <th style={{ paddingBottom: "2px" }}>Expenses</th>
               <th style={{ paddingBottom: "2px" }} className="center-align">
-                Date
+                Date Created
               </th>
               <th style={{ paddingBottom: "2px" }} className="center-align">
-                Options
+                Delete
               </th>
             </tr>
           </thead>

@@ -21,6 +21,7 @@ import EditBudgetModal from "./components/guest/modals/EditBudgetModal";
 import DeleteAllBudgetsModal from "./components/guest/modals/DeleteAllBudgetsModal";
 import GuestHome from "./pages/GuestHome";
 import AboutModal from "./components/guest/modals/AboutModal";
+import DeleteBudgetOnEditModal from "./components/guest/modals/DeleteBudgetOnEditModal";
 
 const Container = styled.div`
   max-width: 80%;
@@ -51,6 +52,7 @@ function App() {
           <DeleteAllBudgetsModal />
           <EditBudgetModal />
           <DeleteBudgetModal />
+          <DeleteBudgetOnEditModal />
           <AboutModal />
         </Container>
       </ThemeProvider>
