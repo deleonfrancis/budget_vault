@@ -2,11 +2,14 @@ import React from "react";
 import { connect, useDispatch } from "react-redux";
 import numeral from "numeral";
 import { setShowModifyBudget } from "../../../actions/mainActions";
-import ModifyBudget from "../budget/ModifyBudget";
 
+import ModifyBudget from "../budget/ModifyBudget";
 import AddExpense from "../expense/AddExpense";
 import ExpenseList from "../expense/ExpenseList";
 import BudgetOptions from "./BudgetOptions";
+import ExpenseListMobile from "../expense/ExpenseListMobile";
+
+import { useMediaQuery } from "react-responsive";
 
 function BudgetDetails({
   guestMain: {
@@ -18,6 +21,9 @@ function BudgetDetails({
     showModifyBudget,
   },
 }) {
+
+  const smallerThanIPad = useMediaQuery({ query: "(max-width: 767px)" });
+
   const dispatch = useDispatch();
 
   const handleShowModify = () => {
@@ -31,7 +37,7 @@ function BudgetDetails({
           <div className="col s12 m6">
             <h5 className="teal-text">{title}</h5>
             <div>
-              <h6 className = "center-align" style={{ color: "black" }}>
+              <h5 className = "center-align" style={{ color: "black" }}>
                 Budget:{" "}
                 <span>
                   <a
@@ -53,23 +59,23 @@ function BudgetDetails({
                     </i>
                   </a>
                 </span>
-              </h6>
+              </h5>
             </div>
 
             {balance >= 0 && (
-              <h6 className="black-text center-align">
+              <h5 className="black-text center-align">
                 Balance:{" "}
                 <span className="green-text">
                   {currency}
                   {numeral(balance).format("0,0.00")}
                 </span>
-              </h6>
+              </h5>
             )}
             {balance < 0 && (
-              <h6 className="red-text center-align" style={{ fontSize: "27px" }}>
+              <h4 className="red-text center-align" style={{ fontSize: "27px" }}>
                 Balance: {numeral(balance).format("0,0.00")}
                 {currency}
-              </h6>
+              </h4>
             )}
           </div>
           <div style={{marginBottom:"10px"}} className="col s12 m6">
@@ -92,9 +98,11 @@ function BudgetDetails({
             <AddExpense />
           </div>
           
-          <div className="col s12 m7">
-            {expenses.length > 0 && <ExpenseList />}
-          </div>
+          {!smallerThanIPad ? <div className="col s12 m7">
+              {expenses.length > 0 && <ExpenseList />}
+            </div>: <div className="col s12 m7">
+              {expenses.length > 0 && <ExpenseListMobile />}
+            </div>}
         </div>
       </div>
     </div>

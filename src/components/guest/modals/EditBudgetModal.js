@@ -9,6 +9,9 @@ import EditTitle from "../layout/EditTitle";
 import EditBudgetOptions from "../layout/EditBudgetOptions";
 import M from "materialize-css";
 import Moment from "react-moment";
+import { useMediaQuery } from "react-responsive";
+import ExpenseListMobile from "../expense/ExpenseListMobile";
+
 
 function EditBudgetModal({
   guestMain: {
@@ -22,6 +25,8 @@ function EditBudgetModal({
     expenses,
   },
 }) {
+  const smallerThanIPad = useMediaQuery({ query: "(max-width: 767px)" });
+
   const dispatch = useDispatch();
 
   const handleShowModify = () => {
@@ -70,14 +75,14 @@ function EditBudgetModal({
   return (
     <div id="editBudgetModal" className="modal no-autoinit">
       <div className="modal-content">
-        <h5 className="teal-text">View/Edit</h5>
+        {/* <h4 className="teal-text">View/Edit</h4> */}
         <div className="row" style={{ marginBottom: "10px" }}>
           <div className="row" style={{ marginBottom: "0px" }}>
             <div className={showModifyBudget? "col s12 m6" : ""} 
                   style={!showModifyBudget?{width:"70%", margin:"auto"}:{}}>
               <EditTitle />
               <div>
-                <h6 className="center-align" style={{ color: "black" }}>
+                <h5 className="center-align" style={{ color: "black" }}>
                   Budget:{" "}
                   <span>
                     <a
@@ -88,9 +93,9 @@ function EditBudgetModal({
                       {`${currency}${numeral(budgetAmount).format("0,0.00")}`}
                       <i
                         style={{
-                          fontSize: "17px",
+                          fontSize: "25px",
                           position: "relative",
-                          top: "2px",
+                          top: "3px",
                           left: "3px",
                         }}
                         className="material-icons center-align teal-text"
@@ -99,23 +104,23 @@ function EditBudgetModal({
                       </i>
                     </a>
                   </span>
-                </h6>
+                </h5>
               </div>
 
               {balance >= 0 && (
-                <h6 className="black-text center-align">
+                <h5 className="black-text center-align">
                   Balance:{" "}
                   <span className="green-text">
                     {currency}
                     {numeral(balance).format("0,0.00")}
                   </span>
-                </h6>
+                </h5>
               )}
               {balance < 0 && (
-                <h6 className="red-text center-align" style={{ fontSize: "27px" }}>
+                <h4 className="red-text center-align">
                   Balance: {numeral(balance).format("0,0.00")}
                   {currency}
-                </h6>
+                </h4>
               )}
             </div>
             <div style={{ marginBottom: "10px" }} className="col s12 m6">
@@ -151,9 +156,11 @@ function EditBudgetModal({
             >
               <AddExpense />
             </div>
-            <div className="col s12 m7">
+            {!smallerThanIPad ? <div className="col s12 m7">
               {expenses.length > 0 && <ExpenseList />}
-            </div>
+            </div>: <div className="col s12 m7">
+              {expenses.length > 0 && <ExpenseListMobile />}
+            </div>}
           </div>
         </div>
       </div>

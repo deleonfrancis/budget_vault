@@ -91,7 +91,8 @@ function AddExpense({
             Confirm
             <i className="material-icons right">send</i>
           </button>
-          {balance < 0 && <div> <p style={{fontStyle:"italic", margin:"3px", fontSize:"12px"}} className="red-text">Your balance is in the red.</p></div> }
+          {balance < 0 && <div> <p style={{fontStyle:"italic", margin:"3px", fontSize:"12px"}} className="red-text">Your balance is in the red.</p> 
+          <p style={{margin:"3px", fontSize:"12px"}} className="grey-text text-darken-1">Please modify your budget or delete an expense.</p> </div> }
         </div>
       </form>
     </div>
