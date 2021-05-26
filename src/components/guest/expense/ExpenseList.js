@@ -8,7 +8,7 @@ function ExpenseList({ guestMain: { expenses, currency } }) {
 
   return (
     <div id="expensesList"  className="z-depth-2 grey lighten-5" style={{margin: "5px 25px", padding:"15px"}}>
-      <h5 style={{marginBottom:"20px"}} className="teal-text center-align">Expense List</h5>
+      <h5 style={{marginBottom:"35px"}} className="teal-text center-align">Expense List</h5>
       <table className="highlight">
         <thead>
           <tr style={{color:"black"}}>
