@@ -6,6 +6,8 @@ import {
   addToBudget,
   subtractFromBudget,
 } from "../../../actions/mainActions";
+import ReactTooltip from 'react-tooltip';
+
 
 function ModifyBudget({ guestMain: { budget } }) {
   const inputEl = useRef(null);
@@ -13,7 +15,7 @@ function ModifyBudget({ guestMain: { budget } }) {
     inputEl.current.focus();
   }, [budget]);
 
-  const {currency, balance, budgetAmount} = budget
+  const { currency, balance, budgetAmount } = budget;
 
   const dispatch = useDispatch();
 
@@ -33,9 +35,9 @@ function ModifyBudget({ guestMain: { budget } }) {
     setModifyAmount("");
   };
 
-  const disablePlus = !numeral.validate(modifyAmount)
-  const disableMinus = !numeral.validate(modifyAmount) || modifyAmount >= budgetAmount
-
+  const disablePlus = !numeral.validate(modifyAmount);
+  const disableMinus =
+    !numeral.validate(modifyAmount) || modifyAmount >= budgetAmount;
 
   if (modifyAmount === 0 || NaN) {
     return null;
@@ -46,11 +48,12 @@ function ModifyBudget({ guestMain: { budget } }) {
       className="row z-depth-2 yellow lighten-5"
       style={{ padding: "20px", marginBottom: "0px" }}
     >
-      <div style={{marginBottom: "0px"}} className="row">
-        <div className="col s8">
-          <div
-            className="input-field"
-          >
+      <div style={{ marginBottom: "0px" }} className="row">
+        <h5 style={{ margin: "0px" }} className="teal-text center-align">
+          Modify Budget
+        </h5>
+        <div className="col s12">
+          <div className="input-field">
             <h4 className="prefix teal-text center-align">{currency}</h4>
             <input
               onChange={(e) => setModifyAmount(e.target.value)}
@@ -59,7 +62,7 @@ function ModifyBudget({ guestMain: { budget } }) {
               id="icon_prefix"
               type="text"
               className="validate"
-              placeholder="Modify Budget"
+              placeholder="Enter Amount"
             />
             {/* <label htmlFor="icon_prefix">Modify Budget</label> */}
             <span className="helper-text">
@@ -67,32 +70,37 @@ function ModifyBudget({ guestMain: { budget } }) {
             </span>
           </div>
         </div>
-
-        <div style={{marginTop:"20px", paddingLeft:"0px"}} className="col s4">
-          <div className="col s6">
-            <button onClick={handleAdd} href="#!" className="transparent" style={{ marginRight: "5px", border:"none" }} disabled={disablePlus}>
-              <i
-                style={{ fontSize: "35px" }}
-                className={disablePlus? "material-icons prefix grey-text" : "material-icons prefix green-text"}
-              >
-                add
-              </i>
-            </button>
-          </div>
-          <div className="col s6">
-            <button onClick={handleSubtract} href="#!" disabled={disableMinus} className="transparent" style={{border:"none"}} >
-              <i
-                style={{ fontSize: "35px" }}
-                className={disableMinus? "material-icons prefix grey-text" : "material-icons prefix red-text"}
-              >
-                remove
-              </i>
-            </button>
-          </div>
+        <div className="center">
+          <a
+            onClick={handleAdd}
+            style={{ margin: "0px 15px" }}
+            href="!#"
+            className={
+              disablePlus
+                ? "btn-floating disabled waves-effect waves-light green "
+                : "btn-floating waves-effect waves-light green "
+            }
+            data-tip="Add"
+          >
+            <i class="material-icons">add</i>
+          </a>
+          <a
+            onClick={handleSubtract}
+            style={{ margin: "0px 15px" }}
+            href="!#"
+            className={
+              disableMinus
+                ? "btn-floating disabled waves-effect waves-light red "
+                : "btn-floating waves-effect waves-light red "
+            }
+            data-tip="Subtract"
+          >
+            <i class="material-icons">remove</i>
+          </a>
         </div>
       </div>
 
-      <div style={{marginBottom: "0px"}} className="grey-text">
+      <div style={{ marginBottom: "0px" }} className="grey-text">
         {balance >= 0 && (
           <a
             onClick={handleClose}
@@ -107,6 +115,7 @@ function ModifyBudget({ guestMain: { budget } }) {
           </a>
         )}
       </div>
+      <ReactTooltip place="bottom" effect="solid" />
     </div>
   );
 }

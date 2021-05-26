@@ -3,7 +3,6 @@ import { connect, useDispatch } from "react-redux";
 import { clearBudget, setShowModifyBudget } from "../../../actions/mainActions";
 import numeral from "numeral";
 import ModifyBudget from "../budget/ModifyBudget";
-import ModifyBudget2 from "../budget/ModifyBudget2";
 import AddExpense from "../expense/AddExpense";
 import ExpenseList from "../expense/ExpenseList";
 import EditTitle from "../layout/EditTitle";
@@ -119,11 +118,8 @@ function EditBudgetModal({
                 </h6>
               )}
             </div>
-            {/* <div style={{ marginBottom: "10px" }} className="col s12 m6">
-              {(showModifyBudget) && <ModifyBudget />}
-            </div> */}
             <div style={{ marginBottom: "10px" }} className="col s12 m6">
-              {(showModifyBudget) && <ModifyBudget2 />}
+              {(showModifyBudget) && <ModifyBudget />}
             </div>
           </div>
 
