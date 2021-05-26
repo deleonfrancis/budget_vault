@@ -17,8 +17,17 @@ function EditTitle({
 
   return (
     <div className="input-field">
-      <span style={{fontSize:"15px"}} className="helper-text"> Budget Title: </span>
-      <div className="center-align"><input
+    {/* <input
+        id="editTitle"
+        type="text"
+        className="validate right-align"
+        onChange={handleNameChange}
+        name="editTitle"
+        value={title}
+        style={{width:"80%"}}
+      /> */}
+      <div className="left"><h5 className="teal-text">Title: </h5></div>
+      <div className="" style={{margin:"0px 0px 30px 80px"}}><input
         id="editTitle"
         type="text"
         className="validate"
@@ -27,6 +36,17 @@ function EditTitle({
         value={title}
         style={{width:"80%"}}
       /></div>
+      
+      
+      {/* <div className="center-align"><input
+        id="editTitle"
+        type="text"
+        className="validate"
+        onChange={handleNameChange}
+        name="editTitle"
+        value={title}
+        style={{width:"80%"}}
+      /></div> */}
       
     
       

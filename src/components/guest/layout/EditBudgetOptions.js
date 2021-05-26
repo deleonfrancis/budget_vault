@@ -53,7 +53,7 @@ const date = new Date()
       <div className="center-align">
         <a
           onClick={handleCancel}
-          style={{ margin: "5px" }}
+          style={{ margin: "10px 25px" }}
           href="#!"
           className="modal-close waves-effect waves-light btn-small "
         >
@@ -67,7 +67,7 @@ const date = new Date()
         </a>
         <a
           onClick={handleOpenDeleteModal}
-          style={{ margin: "5px" }}
+          style={{ margin: "10px 25px" }}
           href="#deleteBudgetOnEditModal"
           className="modal-trigger waves-effect waves-light btn-small"
         >
@@ -81,7 +81,7 @@ const date = new Date()
         </a>
         <a
           onClick={handleDone}
-          style={{ margin: "5px" }}
+          style={{ margin: "10px 25px" }}
           href="#!"
           className="modal-close waves-effect waves-light btn-small"
         >

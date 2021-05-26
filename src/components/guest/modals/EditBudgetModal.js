@@ -3,6 +3,7 @@ import { connect, useDispatch } from "react-redux";
 import { clearBudget, setShowModifyBudget } from "../../../actions/mainActions";
 import numeral from "numeral";
 import ModifyBudget from "../budget/ModifyBudget";
+import ModifyBudget2 from "../budget/ModifyBudget2";
 import AddExpense from "../expense/AddExpense";
 import ExpenseList from "../expense/ExpenseList";
 import EditTitle from "../layout/EditTitle";
@@ -70,7 +71,7 @@ function EditBudgetModal({
   return (
     <div id="editBudgetModal" className="modal no-autoinit">
       <div className="modal-content">
-        <h5 className="teal-text">View/Edit</h5>
+        <h4 className="teal-text">View/Edit</h4>
         <div className="row" style={{ marginBottom: "10px" }}>
           <div className="row" style={{ marginBottom: "0px" }}>
             <div className={showModifyBudget? "col s12 m6" : ""} 
@@ -118,8 +119,11 @@ function EditBudgetModal({
                 </h6>
               )}
             </div>
-            <div style={{ marginBottom: "10px" }} className="col s12 m6">
+            {/* <div style={{ marginBottom: "10px" }} className="col s12 m6">
               {(showModifyBudget) && <ModifyBudget />}
+            </div> */}
+            <div style={{ marginBottom: "10px" }} className="col s12 m6">
+              {(showModifyBudget) && <ModifyBudget2 />}
             </div>
           </div>
 
