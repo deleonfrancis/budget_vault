@@ -52,7 +52,7 @@ function ModifyBudget({ guestMain: { budget, currency, budgetAmount, balance } }
         <h5 style={{ margin: "0px" }} className="teal-text center-align">
           Modify Budget
         </h5>
-        <div className="col s12">
+        <div className="" style={{width:"70%", margin:"auto"}}>
           <div className="input-field">
             <h4 className="prefix teal-text center-align">{currency}</h4>
             <input
