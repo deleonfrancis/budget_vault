@@ -42,7 +42,7 @@ const date = new Date()
     dispatch(setAndUpdate(guestBudget));
     // dispatch(onlySetGuestBudget(guestBudget))
 
-    M.toast({html: `Updates to ${budget.title} has been saved.`});
+    M.toast({html: `Updates to ${budget.title} have been saved.`});
     // dispatch(clearBudget())
   };
   const handleDone = () => {
