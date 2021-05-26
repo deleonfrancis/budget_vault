@@ -9,13 +9,13 @@ import {
 import ReactTooltip from 'react-tooltip';
 
 
-function ModifyBudget({ guestMain: { budget } }) {
+function ModifyBudget({ guestMain: { budget, currency, budgetAmount, balance } }) {
   const inputEl = useRef(null);
   useEffect(() => {
     inputEl.current.focus();
   }, [budget]);
 
-  const { currency, balance, budgetAmount } = budget;
+  // const { balance } = budget;
 
   const dispatch = useDispatch();
 
@@ -82,7 +82,7 @@ function ModifyBudget({ guestMain: { budget } }) {
             }
             data-tip="Add"
           >
-            <i class="material-icons">add</i>
+            <i className="material-icons">add</i>
           </a>
           <a
             onClick={handleSubtract}
@@ -95,7 +95,7 @@ function ModifyBudget({ guestMain: { budget } }) {
             }
             data-tip="Subtract"
           >
-            <i class="material-icons">remove</i>
+            <i className="material-icons">remove</i>
           </a>
         </div>
       </div>
