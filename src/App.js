@@ -29,13 +29,15 @@ const Container = styled.div`
 `;
 
 function App() {
+  useEffect(() => {
+    M.AutoInit();
+  });  
+  
   const [theme, toggleTheme] = useDarkMode();
   const [checked, setChecked] = useState(null);
   const themeMode = theme === "light" ? lightTheme : darkTheme;
 
-  useEffect(() => {
-    M.AutoInit();
-  });
+
   return (
     <Provider store={store}>
       <ThemeProvider theme={themeMode}>

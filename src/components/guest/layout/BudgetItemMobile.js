@@ -1,10 +1,16 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { useDispatch } from 'react-redux'
 import numeral from "numeral";
 import Moment from "react-moment"
 import { clearBudget, onlySetGuestBudget } from '../../../actions/mainActions';
+import M from "materialize-css/dist/js/materialize.min.js";
+
 
 function BudgetItemMobile({budget, theme}) {
+    useEffect(() => {
+        M.AutoInit();
+      });
+
 const dispatch = useDispatch()
 
 const { title, currency, expenses, dateCreated, balance, budgetAmount } = budget
@@ -36,15 +42,12 @@ const handleOpenDeleteModal = () => {
           </div>
            <ul className="collapsible">
                 <li>
-                <div style={{padding:"5px"}} className="collapsible-header"><i className="material-icons">arrow_drop_down</i>Expense List ({expenses.length})</div>
+                <div style={{padding:"5px"}} className={theme=== "dark" ? "collapsible-header teal lighten-2" : "collapsible-header"}><i className="material-icons">arrow_drop_down</i>Expense List ({expenses.length})</div>
                 <div style={{padding:"5px"}} className="collapsible-body"> 
                 {expenses.length === 0 ? <span>You have no expenses to show...</span> : <span>{expenses.map((exp)=> <div key={exp.id}>{exp.expName} {" "}({budget.currency}{numeral(exp.expAmount).format("0,0.00")})</div>)}</span>}
                 </div>
                 </li>
             </ul>
-            {/* <div>{expenses.map((exp)=> <div key={exp.id}>{exp.expName} {" "}({budget.currency}{numeral(exp.expAmount).format("0,0.00")})</div>)}</div> */}
-          {/* {expenses.length === 0 && <div><p style={{fontSize:"18px"}}>No expenses to show...</p></div>}
-            <div>{expenses.map((exp)=> <div key={exp.id}>{exp.expName} {" "}({budget.currency}{numeral(exp.expAmount).format("0,0.00")})</div>)}</div> */}
         </div>
         <div className={ theme === "dark" ? "card-content center-align card-action" : "card-content center-align blue-grey lighten-3 card-action" }>
             <div className="row center-align">
