@@ -25,12 +25,14 @@ function ModifyBudget({ guestMain: { budget, currency, budgetAmount, balance } }
     dispatch(setShowModifyBudget(false));
   };
 
-  const handleAdd = () => {
+  const handleAdd = (e) => {
+    e.preventDefault()
     dispatch(addToBudget(numeral(modifyAmount).value()));
     setModifyAmount("");
   };
 
-  const handleSubtract = () => {
+  const handleSubtract = (e) => {
+    e.preventDefault()
     dispatch(subtractFromBudget(numeral(modifyAmount).value()));
     setModifyAmount("");
   };
