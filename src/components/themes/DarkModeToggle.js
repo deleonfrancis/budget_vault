@@ -13,8 +13,8 @@ function DarkModeToggle({ theme, toggleTheme, checked, setChecked }) {
 
   return (
       <div
-        className="switch"
-        style={{ position: "absolute", top: "2rem", right: "4rem" }}
+        className="switch right-align"
+        style={{ marginBottom:"25px"}}
       >
         <label>
           Dark

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Provider } from "react-redux";
 import store from "./store";
-import { useMediaQuery } from "react-responsive";
+// import { useMediaQuery } from "react-responsive";
 
 
 import DarkModeToggle from "./components/themes/DarkModeToggle";
@@ -35,7 +35,7 @@ function App() {
     M.AutoInit();
   });  
   
-  const smallerThanIPad = useMediaQuery({ query: "(max-width: 767px)" });
+  // const smallerThanIPad = useMediaQuery({ query: "(max-width: 767px)" });
 
 
   const [theme, toggleTheme] = useDarkMode();
@@ -48,12 +48,12 @@ function App() {
       <ThemeProvider theme={themeMode}>
         <Container>
           <GlobalStyles />
-          {!smallerThanIPad && <DarkModeToggle
+          <DarkModeToggle
             checked={checked}
             setChecked={setChecked}
             theme={theme}
             toggleTheme={toggleTheme}
-          />}
+          />
           <GuestHome theme={theme} />
           <ComposeBudgetModal />
           <DeleteAllBudgetsModal />
