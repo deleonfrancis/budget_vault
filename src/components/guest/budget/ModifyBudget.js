@@ -6,13 +6,19 @@ import {
   addToBudget,
   subtractFromBudget,
 } from "../../../actions/mainActions";
-import ReactTooltip from 'react-tooltip';
+import M from "materialize-css";
 
 
 function ModifyBudget({ guestMain: { budget, currency, budgetAmount, balance } }) {
   const inputEl = useRef(null);
   useEffect(() => {
     inputEl.current.focus();
+
+    const tooltipElements = document.querySelectorAll('.tooltipped')
+    const tooltipOptions = {}
+    
+    M.Tooltip.init(tooltipElements, tooltipOptions);
+    
   }, [budget]);
 
   // const { balance } = budget;
@@ -66,7 +72,6 @@ function ModifyBudget({ guestMain: { budget, currency, budgetAmount, balance } }
               className="validate"
               placeholder="Enter Amount"
             />
-            {/* <label htmlFor="icon_prefix">Modify Budget</label> */}
             <span className="helper-text">
               <span style={{ fontStyle: "italic" }}>Example:</span> 300.00
             </span>
@@ -79,10 +84,10 @@ function ModifyBudget({ guestMain: { budget, currency, budgetAmount, balance } }
             href="!#"
             className={
               disablePlus
-                ? "btn-floating disabled waves-effect waves-light green "
-                : "btn-floating waves-effect waves-light green "
+                ? "btn-floating disabled waves-effect waves-light green tooltipped"
+                : "btn-floating waves-effect waves-light green tooltipped"
             }
-            data-tip="Add"
+            data-position="bottom" data-tooltip="Add to Budget"
           >
             <i className="material-icons">add</i>
           </a>
@@ -92,10 +97,10 @@ function ModifyBudget({ guestMain: { budget, currency, budgetAmount, balance } }
             href="!#"
             className={
               disableMinus
-                ? "btn-floating disabled waves-effect waves-light red "
-                : "btn-floating waves-effect waves-light red "
+                ? "btn-floating disabled waves-effect waves-light red tooltipped"
+                : "btn-floating waves-effect waves-light red tooltipped"
             }
-            data-tip="Subtract"
+            data-position="bottom" data-tooltip="Subtract from Budget"
           >
             <i className="material-icons">remove</i>
           </a>
@@ -117,7 +122,6 @@ function ModifyBudget({ guestMain: { budget, currency, budgetAmount, balance } }
           </a>
         )}
       </div>
-      <ReactTooltip place="bottom" effect="solid" />
     </div>
   );
 }

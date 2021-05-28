@@ -1,11 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import numeral from "numeral";
 import Moment from "react-moment"
+import M from "materialize-css";
+
 import { clearBudget, onlySetGuestBudget } from '../../../actions/mainActions';
 
 function BudgetItem({budget, theme}) {
 const dispatch = useDispatch()
+
+useEffect(()=>{
+    const tooltipElements = document.querySelectorAll('.tooltipped')
+    const tooltipOptions = {}
+
+    M.Tooltip.init(tooltipElements, tooltipOptions);
+})
+
 
 const { title, currency, expenses, dateCreated, balance, budgetAmount } = budget
 
@@ -32,7 +42,7 @@ const handleOpenDeleteModal = () => {
             <td>{expenses.map((exp)=> <div key={exp.id}>{exp.expName} {" "}({budget.currency}{numeral(exp.expAmount).format("0,0.00")})</div>)}</td>
             <td className="center-align"><Moment format="MMMM Do, YYYY">{dateCreated}</Moment></td>
             <td className="center-align"> 
-                <a href="#deleteBudgetModal" className="modal-trigger" onClick={handleOpenDeleteModal}><i className="material-icons red-text">delete</i></a>
+                <a href="#deleteBudgetModal" className="modal-trigger tooltipped" data-position="bottom" data-tooltip={`Delete "${title}"`}  onClick={handleOpenDeleteModal}><i className="material-icons red-text">delete</i></a>
             </td>
         </tr>
     )

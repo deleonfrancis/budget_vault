@@ -2,7 +2,6 @@ import React from "react";
 import { connect, useDispatch } from "react-redux";
 import { clearBudget, setGuestBudget } from "../../../actions/mainActions";
 import M from "materialize-css";
-import ReactTooltip from 'react-tooltip';
 
 
 
@@ -52,8 +51,8 @@ function BudgetOptions({
           onClick={handleReset}
           style={{ margin: "5px" }}
           href="#!"
-          className="waves-effect waves-light btn-floating red lighten-2"
-          data-tip="Reset"
+          className="waves-effect waves-light btn-floating red lighten-2 tooltipped"
+          data-position="bottom" data-tooltip="Reset"
         >
           <i
             className="material-icons left"
@@ -67,8 +66,8 @@ function BudgetOptions({
           onClick={handleDone}
           style={{ margin: "10px 25px" }}
           href="#!"
-          className="modal-close waves-effect waves-light btn-floating  green lighten-2"
-          data-tip="Save and Exit"
+          className="modal-close waves-effect waves-light btn-floating green lighten-2 tooltipped"
+          data-position="bottom" data-tooltip="Save and Exit"
         >
           <i
             className="material-icons left"
@@ -79,7 +78,6 @@ function BudgetOptions({
           done
         </a>
       </div>
-      <ReactTooltip place="bottom" effect="solid" />
     </div>
   );
 }

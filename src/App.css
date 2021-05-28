@@ -1,7 +1,7 @@
 #composeBudget {
   width: 90% !important ;
-  height: auto !important ;
-  padding: 5%;
+  height: 100% !important ;
+  padding: 1% 5%;
 }
 
 #editBudgetModal {
@@ -10,8 +10,12 @@
   /* padding: 1%; */
 }
 
-.smallForm {
-  width: 60%;
+.smallerDeviceForm {
+  width: 100%;
+  margin: auto;
+}
+.biggerDeviceForm {
+  width: 50%;
   margin: auto;
 }
 
@@ -29,6 +33,10 @@
 
 .budgetTr:hover{
 cursor: pointer;
+}
+
+.sc-bdvvaa {
+  margin: 20px auto !important ;
 }
 
 /* .budgetTr  */

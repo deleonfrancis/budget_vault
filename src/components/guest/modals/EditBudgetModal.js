@@ -37,7 +37,6 @@ function EditBudgetModal({
     // getExpenses();
 
     const element = document.getElementById("editBudgetModal");
-
     const options = {
       // onOpenStart: () => {
       //   console.log("Open Start");
@@ -49,7 +48,7 @@ function EditBudgetModal({
       //   console.log("Close Start");
       // },
       onCloseEnd: () => {
-        console.log("Close End");
+        // console.log("Close End");
         dispatch(clearBudget());
       },
       // inDuration: 250,
@@ -60,7 +59,12 @@ function EditBudgetModal({
       // endingTop: "10%"
     };
 
+    const tooltipElements = document.querySelectorAll('.tooltipped')
+    const tooltipOptions = {}
+
     M.Modal.init(element, options);
+    M.Tooltip.init(tooltipElements, tooltipOptions);
+
 
     if(balance<0){
       dispatch(setShowModifyBudget(true))
@@ -88,7 +92,8 @@ function EditBudgetModal({
                     <a
                       onClick={handleShowModify}
                       href="#!"
-                      className="black-text"
+                      className="black-text tooltipped"
+                      data-position="bottom" data-tooltip="Modify Budget"
                     >
                       {`${currency}${numeral(budgetAmount).format("0,0.00")}`}
                       <i
@@ -149,13 +154,19 @@ function EditBudgetModal({
           </div>
 
           <div className="row">
-            <div
+            {smallerThanIPad ? <div
               className={
-                expenses.length === 0 ? "center-align smallForm" : "col s12 m5"
+                expenses.length === 0 ? "smallerDeviceForm " : "col s12 m5"
               }
             >
               <AddExpense />
-            </div>
+            </div> : <div
+              className={
+                expenses.length === 0 ? "biggerDeviceForm " : "col s12 m5"
+              }
+            >
+              <AddExpense />
+            </div>}
             {!smallerThanIPad ? <div className="col s12 m7">
               {expenses.length > 0 && <ExpenseList />}
             </div>: <div className="col s12 m7">

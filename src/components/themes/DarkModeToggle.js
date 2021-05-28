@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import M from "materialize-css";
 
 function DarkModeToggle({ theme, toggleTheme, checked, setChecked }) {
   useEffect(() => {
@@ -7,16 +8,21 @@ function DarkModeToggle({ theme, toggleTheme, checked, setChecked }) {
     } else {
       setChecked(false);
     }
+
+    const tooltipElements = document.querySelectorAll('.tooltipped')
+    const tooltipOptions = {}
+
+    M.Tooltip.init(tooltipElements, tooltipOptions);
     // eslint-disable-next-line
   }, [checked]);
 
 
   return (
       <div
-        className="switch"
-        style={{ position: "absolute", top: "2rem", right: "4rem" }}
+        className="switch right-align"
+        style={{ marginBottom:"25px"}}
       >
-        <label>
+        <label className="tooltipped" data-position="bottom" data-tooltip="Theme Selector">
           Dark
           <input
             type="checkbox"

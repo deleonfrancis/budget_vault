@@ -3,7 +3,6 @@ import numeral from "numeral";
 import { useDispatch } from "react-redux";
 import { deleteExpense } from "../../../actions/mainActions";
 import Moment from "react-moment";
-// import numeral from "numeral";
 
 function ExpenseItem({ expense, currency }) {
   const dispatch = useDispatch();
@@ -29,7 +28,9 @@ function ExpenseItem({ expense, currency }) {
         </Moment>
       </td>
       <td className="center-align">
-        <a onClick={handleClick} href="#!" className="">
+        <a onClick={handleClick} href="#!" className="tooltipped"
+        data-position="bottom" data-tooltip={`Delete "${expName}"`}
+        >
           <i className="material-icons red-text">delete</i>
         </a>
       </td>

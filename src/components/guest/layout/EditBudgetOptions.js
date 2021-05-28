@@ -2,7 +2,6 @@ import React from "react";
 import { connect, useDispatch } from "react-redux";
 import { clearBudget, setAndUpdate, onlySetGuestBudget } from "../../../actions/mainActions";
 import M from "materialize-css";
-import ReactTooltip from 'react-tooltip';
 
 
 function EditBudgetOptions({
@@ -63,8 +62,8 @@ const date = new Date()
           onClick={handleCancel}
           style={{ margin: "10px 25px" }}
           href="#!"
-          className="modal-close waves-effect waves-light btn-floating orange lighten-3"
-          data-tip="Cancel"
+          className="modal-close tooltipped waves-effect waves-light btn-floating orange lighten-3"
+          data-position="bottom" data-tooltip="Cancel & Exit"
         >
           <i
             className="material-icons"
@@ -78,8 +77,8 @@ const date = new Date()
           onClick={handleOpenDeleteModal}
           style={{ margin: "10px 25px" }}
           href="#deleteBudgetOnEditModal"
-          className="modal-trigger waves-effect waves-light btn-floating red lighten-2"
-          data-tip="Delete"
+          className="modal-trigger tooltipped waves-effect waves-light btn-floating red lighten-2"
+          data-position="bottom" data-tooltip="Delete"
         >
           <i
             className="material-icons"
@@ -93,8 +92,8 @@ const date = new Date()
           onClick={handleSave}
           style={{ margin: "10px 25px" }}
           href="#editBudgetModal"
-          className="modal-trigger waves-effect waves-light btn-floating teal lighten-2"
-          data-tip="Save"
+          className="modal-trigger tooltipped waves-effect waves-light btn-floating teal lighten-2"
+          data-position="bottom" data-tooltip="Save"
         >
           <i
             className="material-icons left"
@@ -108,8 +107,8 @@ const date = new Date()
           onClick={handleDone}
           style={{ margin: "10px 25px" }}
           href="#!"
-          className="modal-close waves-effect waves-light btn-floating green lighten-2"
-          data-tip="Save and Exit"
+          className="modal-close tooltipped waves-effect waves-light btn-floating green lighten-2"
+          data-position="bottom" data-tooltip="Save & Exit"
         >
           <i
             className="material-icons left"
@@ -120,7 +119,7 @@ const date = new Date()
           done
         </a>
       </div>
-      <ReactTooltip place="bottom" effect="solid" />
+      
     </div>
   );
 }
