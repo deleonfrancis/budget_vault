@@ -10,8 +10,12 @@
   /* padding: 1%; */
 }
 
-.smallForm {
-  width: 60%;
+.smallerDeviceForm {
+  width: 100%;
+  margin: auto;
+}
+.biggerDeviceForm {
+  width: 50%;
   margin: auto;
 }
 

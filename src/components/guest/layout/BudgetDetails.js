@@ -90,13 +90,23 @@ function BudgetDetails({
           <BudgetOptions />
         </div>
         <div className="row">
-          <div
-            className={
-              expenses.length === 0 ? "center-align smallForm" : "col s12 m5"
-            }
-          >
-            <AddExpense />
-          </div>
+        {smallerThanIPad ? <div
+              className={
+                expenses.length === 0 ? "smallerDeviceForm " : "col s12 m5"
+              }
+
+              style={expenses.length === 0 ? {margin:"0px auto"}:{}}
+            >
+              <AddExpense />
+            </div> : <div
+              className={
+                expenses.length === 0 ? "biggerDeviceForm " : "col s12 m5"
+              }
+
+              style={expenses.length === 0 ? {margin:"0px auto"}:{}}
+            >
+              <AddExpense />
+            </div>}
           
           {!smallerThanIPad ? <div className="col s12 m7">
               {expenses.length > 0 && <ExpenseList />}

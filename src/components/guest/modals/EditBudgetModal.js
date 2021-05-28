@@ -149,13 +149,19 @@ function EditBudgetModal({
           </div>
 
           <div className="row">
-            <div
+            {smallerThanIPad ? <div
               className={
-                expenses.length === 0 ? "center-align smallForm" : "col s12 m5"
+                expenses.length === 0 ? "smallerDeviceForm " : "col s12 m5"
               }
             >
               <AddExpense />
-            </div>
+            </div> : <div
+              className={
+                expenses.length === 0 ? "biggerDeviceForm " : "col s12 m5"
+              }
+            >
+              <AddExpense />
+            </div>}
             {!smallerThanIPad ? <div className="col s12 m7">
               {expenses.length > 0 && <ExpenseList />}
             </div>: <div className="col s12 m7">
