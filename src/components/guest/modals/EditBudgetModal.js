@@ -37,7 +37,6 @@ function EditBudgetModal({
     // getExpenses();
 
     const element = document.getElementById("editBudgetModal");
-
     const options = {
       // onOpenStart: () => {
       //   console.log("Open Start");
@@ -60,7 +59,12 @@ function EditBudgetModal({
       // endingTop: "10%"
     };
 
+    const tooltipElements = document.querySelectorAll('.tooltipped')
+    const tooltipOptions = {}
+
     M.Modal.init(element, options);
+    M.Tooltip.init(tooltipElements, tooltipOptions);
+
 
     if(balance<0){
       dispatch(setShowModifyBudget(true))
