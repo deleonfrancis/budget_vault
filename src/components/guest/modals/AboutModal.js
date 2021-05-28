@@ -12,7 +12,7 @@ function AboutModal() {
         <p className="black-text" style={{margin:"0px"}}>Compose a budget, add expenses, and save it in your browser's storage.</p>  
         <p className="black-text" style={{margin:"0px"}}>All within a dynamic, mobile-responsive, and user friendly UX/UI design. </p>  
         <h6 className="teal-text ">
-          Version: <span className="black-text">1.09</span>
+          Version: <span className="black-text">1.10</span>
         </h6>
       </div>
     </div>
