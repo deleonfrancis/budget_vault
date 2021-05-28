@@ -9,7 +9,7 @@ function GuestHome({ theme }) {
   return (
     <div>
       <GuestLogo theme={theme} />
-      <GuestFilter theme={theme} />
+      <GuestFilter />
       <ComposeBudgetBtn />
       <Budgets theme={theme} />
       <DeleteAllBudgetsBtn />

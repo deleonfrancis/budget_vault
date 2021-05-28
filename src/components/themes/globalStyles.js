@@ -14,6 +14,10 @@ body {
       color: ${({ theme }) => theme.primary};
       font-style: italic;
     }
+    .text-black-white {
+      color: ${({ theme }) => theme.text};
+      
+    }
 }
 
 input, select, textarea{

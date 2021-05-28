@@ -24,7 +24,7 @@ function GuestFilter({ searchBudgets, guestBudget: { filtered, budgets } }) {
             <input
               id="searchBudgets"
               type="text"
-              className=""
+              className="text-black-white"
               onChange={onChange}
               ref={text}
             />
