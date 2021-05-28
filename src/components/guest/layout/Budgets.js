@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { css } from "@emotion/core";
 import RingLoader from "react-spinners/RingLoader";
 import { useMediaQuery } from "react-responsive";
+import M from "materialize-css";
+
 
 import BudgetItem from "./BudgetItem";
 import { getBudgets, setLoading } from "../../../actions/budgetActions";
@@ -17,6 +19,10 @@ function Budgets({
   useEffect(() => {
     setLoading(true);
     getBudgets();
+    
+    const tooltipElements = document.querySelectorAll('.tooltipped')
+    const tooltipOptions = {}
+    M.Tooltip.init(tooltipElements, tooltipOptions);
     // eslint-disable-next-line
   }, []);
 

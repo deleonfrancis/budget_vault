@@ -48,7 +48,7 @@ function EditBudgetModal({
       //   console.log("Close Start");
       // },
       onCloseEnd: () => {
-        console.log("Close End");
+        // console.log("Close End");
         dispatch(clearBudget());
       },
       // inDuration: 250,
@@ -92,7 +92,8 @@ function EditBudgetModal({
                     <a
                       onClick={handleShowModify}
                       href="#!"
-                      className="black-text"
+                      className="black-text tooltipped"
+                      data-position="bottom" data-tooltip="Modify Budget"
                     >
                       {`${currency}${numeral(budgetAmount).format("0,0.00")}`}
                       <i

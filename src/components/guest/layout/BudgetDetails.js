@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect, useDispatch } from "react-redux";
 import numeral from "numeral";
+import M from "materialize-css";
+
 import { setShowModifyBudget } from "../../../actions/mainActions";
 
 import ModifyBudget from "../budget/ModifyBudget";
@@ -21,6 +23,12 @@ function BudgetDetails({
     showModifyBudget,
   },
 }) {
+  useEffect(()=>{
+    const tooltipElements = document.querySelectorAll('.tooltipped')
+    const tooltipOptions = {}
+
+    M.Tooltip.init(tooltipElements, tooltipOptions);
+})
 
   const smallerThanIPad = useMediaQuery({ query: "(max-width: 767px)" });
 
@@ -43,7 +51,8 @@ function BudgetDetails({
                   <a
                     onClick={handleShowModify}
                     href="#!"
-                    className="black-text"
+                    className="black-text tooltipped"
+                    data-position="bottom" data-tooltip="Modify Budget"
                   >
                     {`${currency}${numeral(budgetAmount).format("0,0.00")}`}
                     <i
