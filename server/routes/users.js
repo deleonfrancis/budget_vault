@@ -1,7 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const { body, validationResult } = require("express-validator");
-const bcrypt = require('bcryptjs')
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const config = require("config");
 
 const User = require("../models/User");
 
@@ -60,15 +62,30 @@ router.post(
       //   Saves user to the database
       await user.save();
 
-      res.send('user saved')
+      const payload = {
+        user: {
+          id: user.id,
+        },
+      };
 
+      // returns a token
+      jwt.sign(
+        payload,
+        config.get("jwtSecret"),
+        {
+          expiresIn: 360000,
+        },
+        (err, token) => {
+          if (err) throw err;
+          res.json({ token });
+        }
+      );
     } catch (error) {
-        console.error(error.message)
-        // return a 500 status: server error.
-        res.status(500).send("Server Error");
+      console.error(error.message);
+      // return a 500 status: server error.
+      res.status(500).send("Server Error");
     }
 
-    res.send(req.body);
   }
 );
 
