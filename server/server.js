@@ -1,6 +1,11 @@
 const express = require("express");
-
 const app = express();
+
+const connectDB = require('./config/db')
+
+
+// Connect Database
+connectDB()
 
 app.get("/", (req, res) =>
   res.json({ msg: "welcome to the Budget Vault api..." })
