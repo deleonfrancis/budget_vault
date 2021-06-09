@@ -32,6 +32,7 @@ import UserDeleteAllBudgetsModal from "./components/user/modals/UserDeleteAllBud
 import UserAboutModal from "./components/user/modals/UserAboutModal";
 import UserDeleteBudgetOnEditModal from "./components/user/modals/UserDeleteBudgetOnEditModal";
 
+import Register from "./pages/auth/Register";
 import GuestHome from "./pages/GuestHome";
 import UserHome from "./pages/UserHome";
 
@@ -64,6 +65,7 @@ function App() {
           />
           <Router>
             <Switch>
+              <Route exact path="/register" component={Register} />
               <Route exact path="/home">
                 <UserHome theme={theme} />
                 <UserComposeBudgetModal />
@@ -73,10 +75,6 @@ function App() {
                 <UserDeleteBudgetOnEditModal />
                 <UserAboutModal />
               </Route>
-            </Switch>
-          </Router>
-          <Router>
-            <Switch>
               <Route exact path="/guest">
                 <GuestHome theme={theme} />
                 <ComposeBudgetModal />

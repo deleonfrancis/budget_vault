@@ -4,16 +4,16 @@ import { Link } from "react-router-dom";
 import { clearErrors, register } from "../../actions/authActions";
 
 function Register({ authReducer: { error, isAuthenticated }, props }) {
-  useEffect(() => {
-    if (isAuthenticated) {
-      props.history.push("/");
-    }
-    if (error === "User already exists") {
-      //   setAlert(error, "danger");
-      clearErrors();
-    }
-    // eslint-disable-next-line
-  }, [error, isAuthenticated, props.history]);
+  // useEffect(() => {
+  //   if (isAuthenticated) {
+  //     props.history.push("/");
+  //   }
+  //   if (error === "User already exists") {
+  //     //   setAlert(error, "danger");
+  //     clearErrors();
+  //   }
+  //   // eslint-disable-next-line
+  // }, [error, isAuthenticated, props.history]);
 
   const [user, setUser] = useState({
     firstName: "",
