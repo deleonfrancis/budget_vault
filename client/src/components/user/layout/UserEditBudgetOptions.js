@@ -76,7 +76,7 @@ const date = new Date()
         <a
           onClick={handleOpenDeleteModal}
           style={{ margin: "10px 25px" }}
-          href="#deleteBudgetOnEditModal"
+          href="#userDeleteBudgetOnEditModal"
           className="modal-trigger tooltipped waves-effect waves-light btn-floating red lighten-2"
           data-position="bottom" data-tooltip="Delete"
         >
@@ -91,7 +91,7 @@ const date = new Date()
         <a
           onClick={handleSave}
           style={{ margin: "10px 25px" }}
-          href="#editBudgetModal"
+          href="#userEditBudgetModal"
           className="modal-trigger tooltipped waves-effect waves-light btn-floating teal lighten-2"
           data-position="bottom" data-tooltip="Save"
         >

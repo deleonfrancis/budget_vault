@@ -34,7 +34,7 @@ const handleOpenDeleteModal = () => {
 
 <div className="card blue-grey darken-1">
         <div className={ theme === "dark" ? "card-content white-text center-align" : "card-content dark-text center-align blue-grey lighten-5" }>
-          <a onClick={handleOpenEditModal} className="modal-trigger" href="#editBudgetModal" style={theme==="dark" ? {fontSize:"18px", color: "white", marginBottom:"0px"} : {fontSize:"18px", color: "black", marginBottom:"0px"}}><span style={{marginBottom:"0px"}} className="card-title">{title}</span></a>
+          <a onClick={handleOpenEditModal} className="modal-trigger" href="#userEditBudgetModal" style={theme==="dark" ? {fontSize:"18px", color: "white", marginBottom:"0px"} : {fontSize:"18px", color: "black", marginBottom:"0px"}}><span style={{marginBottom:"0px"}} className="card-title">{title}</span></a>
           <p style={{fontSize:"12px", marginBottom:"10px"}} className="center-align"><Moment format="MMMM Do, YYYY">{dateCreated}</Moment></p>
           <div className="row">
             <div className="s12"> Budget: {currency}{numeral(budgetAmount).format("0,0.00")}</div>
@@ -52,10 +52,10 @@ const handleOpenDeleteModal = () => {
         <div className={ theme === "dark" ? "card-content center-align card-action" : "card-content center-align blue-grey lighten-3 card-action" }>
             <div className="row center-align">
                 <div className="s12" style={{marginBottom:"10px"}}>
-                    <a href="#editBudgetModal" className={theme === "dark" ? "modal-trigger" : "modal-trigger teal-text"} onClick={handleOpenEditModal}><i style={{position:"relative", top:"5px"}} className="material-icons teal-text">edit</i>View/Edit</a>
+                    <a href="#userEditBudgetModal" className={theme === "dark" ? "modal-trigger" : "modal-trigger teal-text"} onClick={handleOpenEditModal}><i style={{position:"relative", top:"5px"}} className="material-icons teal-text">edit</i>View/Edit</a>
                 </div>
                 <div className="s12">
-                    <a href="#deleteBudgetModal" className={theme === "dark" ? "modal-trigger" : "modal-trigger red-text"} onClick={handleOpenDeleteModal}><i style={{position:"relative", top:"5px"}} className="material-icons red-text">delete</i>Delete</a>
+                    <a href="#userDeleteBudgetModal" className={theme === "dark" ? "modal-trigger" : "modal-trigger red-text"} onClick={handleOpenDeleteModal}><i style={{position:"relative", top:"5px"}} className="material-icons red-text">delete</i>Delete</a>
                 </div>
             </div>
         </div>
