@@ -2,13 +2,13 @@ import React, {useEffect} from "react";
 import { connect,useDispatch } from "react-redux";
 import { useMediaQuery } from "react-responsive";
 
-import { clearFilter, deleteBudget } from "../../../actions/budgetActions";
-import { clearBudget } from "../../../actions/mainActions";
+import { clearFilter, deleteBudget } from "../../../actions/userBudgetActions";
+import { clearBudget } from "../../../actions/userMainActions";
 
 import M from "materialize-css";
 
 
-function UserDeleteBudgetOnEditModal({ guestMain: { budget } }) {
+function UserDeleteBudgetOnEditModal({ userMain: { budget } }) {
 
   useEffect(() => {
     const element = document.getElementById('userDeleteBudgetOnEditModal')
@@ -90,7 +90,7 @@ function UserDeleteBudgetOnEditModal({ guestMain: { budget } }) {
 
 
 const mapStateToProps = (state) => ({
-  guestMain: state.guestMain,
+  userMain: state.userMain,
 });
 
 export default connect(mapStateToProps)(UserDeleteBudgetOnEditModal);

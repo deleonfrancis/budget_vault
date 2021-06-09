@@ -1,11 +1,19 @@
-import React from "react";
+import React, {useEffect} from "react";
 import darkLogo from "../../../images/Logo/BVDark-01.png";
 import lightLogo from "../../../images/Logo/BVLight-01.png";
+import M from "materialize-css";
 
 function GuestLogo({ theme }) {
+
+  useEffect(() => {
+    const tooltipElements = document.querySelectorAll('.tooltipped')
+    const tooltipOptions = {}
+    M.Tooltip.init(tooltipElements, tooltipOptions);
+  }, [])
+
   return (
     <div className="center-align" style={{marginBottom:"30px"}}>
-      <a href="#aboutModal" className="modal-trigger">
+      <a href="#aboutModal" className="modal-trigger tooltipped" data-position="bottom" data-tooltip="About">
         {theme === "dark" && (
           <img
             src={darkLogo}

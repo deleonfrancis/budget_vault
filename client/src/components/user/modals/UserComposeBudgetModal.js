@@ -4,9 +4,7 @@ import AskBudget from "../budget/UserAskBudget";
 import BudgetDetails from "../layout/BudgetDetails";
 
 
-function UserComposeBudgetModal({guestMain: {title, currency, budgetAmount}}) {
-
-  // console.log(`${title}, ${currency}${budgetAmount}`);
+function UserComposeBudgetModal({userMain: {budgetAmount}}) {
 
   return (
     <div id="userComposeBudget" className="modal" >
@@ -24,7 +22,7 @@ function UserComposeBudgetModal({guestMain: {title, currency, budgetAmount}}) {
 }
 
 const mapStateToProps = (state) => ({
-  guestMain: state.guestMain,
+  userMain: state.userMain,
 });
 
 export default connect(mapStateToProps)(UserComposeBudgetModal);

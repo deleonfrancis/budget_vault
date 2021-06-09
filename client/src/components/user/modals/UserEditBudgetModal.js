@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { connect, useDispatch } from "react-redux";
-import { clearBudget, setShowModifyBudget } from "../../../actions/mainActions";
+import { clearBudget, setShowModifyBudget } from "../../../actions/userMainActions";
 import numeral from "numeral";
 import ModifyBudget from "../budget/UserModifyBudget";
 import AddExpense from "../expense/UserAddExpense";
@@ -14,7 +14,7 @@ import ExpenseListMobile from "../expense/UserExpenseListMobile";
 
 
 function UserEditBudgetModal({
-  guestMain: {
+  userMain: {
     budget,
     showModifyBudget,
     budgetAmount,
@@ -180,7 +180,7 @@ function UserEditBudgetModal({
 }
 
 const mapStateToProps = (state) => ({
-  guestMain: state.guestMain,
+  userMain: state.userMain,
 });
 
 export default connect(mapStateToProps)(UserEditBudgetModal);

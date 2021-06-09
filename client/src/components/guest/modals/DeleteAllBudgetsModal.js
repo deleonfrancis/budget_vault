@@ -61,7 +61,7 @@ function DeleteAllBudgetsModal({ guestMain: { budget } }) {
   const handleYesDeleteAll = () =>{
 
     // dispatch(deleteBudget(id))
-console.log("handleYesDeleteAll clicked!");
+// console.log("handleYesDeleteAll clicked!");
     M.toast({html: `All budgets have been deleted.`});
     dispatch(deleteAllBudgets())
     dispatch(clearBudget())

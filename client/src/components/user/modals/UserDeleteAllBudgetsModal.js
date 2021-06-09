@@ -1,13 +1,13 @@
 import React, {useEffect} from "react";
 import { connect,useDispatch } from "react-redux";
 import { useMediaQuery } from "react-responsive";
-import { deleteAllBudgets } from "../../../actions/budgetActions";
-import { clearBudget } from "../../../actions/mainActions";
+import { deleteAllBudgets } from "../../../actions/userBudgetActions";
+import { clearBudget } from "../../../actions/userMainActions";
 
 import M from "materialize-css";
 
 
-function UserDeleteAllBudgetsModal({ guestMain: { budget } }) {
+function UserDeleteAllBudgetsModal({ userMain: { budget } }) {
 
   useEffect(() => {
     const element = document.getElementById('userDeleteAllBudgetsModal')
@@ -61,7 +61,7 @@ function UserDeleteAllBudgetsModal({ guestMain: { budget } }) {
   const handleYesDeleteAll = () =>{
 
     // dispatch(deleteBudget(id))
-console.log("handleYesDeleteAll clicked!");
+// console.log("handleYesDeleteAll clicked!");
     M.toast({html: `All budgets have been deleted.`});
     dispatch(deleteAllBudgets())
     dispatch(clearBudget())
@@ -83,7 +83,7 @@ console.log("handleYesDeleteAll clicked!");
 }
 
 const mapStateToProps = (state) => ({
-  guestMain: state.guestMain,
+  userMain: state.userMain,
 });
 
 export default connect(mapStateToProps)(UserDeleteAllBudgetsModal);
