@@ -1,28 +1,28 @@
 import {
-  BUDGET_ID,
-  BUDGET_TITLE,
-  CURRENCY,
-  BUDGET_AMOUNT,
-  BALANCE,
-  DATE_CREATED,
-  // DATE_UPDATED,
-  SET_GUEST_BUDGET,
-  // CLEAR_GUEST_BUDGET,
-  ADD_EXPENSE,
-  EXPENSES_ERROR,
-  // UPDATE_EXPENSE,
-  DELETE_EXPENSE,
+  USER_BUDGET_ID,
+  USER_BUDGET_TITLE,
+  USER_CURRENCY,
+  USER_BUDGET_AMOUNT,
+  USER_BALANCE,
+  USER_DATE_CREATED,
+  // USER_DATE_UPDATED,
+  USER_SET_GUEST_BUDGET,
+  // USER_CLEAR_GUEST_BUDGET,
+  USER_ADD_EXPENSE,
+  USER_EXPENSES_ERROR,
+  // USER_UPDATE_EXPENSE,
+  USER_DELETE_EXPENSE,
 
-  // EXPENSE,
-  EXP_ID,
-  EXPENSE_NAME,
-  EXPENSE_AMOUNT,
-  EXPENSE_DATE,
-  CLEAR_BUDGET,
-  SET_MODIFY_BUDGET,
-  ADD_TO_BUDGET,
-  SUBTRACT_FROM_BUDGET,
-  SET_GUEST_BUDGET_AND_SUB_BUDGET,
+  // USER_EXPENSE,
+  USER_EXP_ID,
+  USER_EXPENSE_NAME,
+  USER_EXPENSE_AMOUNT,
+  USER_EXPENSE_DATE,
+  USER_CLEAR_BUDGET,
+  USER_SET_MODIFY_BUDGET,
+  USER_ADD_TO_BUDGET,
+  USER_SUBTRACT_FROM_BUDGET,
+  USER_SET_GUEST_BUDGET_AND_SUB_BUDGET,
   // EXPENSES,
 } from "../actions/types";
 import {
@@ -55,74 +55,74 @@ const initialState = {
 // eslint-disable-next-line
 export default (state = initialState, action) => {
   switch (action.type) {
-    case BUDGET_ID: {
+    case USER_BUDGET_ID: {
       return {
         ...state,
         id: action.payload,
       };
     }
-    case BUDGET_TITLE: {
+    case USER_BUDGET_TITLE: {
       return {
         ...state,
         title: action.payload,
       };
     }
-    case CURRENCY: {
+    case USER_CURRENCY: {
       return {
         ...state,
         currency: action.payload,
       };
     }
-    case BUDGET_AMOUNT: {
+    case USER_BUDGET_AMOUNT: {
       return {
         ...state,
         budgetAmount: action.payload,
       };
     }
-    case BALANCE: {
+    case USER_BALANCE: {
       return {
         ...state,
         balance: action.payload,
       };
     }
-    case DATE_CREATED: {
+    case USER_DATE_CREATED: {
       return {
         ...state,
         dateCreated: action.payload,
       };
     }
-    case EXP_ID: {
+    case USER_EXP_ID: {
       return {
         ...state,
         expenseID: action.payload,
       };
     }
-    case EXPENSE_NAME: {
+    case USER_EXPENSE_NAME: {
       return {
         ...state,
         expenseName: action.payload,
       };
     }
-    case EXPENSE_AMOUNT: {
+    case USER_EXPENSE_AMOUNT: {
       return {
         ...state,
         expenseAmount: action.payload,
       };
     }
-    case EXPENSE_DATE: {
+    case USER_EXPENSE_DATE: {
       return {
         ...state,
         expenseAmount: action.payload,
       };
     }
-    case EXPENSES_ERROR: {
+    case USER_EXPENSES_ERROR: {
       console.error(action.payload);
       return {
         ...state,
         expenseError: action.payload,
       };
     }
-    case ADD_EXPENSE: {
+    case USER_ADD_EXPENSE: {
       // console.log(state.balance)
       // console.log(action.payload)
       return {
@@ -139,7 +139,7 @@ export default (state = initialState, action) => {
         expenseDate: null,
       };
     }
-    case DELETE_EXPENSE: {
+    case USER_DELETE_EXPENSE: {
       // console.log(action.payload);
       return {
         ...state,
@@ -147,7 +147,7 @@ export default (state = initialState, action) => {
         balance: addToBalanceService(state.balance, action.payload.expAmount),
       };
     }
-    case ADD_TO_BUDGET: {
+    case USER_ADD_TO_BUDGET: {
       // console.log("ADD_TO_BUDGET");
       // console.log(action.payload);
       // console.log(state.budgetAmount);
@@ -159,7 +159,7 @@ export default (state = initialState, action) => {
         balance: addToBalanceService(state.balance, action.payload),
       };
     }
-    case SUBTRACT_FROM_BUDGET: {
+    case USER_SUBTRACT_FROM_BUDGET: {
       // console.log("SUBTRACT_FROM_BUDGET");
       // console.log(action.payload);
       // console.log(state.budgetAmount);
@@ -173,7 +173,7 @@ export default (state = initialState, action) => {
         balance: subtractFromBalanceService(state.balance, action.payload),
       };
     }
-    case SET_GUEST_BUDGET: {
+    case USER_SET_GUEST_BUDGET: {
       // console.log("SET_GUEST_BUDGET");
       // console.log(action.payload);
       return {
@@ -181,7 +181,7 @@ export default (state = initialState, action) => {
         budget: action.payload,
       };
     }
-    case SET_GUEST_BUDGET_AND_SUB_BUDGET: {
+    case USER_SET_GUEST_BUDGET_AND_SUB_BUDGET: {
       // console.log("SET_GUEST_BUDGET_AND_SUB_BUDGET:");
       // console.log(action.payload);
       return {
@@ -197,7 +197,7 @@ export default (state = initialState, action) => {
         balance: action.payload.balance,
       };
     }
-    case CLEAR_BUDGET: {
+    case USER_CLEAR_BUDGET: {
       return {
         ...state,
         budget: {},
@@ -217,7 +217,7 @@ export default (state = initialState, action) => {
       };
     }
 
-    case SET_MODIFY_BUDGET: {
+    case USER_SET_MODIFY_BUDGET: {
       return {
         ...state,
         showModifyBudget: action.payload,

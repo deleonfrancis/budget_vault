@@ -1,29 +1,29 @@
 import {
-  BUDGET_ID,
-  BUDGET_TITLE,
-  CURRENCY,
-  BUDGET_AMOUNT,
-  BALANCE,
-  DATE_CREATED,
-  // DATE_UPDATED,
-  SET_GUEST_BUDGET,
-  SET_GUEST_BUDGET_AND_SUB_BUDGET,
-  // CLEAR_GUEST_BUDGET,
-  ADD_EXPENSE,
-  EXPENSES_ERROR,
-  // UPDATE_EXPENSE,
-  DELETE_EXPENSE,
+  USER_BUDGET_ID,
+  USER_BUDGET_TITLE,
+  USER_CURRENCY,
+  USER_BUDGET_AMOUNT,
+  USER_BALANCE,
+  USER_DATE_CREATED,
+  // USER_DATE_UPDATED,
+  USER_SET_GUEST_BUDGET,
+  USER_SET_GUEST_BUDGET_AND_SUB_BUDGET,
+  // USER_CLEAR_GUEST_BUDGET,
+  USER_ADD_EXPENSE,
+  USER_EXPENSES_ERROR,
+  // USER_UPDATE_EXPENSE,
+  USER_DELETE_EXPENSE,
 
-  // EXPENSE,
-  EXP_ID,
-  EXPENSE_NAME,
-  EXPENSE_AMOUNT,
-  EXPENSE_DATE,
-  CLEAR_BUDGET,
-  SET_MODIFY_BUDGET,
-  ADD_TO_BUDGET,
-  SUBTRACT_FROM_BUDGET,
-  // EXPENSES,
+  // USER_EXPENSE,
+  USER_EXP_ID,
+  USER_EXPENSE_NAME,
+  USER_EXPENSE_AMOUNT,
+  USER_EXPENSE_DATE,
+  USER_CLEAR_BUDGET,
+  USER_SET_MODIFY_BUDGET,
+  USER_ADD_TO_BUDGET,
+  USER_SUBTRACT_FROM_BUDGET,
+  // USER_EXPENSES,
 } from "./types";
 // import { subtractFromBudgetService } from "../utils/budgetTransactions";
 import { addBudget, setLoading, updateBudget } from "./budgetActions";
@@ -31,7 +31,7 @@ import { addBudget, setLoading, updateBudget } from "./budgetActions";
 // Create the budget ID
 export const setBudgetId = (id) => (dispatch) => {
   dispatch ({
-    type: BUDGET_ID,
+    type: USER_BUDGET_ID,
     payload: id,
   });
 };
@@ -41,7 +41,7 @@ export const setTitle = (text) => (dispatch) => {
   // console.log("setTitle:");
   // console.log(text);
   dispatch({
-    type: BUDGET_TITLE,
+    type: USER_BUDGET_TITLE,
     payload: text,
   });
 };
@@ -49,7 +49,7 @@ export const setTitle = (text) => (dispatch) => {
 // For Setting the Budget Currency
 export const setCurrency = (currency) => (dispatch) => {
   dispatch({
-    type: CURRENCY,
+    type: USER_CURRENCY,
     payload: currency,
   });
 };
@@ -57,7 +57,7 @@ export const setCurrency = (currency) => (dispatch) => {
 // For Setting the budget AMOUNT
 export const setBudgetAmount = (amount) => (dispatch) => {
   dispatch({
-    type: BUDGET_AMOUNT,
+    type: USER_BUDGET_AMOUNT,
     payload: amount,
   });
 };
@@ -65,7 +65,7 @@ export const setBudgetAmount = (amount) => (dispatch) => {
 // For Setting the Balance
 export const setBalance = (balance) => (dispatch) => {
   dispatch({
-    type: BALANCE,
+    type: USER_BALANCE,
     payload: balance,
   });
 };
@@ -73,7 +73,7 @@ export const setBalance = (balance) => (dispatch) => {
 // Create Expense ID
 export const createExpId = (id) => (dispatch) => {
   dispatch ({
-    type: EXP_ID,
+    type: USER_EXP_ID,
     payload: id,
   });
 };
@@ -81,7 +81,7 @@ export const createExpId = (id) => (dispatch) => {
 // For Setting the Expense Name
 export const setExpName = (text) => (dispatch) => {
   dispatch({
-    type: EXPENSE_NAME,
+    type: USER_EXPENSE_NAME,
     payload: text,
   });
 };
@@ -89,7 +89,7 @@ export const setExpName = (text) => (dispatch) => {
 // For Setting the Expense Amount
 export const setExpAmount = (amount) => (dispatch) => {
   dispatch({
-    type: EXPENSE_AMOUNT,
+    type: USER_EXPENSE_AMOUNT,
     payload: amount,
   });
 };
@@ -97,7 +97,7 @@ export const setExpAmount = (amount) => (dispatch) => {
 // Create the  date the expense created
 export const createExpDate = (date) => (dispatch) => {
   dispatch({
-    type: EXPENSE_DATE,
+    type: USER_EXPENSE_DATE,
     payload: date,
   });
 };
@@ -115,13 +115,13 @@ export const addExpense = (expense) => async (dispatch) => {
     // });
     // const data = await res.json();
     dispatch({
-      type: ADD_EXPENSE,
+      type: USER_ADD_EXPENSE,
       payload: expense,
     });
     setLoading(false);
   } catch (error) {
     dispatch({
-      type: EXPENSES_ERROR,
+      type: USER_EXPENSES_ERROR,
       payload: error.response.statusText,
     });
   }
@@ -133,13 +133,13 @@ export const deleteExpense = (expense) => async (dispatch) => {
 
     // console.log(expense);
     dispatch({
-      type: DELETE_EXPENSE,
+      type: USER_DELETE_EXPENSE,
       payload: expense,
     });
     // setLoading(false);
   } catch (error) {
     dispatch({
-      type: EXPENSES_ERROR,
+      type: USER_EXPENSES_ERROR,
       payload: error.response.statusText,
     });
   }
@@ -149,7 +149,7 @@ export const deleteExpense = (expense) => async (dispatch) => {
 // To Clear out a budget
 export const clearBudget = () => (dispatch) => {
   dispatch({
-    type: CLEAR_BUDGET,
+    type: USER_CLEAR_BUDGET,
     // payload: budget,
   });
 };
@@ -157,7 +157,7 @@ export const clearBudget = () => (dispatch) => {
 // To Clear out a budget
 export const setShowModifyBudget = (bool) => (dispatch) => {
   dispatch({
-    type: SET_MODIFY_BUDGET,
+    type: USER_SET_MODIFY_BUDGET,
     payload: bool,
   });
 };
@@ -176,13 +176,13 @@ export const addToBudget = (amount) => async (dispatch) => {
     // const data = await res.json();
     // console.log(amount);
     dispatch({
-      type: ADD_TO_BUDGET,
+      type: USER_ADD_TO_BUDGET,
       payload: amount,
     });
     // setLoading(false);
   } catch (error) {
     dispatch({
-      type: EXPENSES_ERROR,
+      type: USER_EXPENSES_ERROR,
       payload: error.response.statusText,
     });
   }
@@ -202,13 +202,13 @@ export const subtractFromBudget = (amount) => async (dispatch) => {
     // const data = await res.json();
     // console.log(amount);
     dispatch({
-      type: SUBTRACT_FROM_BUDGET,
+      type: USER_SUBTRACT_FROM_BUDGET,
       payload: amount,
     });
     // setLoading(false);
   } catch (error) {
     dispatch({
-      type: EXPENSES_ERROR,
+      type: USER_EXPENSES_ERROR,
       payload: error.response.statusText,
     });
   }
@@ -217,7 +217,7 @@ export const subtractFromBudget = (amount) => async (dispatch) => {
 // Create the budget date created
 export const setDateCreated = (date) => (dispatch) => {
   dispatch ({
-    type: DATE_CREATED,
+    type: USER_DATE_CREATED,
     payload: date,
   });
 };
@@ -225,7 +225,7 @@ export const setDateCreated = (date) => (dispatch) => {
 // Fills the budget with the data and adds it to the database
 export const setGuestBudget = (budget) => (dispatch) => {
   dispatch ({
-    type: SET_GUEST_BUDGET,
+    type: USER_SET_GUEST_BUDGET,
     payload: budget,
   });
   dispatch(addBudget(budget))
@@ -235,7 +235,7 @@ export const setAndUpdate = (budget) => (dispatch) => {
   console.log("setAndUpdate budget:");
   console.log(budget);
   dispatch ({
-    type: SET_GUEST_BUDGET,
+    type: USER_SET_GUEST_BUDGET,
     payload: budget,
   });
   dispatch(updateBudget(budget))
@@ -246,7 +246,7 @@ export const onlySetGuestBudget = (budget) => (dispatch) => {
   // console.log("onlySetGuestBudget():");
   // console.log(budget);
   dispatch ({
-    type: SET_GUEST_BUDGET_AND_SUB_BUDGET,
+    type: USER_SET_GUEST_BUDGET_AND_SUB_BUDGET,
     payload: budget,
   });
 };

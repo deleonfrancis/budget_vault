@@ -1,24 +1,24 @@
 // import { openDB, deleteDB, wrap, unwrap } from 'idb';
 import Localbase from "localbase";
 import {
-  GET_BUDGETS,
-  ADD_BUDGET,
-  DELETE_BUDGET,
-  //   SET_CURRENT,
-  //   CLEAR_CURRENT,
-    UPDATE_BUDGET,
-    CLEAR_BUDGETS,
-  SET_LOADING,
-  BUDGETS_ERROR,
-  SEARCH_BUDGETS,
-  CLEAR_FILTER,
-  // GET_EXPENSES,
-  // SET_CURRENT_EXPENSE,
-  // CLEAR_CURRENT_EXPENSE,
-  // ADD_EXPENSE,
-  // UPDATE_EXPENSE,
-  // DELETE_EXPENSE,
-  // EXPENSES_ERROR,
+  USER_GET_BUDGETS,
+  USER_ADD_BUDGET,
+  USER_DELETE_BUDGET,
+  //   USER_SET_CURRENT,
+  //   USER_CLEAR_CURRENT,
+    USER_UPDATE_BUDGET,
+    USER_CLEAR_BUDGETS,
+  USER_SET_LOADING,
+  USER_BUDGETS_ERROR,
+  USER_SEARCH_BUDGETS,
+  USER_CLEAR_FILTER,
+  // USER_GET_EXPENSES,
+  // USER_SET_CURRENT_EXPENSE,
+  // USER_CLEAR_CURRENT_EXPENSE,
+  // USER_ADD_EXPENSE,
+  // USER_UPDATE_EXPENSE,
+  // USER_DELETE_EXPENSE,
+  // USER_EXPENSES_ERROR,
 } from "./types";
 
 let db = new Localbase("db");
@@ -35,13 +35,13 @@ export const getBudgets = () => (dispatch) => {
       .then((data) => {
         // console.log(data);
         dispatch({
-          type: GET_BUDGETS,
+          type: USER_GET_BUDGETS,
           payload: data,
         });
       });
   } catch (error) {
     dispatch({
-      type: BUDGETS_ERROR,
+      type: USER_BUDGETS_ERROR,
       payload: error.response.statusText,
     });
   }
@@ -61,12 +61,12 @@ export const addBudget = (budget) => (dispatch) => {
       balance: budget.balance,
     });
     dispatch({
-      type: ADD_BUDGET,
+      type: USER_ADD_BUDGET,
       payload: budget,
     });
   } catch (error) {
     dispatch({
-      type: BUDGETS_ERROR,
+      type: USER_BUDGETS_ERROR,
       payload: error.response.statusText,
     });
   }
@@ -87,12 +87,12 @@ export const updateBudget = (budget) => (dispatch) => {
       balance: budget.balance,
     });
     dispatch({
-      type: UPDATE_BUDGET,
+      type: USER_UPDATE_BUDGET,
       payload: budget,
     });
   } catch (error) {
     dispatch({
-      type: BUDGETS_ERROR,
+      type: USER_BUDGETS_ERROR,
       payload: error.response.statusText,
     });
   }
@@ -107,13 +107,13 @@ export const deleteBudget = (id) => (dispatch) => {
       .delete()
       .then(
         dispatch({
-          type: DELETE_BUDGET,
+          type: USER_DELETE_BUDGET,
           payload: id,
         })
       );
   } catch (error) {
     dispatch({
-      type: BUDGETS_ERROR,
+      type: USER_BUDGETS_ERROR,
       payload: error.response.statusText,
     });
   }
@@ -126,12 +126,12 @@ export const deleteAllBudgets = () => (dispatch) => {
     db.collection("Budget Vault")
       .delete().then(
         dispatch({
-          type: CLEAR_BUDGETS,
+          type: USER_CLEAR_BUDGETS,
         })
       )
   } catch (error) {
     dispatch({
-      type: BUDGETS_ERROR,
+      type: USER_BUDGETS_ERROR,
       payload: error.response.statusText,
     });
   }
@@ -140,7 +140,7 @@ export const deleteAllBudgets = () => (dispatch) => {
 // Set loading to true
 export const setLoading = () => {
   return {
-    type: SET_LOADING,
+    type: USER_SET_LOADING,
   };
 };
 
@@ -149,12 +149,12 @@ export const searchBudgets = (text) => async (dispatch) => {
   try {
     setLoading();
     dispatch({
-      type: SEARCH_BUDGETS,
+      type: USER_SEARCH_BUDGETS,
       payload: text,
     });
   } catch (error) {
     dispatch({
-      type: BUDGETS_ERROR,
+      type: USER_BUDGETS_ERROR,
       payload: error.response.statusText,
     });
   }
@@ -165,11 +165,11 @@ export const clearFilter = () => (dispatch) => {
   try {
     setLoading();
     dispatch({
-      type: CLEAR_FILTER,
+      type: USER_CLEAR_FILTER,
     });
   } catch (error) {
     dispatch({
-      type: BUDGETS_ERROR,
+      type: USER_BUDGETS_ERROR,
       payload: error.response.statusText,
     });
   }

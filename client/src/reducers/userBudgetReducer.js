@@ -1,38 +1,38 @@
 import {
-  GET_BUDGETS,
-  ADD_BUDGET,
-  DELETE_BUDGET,
-  //   SET_CURRENT,
-  //   CLEAR_CURRENT,
-  UPDATE_BUDGET,
-  CLEAR_BUDGETS,
-  SET_LOADING,
-  BUDGETS_ERROR,
-  SEARCH_BUDGETS,
-  CLEAR_FILTER,
-  // GET_EXPENSES,
-  // SET_CURRENT_EXPENSE,
-  // CLEAR_CURRENT_EXPENSE,
-  // ADD_EXPENSE,
-  // UPDATE_EXPENSE,
-  // DELETE_EXPENSE,
-  // EXPENSES_ERROR,
+  USER_GET_BUDGETS,
+  USER_ADD_BUDGET,
+  USER_DELETE_BUDGET,
+  //   USER_SET_CURRENT,
+  //   USER_CLEAR_CURRENT,
+  USER_UPDATE_BUDGET,
+  USER_CLEAR_BUDGETS,
+  USER_SET_LOADING,
+  USER_BUDGETS_ERROR,
+  USER_SEARCH_BUDGETS,
+  USER_CLEAR_FILTER,
+  // USER_GET_EXPENSES,
+  // USER_SET_CURRENT_EXPENSE,
+  // USER_CLEAR_CURRENT_EXPENSE,
+  // USER_ADD_EXPENSE,
+  // USER_UPDATE_EXPENSE,
+  // USER_DELETE_EXPENSE,
+  // USER_EXPENSES_ERROR,
 
-  // GUEST_BUDGET,
-  // BUDGET_ID,
-  // BUDGET_TITLE,
-  // CURRENCY,
-  // BUDGET_AMOUNT,
-  // BALANCE,
-  // DATE_UPDATED,
-  // DATE_CREATED,
+  // USER_GUEST_BUDGET,
+  // USER_BUDGET_ID,
+  // USER_BUDGET_TITLE,
+  // USER_CURRENCY,
+  // USER_BUDGET_AMOUNT,
+  // USER_BALANCE,
+  // USER_DATE_UPDATED,
+  // USER_DATE_CREATED,
 
-  // EXPENSES,
-  // EXPENSE,
-  // EXP_ID,
-  // EXPENSE_NAME,
-  // EXPENSE_AMOUNT,
-  // EXPENSE_DATE,
+  // USER_EXPENSES,
+  // USER_EXPENSE,
+  // USER_EXP_ID,
+  // USER_EXPENSE_NAME,
+  // USER_EXPENSE_AMOUNT,
+  // USER_EXPENSE_DATE,
 } from "../actions/types";
 
 const initialState = {
@@ -46,21 +46,21 @@ const initialState = {
 // eslint-disable-next-line
 export default (state = initialState, action) => {
   switch (action.type) {
-    case GET_BUDGETS: {
+    case USER_GET_BUDGETS: {
       return {
         ...state,
         budgets: action.payload,
         loading: false,
       };
     }
-    case ADD_BUDGET: {
+    case USER_ADD_BUDGET: {
       return {
         ...state,
         budgets: [...state.budgets, action.payload],
         loading: false,
       };
     }
-    case UPDATE_BUDGET: {
+    case USER_UPDATE_BUDGET: {
       return {
         ...state,
         budgets: state.budgets.map((budget) =>
@@ -69,7 +69,7 @@ export default (state = initialState, action) => {
         loading: false,
       };
     }
-    case DELETE_BUDGET: {
+    case USER_DELETE_BUDGET: {
       // console.log("DELETE_BUDGET Reducer");
       // console.log(action.payload);
       return {
@@ -78,33 +78,33 @@ export default (state = initialState, action) => {
         loading: false,
       };
     }
-    case CLEAR_BUDGETS: {
+    case USER_CLEAR_BUDGETS: {
       return {
         ...state,
         budgets: [],
       };
     }
-    case CLEAR_FILTER: {
+    case USER_CLEAR_FILTER: {
       return {
         ...state,
         filtered: null,
         loading: false,
       };
     }
-    case SET_LOADING: {
+    case USER_SET_LOADING: {
       return {
         ...state,
         loading: true,
       };
     }
-    case BUDGETS_ERROR: {
+    case USER_BUDGETS_ERROR: {
       console.error(action.payload);
       return {
         ...state,
         error: action.payload,
       };
     }
-    case SEARCH_BUDGETS: {
+    case USER_SEARCH_BUDGETS: {
       return {
         ...state,
         filtered: state.budgets.filter((budget) => {
