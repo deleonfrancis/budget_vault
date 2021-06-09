@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import { setTitle } from "../../../actions/mainActions";
+import { setTitle } from "../../../actions/userMainActions";
 
-function UserAskTitleGuest({ guestMain: { title }, setTitle}) {
+function UserAskTitle({ userMain: { title }, setTitle}) {
   const handleChange = (e) => {
     setTitle(e.target.value);
   };
@@ -32,7 +32,7 @@ function UserAskTitleGuest({ guestMain: { title }, setTitle}) {
 }
 
 const mapStateToProps = (state) => ({
-  guestMain: state.guestMain,
+  userMain: state.userMain,
 });
 
-export default connect(mapStateToProps, { setTitle })(UserAskTitleGuest);
+export default connect(mapStateToProps, { setTitle })(UserAskTitle);

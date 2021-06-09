@@ -5,11 +5,11 @@ import {
   setShowModifyBudget,
   addToBudget,
   subtractFromBudget,
-} from "../../../actions/mainActions";
+} from "../../../actions/userMainActions";
 import M from "materialize-css";
 
 
-function UserModifyBudget({ guestMain: { budget, currency, budgetAmount, balance } }) {
+function UserModifyBudget({ userMain: { budget, currency, budgetAmount, balance } }) {
   const inputEl = useRef(null);
   useEffect(() => {
     inputEl.current.focus();
@@ -127,7 +127,7 @@ function UserModifyBudget({ guestMain: { budget, currency, budgetAmount, balance
 }
 
 const mapStateToProps = (state) => ({
-  guestMain: state.guestMain,
+  userMain: state.userMain,
 });
 
 export default connect(mapStateToProps)(UserModifyBudget);

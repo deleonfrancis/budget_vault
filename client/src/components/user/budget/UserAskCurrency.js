@@ -1,9 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-import { setCurrency } from "../../../actions/mainActions";
+import { setCurrency } from "../../../actions/userMainActions";
 import { useMediaQuery } from "react-responsive";
 
-function UserAskCurrency({ guestMain: { currency }, setCurrency }) {
+function UserAskCurrency({ userMain: { currency }, setCurrency }) {
 
   const smallerThanIPad = useMediaQuery({ query: "(max-width: 767px)" });
 
@@ -36,7 +36,7 @@ function UserAskCurrency({ guestMain: { currency }, setCurrency }) {
 }
 
 const mapStateToProps = (state) => ({
-  guestMain: state.guestMain,
+  userMain: state.userMain,
 });
 
 export default connect(mapStateToProps, { setCurrency })(UserAskCurrency);

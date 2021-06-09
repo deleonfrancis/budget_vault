@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { connect, useDispatch } from "react-redux";
-import { setBudgetAmount, setBalance, clearBudget, setDateCreated, setBudgetId } from "../../../actions/mainActions";
+import { setBudgetAmount, setBalance, clearBudget, setDateCreated, setBudgetId } from "../../../actions/userMainActions";
 
-import AskCurrencyGuest from "./UserAskCurrencyGuest";
-import AskTitleGuest from "./UserAskTitleGuest";
+import AskCurrency from "./UserAskCurrency";
+import AskTitle from "./UserAskTitle";
 import numeral from "numeral";
 import { v4 as uuidv4 } from "uuid";
 
 
 function UserAskBudget({
-  guestMain: { title, currency },
+  userMain: { title, currency },
   setBudgetAmount,
   setBalance,
 }) {
@@ -40,8 +40,8 @@ function UserAskBudget({
         Compose a budget!
       </h5>
       <div className="" style={{width:"80%", margin:"auto"}}>
-        <AskTitleGuest />
-        <AskCurrencyGuest />
+        <AskTitle />
+        <AskCurrency />
         <div className="row">
           <form className="col s12">
             <div className="row">
@@ -82,7 +82,7 @@ function UserAskBudget({
 }
 
 const mapStateToProps = (state) => ({
-  guestMain: state.guestMain,
+  userMain: state.userMain,
 });
 
 export default connect(mapStateToProps, { setBudgetAmount, setBalance })(
