@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import ExpenseItemMobile from "./ExpenseItemMobile";
+import ExpenseItemMobile from "./UserExpenseItemMobile";
 
-function ExpenseListMobile({ guestMain: { expenses, currency } }) {
+function UserExpenseListMobile({ guestMain: { expenses, currency } }) {
   // console.log("ExpenseList:");
   // console.log(expenses);
 
@@ -20,4 +20,4 @@ const mapStateToProps = (state) => ({
   guestMain: state.guestMain,
 });
 
-export default connect(mapStateToProps)(ExpenseListMobile);
+export default connect(mapStateToProps)(UserExpenseListMobile);

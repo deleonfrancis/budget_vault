@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import AskBudgetGuest from "../budget/AskBudgetGuest";
+import AskBudgetGuest from "../budget/UserAskBudgetGuest";
 import BudgetDetails from "../layout/BudgetDetails";
 
 

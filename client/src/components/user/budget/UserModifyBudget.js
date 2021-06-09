@@ -9,7 +9,7 @@ import {
 import M from "materialize-css";
 
 
-function ModifyBudget({ guestMain: { budget, currency, budgetAmount, balance } }) {
+function UserModifyBudget({ guestMain: { budget, currency, budgetAmount, balance } }) {
   const inputEl = useRef(null);
   useEffect(() => {
     inputEl.current.focus();
@@ -130,4 +130,4 @@ const mapStateToProps = (state) => ({
   guestMain: state.guestMain,
 });
 
-export default connect(mapStateToProps)(ModifyBudget);
+export default connect(mapStateToProps)(UserModifyBudget);

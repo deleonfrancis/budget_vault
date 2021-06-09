@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { deleteExpense } from "../../../actions/mainActions";
 import Moment from "react-moment";
 
-function ExpenseItem({ expense, currency }) {
+function UserExpenseItem({ expense, currency }) {
   const dispatch = useDispatch();
 
   const { expName, expAmount, date } = expense;
@@ -38,4 +38,4 @@ function ExpenseItem({ expense, currency }) {
   );
 }
 
-export default ExpenseItem;
+export default UserExpenseItem;

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { setCurrency } from "../../../actions/mainActions";
 import { useMediaQuery } from "react-responsive";
 
-function AskCurrency({ guestMain: { currency }, setCurrency }) {
+function UserAskCurrency({ guestMain: { currency }, setCurrency }) {
 
   const smallerThanIPad = useMediaQuery({ query: "(max-width: 767px)" });
 
@@ -39,4 +39,4 @@ const mapStateToProps = (state) => ({
   guestMain: state.guestMain,
 });
 
-export default connect(mapStateToProps, { setCurrency })(AskCurrency);
+export default connect(mapStateToProps, { setCurrency })(UserAskCurrency);

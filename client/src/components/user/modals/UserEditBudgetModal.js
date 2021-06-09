@@ -2,15 +2,15 @@ import React, { useEffect } from "react";
 import { connect, useDispatch } from "react-redux";
 import { clearBudget, setShowModifyBudget } from "../../../actions/mainActions";
 import numeral from "numeral";
-import ModifyBudget from "../budget/ModifyBudget";
-import AddExpense from "../expense/AddExpense";
-import ExpenseList from "../expense/ExpenseList";
+import ModifyBudget from "../budget/UserModifyBudget";
+import AddExpense from "../expense/UserAddExpense";
+import ExpenseList from "../expense/UserExpenseList";
 import EditTitle from "../layout/UserEditTitle";
 import EditBudgetOptions from "../layout/UserEditBudgetOptions";
 import M from "materialize-css";
 import Moment from "react-moment";
 import { useMediaQuery } from "react-responsive";
-import ExpenseListMobile from "../expense/ExpenseListMobile";
+import ExpenseListMobile from "../expense/UserExpenseListMobile";
 
 
 function UserEditBudgetModal({

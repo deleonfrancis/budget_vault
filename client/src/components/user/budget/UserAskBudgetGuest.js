@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import { connect, useDispatch } from "react-redux";
 import { setBudgetAmount, setBalance, clearBudget, setDateCreated, setBudgetId } from "../../../actions/mainActions";
 
-import AskCurrencyGuest from "./AskCurrencyGuest";
-import AskTitleGuest from "./AskTitleGuest";
+import AskCurrencyGuest from "./UserAskCurrencyGuest";
+import AskTitleGuest from "./UserAskTitleGuest";
 import numeral from "numeral";
 import { v4 as uuidv4 } from "uuid";
 
 
-function AskBudget({
+function UserAskBudget({
   guestMain: { title, currency },
   setBudgetAmount,
   setBalance,
@@ -86,5 +86,5 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, { setBudgetAmount, setBalance })(
-  AskBudget
+  UserAskBudget
 );

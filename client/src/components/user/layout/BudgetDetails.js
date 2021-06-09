@@ -5,11 +5,11 @@ import M from "materialize-css";
 
 import { setShowModifyBudget } from "../../../actions/mainActions";
 
-import ModifyBudget from "../budget/ModifyBudget";
-import AddExpense from "../expense/AddExpense";
-import ExpenseList from "../expense/ExpenseList";
+import ModifyBudget from "../budget/UserModifyBudget";
+import AddExpense from "../expense/UserAddExpense";
+import ExpenseList from "../expense/UserExpenseList";
 import BudgetOptions from "./BudgetOptions";
-import ExpenseListMobile from "../expense/ExpenseListMobile";
+import ExpenseListMobile from "../expense/UserExpenseListMobile";
 
 import { useMediaQuery } from "react-responsive";
 
