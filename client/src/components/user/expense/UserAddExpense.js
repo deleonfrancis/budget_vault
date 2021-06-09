@@ -6,12 +6,12 @@ import {
   setExpAmount,
   createExpDate,
   addExpense,
-} from "../../../actions/mainActions";
+} from "../../../actions/userMainActions";
 import { v4 as uuidv4 } from "uuid";
 import numeral from "numeral";
 
 function UserAddExpense({
-  guestMain: { expenseID, expenseName, expenseAmount, expenseDate, currency, balance, expenses, budget },
+  userMain: { expenseID, expenseName, expenseAmount, expenseDate, currency, balance, expenses, budget },
   createExpId,
   setExpName,
   setExpAmount,
@@ -96,7 +96,7 @@ function UserAddExpense({
 }
 
 const mapStateToProps = (state) => ({
-  guestMain: state.guestMain,
+  userMain: state.userMain,
 });
 
 export default connect(mapStateToProps, {

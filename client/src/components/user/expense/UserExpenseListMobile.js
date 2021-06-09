@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import ExpenseItemMobile from "./UserExpenseItemMobile";
 
-function UserExpenseListMobile({ guestMain: { expenses, currency } }) {
+function UserExpenseListMobile({ userMain: { expenses, currency } }) {
   // console.log("ExpenseList:");
   // console.log(expenses);
 
@@ -17,7 +17,7 @@ function UserExpenseListMobile({ guestMain: { expenses, currency } }) {
 }
 
 const mapStateToProps = (state) => ({
-  guestMain: state.guestMain,
+  userMain: state.userMain,
 });
 
 export default connect(mapStateToProps)(UserExpenseListMobile);

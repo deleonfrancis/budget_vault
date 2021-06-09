@@ -1,7 +1,7 @@
 import React from "react";
 import numeral from "numeral";
 import { useDispatch } from "react-redux";
-import { deleteExpense } from "../../../actions/mainActions";
+import { deleteExpense } from "../../../actions/userMainActions";
 import Moment from "react-moment";
 
 function UserExpenseItemMobile({ expense, currency }) {
