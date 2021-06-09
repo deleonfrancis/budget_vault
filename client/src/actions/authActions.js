@@ -65,4 +65,9 @@ export const register = () => async (formData, dispatch) => {
     }
   };
 
-  
+    // Logout
+    export const logoutUser = () => (dispatch) => dispatch({ type: LOGOUT });
+
+    // Clear Errors
+    export const clearErrors = () => (dispatch) => dispatch({ type: CLEAR_ERRORS });
+
