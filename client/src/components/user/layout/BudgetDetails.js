@@ -3,7 +3,7 @@ import { connect, useDispatch } from "react-redux";
 import numeral from "numeral";
 import M from "materialize-css";
 
-import { setShowModifyBudget } from "../../../actions/mainActions";
+import { setShowModifyBudget } from "../../../actions/userMainActions";
 
 import ModifyBudget from "../budget/UserModifyBudget";
 import AddExpense from "../expense/UserAddExpense";
@@ -14,7 +14,7 @@ import ExpenseListMobile from "../expense/UserExpenseListMobile";
 import { useMediaQuery } from "react-responsive";
 
 function BudgetDetails({
-  guestMain: {
+  userMain: {
     title,
     currency,
     budgetAmount,
@@ -129,7 +129,7 @@ function BudgetDetails({
 }
 
 const mapStateToProps = (state) => ({
-  guestMain: state.guestMain,
+  userMain: state.userMain,
 });
 
 export default connect(mapStateToProps)(BudgetDetails);

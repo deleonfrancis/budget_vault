@@ -4,7 +4,7 @@ import numeral from "numeral";
 import Moment from "react-moment"
 import M from "materialize-css";
 
-import { clearBudget, onlySetGuestBudget } from '../../../actions/mainActions';
+import { clearBudget, onlySetGuestBudget } from '../../../actions/userMainActions';
 
 function BudgetItem({budget, theme}) {
 const dispatch = useDispatch()

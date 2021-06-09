@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 
-function DeleteAllBudgetsBtn({guestBudget:{budgets}}) {
+function DeleteAllBudgetsBtn({userBudget:{budgets}}) {
   return (
     <div className="center-align" style={{ margin: "15px auto 50px auto "}}>
       {budgets.length > 1 && <a href="#userDeleteAllBudgetsModal" className="waves-effect waves-light btn-large modal-trigger red">
@@ -13,7 +13,7 @@ function DeleteAllBudgetsBtn({guestBudget:{budgets}}) {
 }
 
 const mapStateToProps = (state) => ({
-  guestBudget: state.guestBudget
+  userBudget: state.userBudget
 })
 
 export default connect(mapStateToProps)(DeleteAllBudgetsBtn);

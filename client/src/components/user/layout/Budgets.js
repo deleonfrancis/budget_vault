@@ -7,12 +7,12 @@ import M from "materialize-css";
 
 
 import BudgetItem from "./BudgetItem";
-import { getBudgets, setLoading } from "../../../actions/budgetActions";
+import { getBudgets, setLoading } from "../../../actions/userBudgetActions";
 import BudgetItemMobile from "./BudgetItemMobile";
 
 function Budgets({
   theme,
-  guestBudget: { budgets, loading, filtered },
+  userBudget: { budgets, loading, filtered },
   getBudgets,
   setLoading,
 }) {
@@ -107,7 +107,7 @@ function Budgets({
 }
 
 const mapStateToProps = (state) => ({
-  guestBudget: state.guestBudget,
+  userBudget: state.userBudget,
 });
 
 export default connect(mapStateToProps, { getBudgets, setLoading })(Budgets);

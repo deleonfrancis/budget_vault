@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 import { useDispatch } from 'react-redux'
 import numeral from "numeral";
 import Moment from "react-moment"
-import { clearBudget, onlySetGuestBudget } from '../../../actions/mainActions';
+import { clearBudget, onlySetGuestBudget } from '../../../actions/userMainActions';
 import M from "materialize-css/dist/js/materialize.min.js";
 
 

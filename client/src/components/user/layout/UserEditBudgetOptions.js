@@ -1,11 +1,11 @@
 import React from "react";
 import { connect, useDispatch } from "react-redux";
-import { clearBudget, setAndUpdate, onlySetGuestBudget } from "../../../actions/mainActions";
+import { clearBudget, setAndUpdate, onlySetGuestBudget } from "../../../actions/userMainActions";
 import M from "materialize-css";
 
 
 function EditBudgetOptions({
-  guestMain: {
+  userMain: {
     budget,
     id,
     title,
@@ -125,7 +125,7 @@ const date = new Date()
 }
 
 const mapStateToProps = (state) => ({
-  guestMain: state.guestMain,
+  userMain: state.userMain,
 });
 
 export default connect(mapStateToProps)(EditBudgetOptions);

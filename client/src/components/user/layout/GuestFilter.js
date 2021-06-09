@@ -1,8 +1,8 @@
 import React, { useRef } from "react";
 import { connect, useDispatch } from "react-redux";
-import { clearFilter, searchBudgets } from "../../../actions/budgetActions";
+import { clearFilter, searchBudgets } from "../../../actions/userBudgetActions";
 
-function GuestFilter({ searchBudgets, guestBudget: { filtered, budgets } }) {
+function GuestFilter({ searchBudgets, userBudget: { filtered, budgets } }) {
   const text = useRef("");
   
   const dispatch = useDispatch();
@@ -37,7 +37,7 @@ function GuestFilter({ searchBudgets, guestBudget: { filtered, budgets } }) {
 }
 
 const mapStateToProps = (state) => ({
-  guestBudget: state.guestBudget,
+  userBudget: state.userBudget,
 });
 
 export default connect(mapStateToProps, { searchBudgets })(GuestFilter);

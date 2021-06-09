@@ -1,9 +1,9 @@
 import React from "react";
 import { connect, useDispatch } from "react-redux";
-import { setTitle } from "../../../actions/mainActions";
+import { setTitle } from "../../../actions/userMainActions";
 
 function UserEditTitle({
-  guestMain: {
+  userMain: {
     title,
   },
 }) {
@@ -32,7 +32,7 @@ function UserEditTitle({
 }
 
 const mapStateToProps = (state) => ({
-  guestMain: state.guestMain,
+  userMain: state.userMain,
 });
 
 export default connect(mapStateToProps)(UserEditTitle);
