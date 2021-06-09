@@ -48,7 +48,7 @@ export const getBudgets = () => (dispatch) => {
 };
 
 // adds the budget to the database
-export const addBudget = (budget) => (dispatch) => {
+export const userAddBudget = (budget) => (dispatch) => {
   try {
     db.collection("Budget Vault").add({
       id: budget.id,
@@ -73,7 +73,7 @@ export const addBudget = (budget) => (dispatch) => {
 };
 
 // Updates the budget in the database
-export const updateBudget = (budget) => (dispatch) => {
+export const userUpdateBudget = (budget) => (dispatch) => {
   try {
     db.collection("Budget Vault").doc({
       id: budget.id,

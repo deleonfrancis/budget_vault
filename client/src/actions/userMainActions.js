@@ -26,7 +26,7 @@ import {
   // USER_EXPENSES,
 } from "./types";
 // import { subtractFromBudgetService } from "../utils/budgetTransactions";
-import { addBudget, setLoading, updateBudget } from "./budgetActions";
+import { userAddBudget, setLoading, userUpdateBudget } from "./userBudgetActions";
 
 // Create the budget ID
 export const setBudgetId = (id) => (dispatch) => {
@@ -228,7 +228,7 @@ export const setUserBudget = (budget) => (dispatch) => {
     type: SET_USER_BUDGET,
     payload: budget,
   });
-  dispatch(addBudget(budget))
+  dispatch(userAddBudget(budget))
 };
 // Fills the budget with the data and updates the database
 export const setAndUpdate = (budget) => (dispatch) => {
@@ -238,7 +238,7 @@ export const setAndUpdate = (budget) => (dispatch) => {
     type: SET_USER_BUDGET,
     payload: budget,
   });
-  dispatch(updateBudget(budget))
+  dispatch(userUpdateBudget(budget))
 };
 
 // Fills the budget with the data
