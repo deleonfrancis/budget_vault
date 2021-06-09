@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 import { useDispatch } from 'react-redux'
 import numeral from "numeral";
 import Moment from "react-moment"
-import { clearBudget, onlySetGuestBudget } from '../../../actions/userMainActions';
+import { clearBudget, onlySetUserBudget } from '../../../actions/userMainActions';
 import M from "materialize-css/dist/js/materialize.min.js";
 
 
@@ -22,11 +22,11 @@ const { title, currency, expenses, dateCreated, balance, budgetAmount } = budget
 
 const handleOpenEditModal = () => {
     dispatch(clearBudget())
-    dispatch(onlySetGuestBudget(budget))
+    dispatch(onlySetUserBudget(budget))
 }
 const handleOpenDeleteModal = () => {
     dispatch(clearBudget())
-    dispatch(onlySetGuestBudget(budget))
+    dispatch(onlySetUserBudget(budget))
 }
 
 

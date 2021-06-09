@@ -6,8 +6,8 @@ import {
   USER_BALANCE,
   USER_DATE_CREATED,
   // USER_DATE_UPDATED,
-  USER_SET_GUEST_BUDGET,
-  USER_SET_GUEST_BUDGET_AND_SUB_BUDGET,
+  SET_USER_BUDGET,
+  SET_USER_BUDGET_AND_SUB_BUDGET,
   // USER_CLEAR_GUEST_BUDGET,
   USER_ADD_EXPENSE,
   USER_EXPENSES_ERROR,
@@ -223,9 +223,9 @@ export const setDateCreated = (date) => (dispatch) => {
 };
 
 // Fills the budget with the data and adds it to the database
-export const setGuestBudget = (budget) => (dispatch) => {
+export const setUserBudget = (budget) => (dispatch) => {
   dispatch ({
-    type: USER_SET_GUEST_BUDGET,
+    type: SET_USER_BUDGET,
     payload: budget,
   });
   dispatch(addBudget(budget))
@@ -235,18 +235,18 @@ export const setAndUpdate = (budget) => (dispatch) => {
   console.log("setAndUpdate budget:");
   console.log(budget);
   dispatch ({
-    type: USER_SET_GUEST_BUDGET,
+    type: SET_USER_BUDGET,
     payload: budget,
   });
   dispatch(updateBudget(budget))
 };
 
 // Fills the budget with the data
-export const onlySetGuestBudget = (budget) => (dispatch) => {
-  // console.log("onlySetGuestBudget():");
+export const onlySetUserBudget = (budget) => (dispatch) => {
+  // console.log("onlySetUserBudget():");
   // console.log(budget);
   dispatch ({
-    type: USER_SET_GUEST_BUDGET_AND_SUB_BUDGET,
+    type: SET_USER_BUDGET_AND_SUB_BUDGET,
     payload: budget,
   });
 };

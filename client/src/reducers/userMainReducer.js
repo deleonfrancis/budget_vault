@@ -6,7 +6,7 @@ import {
   USER_BALANCE,
   USER_DATE_CREATED,
   // USER_DATE_UPDATED,
-  USER_SET_GUEST_BUDGET,
+  SET_USER_BUDGET,
   // USER_CLEAR_GUEST_BUDGET,
   USER_ADD_EXPENSE,
   USER_EXPENSES_ERROR,
@@ -22,7 +22,7 @@ import {
   USER_SET_MODIFY_BUDGET,
   USER_ADD_TO_BUDGET,
   USER_SUBTRACT_FROM_BUDGET,
-  USER_SET_GUEST_BUDGET_AND_SUB_BUDGET,
+  SET_USER_BUDGET_AND_SUB_BUDGET,
   // EXPENSES,
 } from "../actions/types";
 import {
@@ -173,7 +173,7 @@ export default (state = initialState, action) => {
         balance: subtractFromBalanceService(state.balance, action.payload),
       };
     }
-    case USER_SET_GUEST_BUDGET: {
+    case SET_USER_BUDGET: {
       // console.log("SET_GUEST_BUDGET");
       // console.log(action.payload);
       return {
@@ -181,7 +181,7 @@ export default (state = initialState, action) => {
         budget: action.payload,
       };
     }
-    case USER_SET_GUEST_BUDGET_AND_SUB_BUDGET: {
+    case SET_USER_BUDGET_AND_SUB_BUDGET: {
       // console.log("SET_GUEST_BUDGET_AND_SUB_BUDGET:");
       // console.log(action.payload);
       return {

@@ -1,6 +1,6 @@
 import React from "react";
 import { connect, useDispatch } from "react-redux";
-import { clearBudget, setAndUpdate, onlySetGuestBudget } from "../../../actions/userMainActions";
+import { clearBudget, setAndUpdate, onlySetUserBudget } from "../../../actions/userMainActions";
 import M from "materialize-css";
 
 
@@ -20,7 +20,7 @@ function EditBudgetOptions({
 
 const date = new Date()
 
-  const guestBudget = {
+  const userBudget = {
     id,
     title,
     currency,
@@ -38,21 +38,21 @@ const date = new Date()
   };
 
   const handleSave = () => {
-    dispatch(setAndUpdate(guestBudget));
-    // dispatch(onlySetGuestBudget(guestBudget))
+    dispatch(setAndUpdate(userBudget));
+    // dispatch(onlySetUserBudget(userBudget))
 
     M.toast({html: `Updates to ${budget.title} have been saved.`});
     // dispatch(clearBudget())
   };
   const handleDone = () => {
-    dispatch(setAndUpdate(guestBudget));
+    dispatch(setAndUpdate(userBudget));
     M.toast({html: `${budget.title} has been updated.`});
     dispatch(clearBudget())
   };
 
   const handleOpenDeleteModal = () => {
     // dispatch(clearBudget())
-    dispatch(onlySetGuestBudget(budget))
+    dispatch(onlySetUserBudget(budget))
 }
 
   return (
