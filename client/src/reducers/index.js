@@ -4,6 +4,7 @@ import guestMainReducer from "./guestMainReducer";
 import userBudgetReducer from "./userBudgetReducer";
 import userMainReducer from "./userMainReducer";
 import authReducer from "./authReducer";
+import alertReducer from "./alertReducer"
 
 export default combineReducers({
   guestBudget: guestBudgetReducer,
@@ -11,4 +12,5 @@ export default combineReducers({
   userBudget: userBudgetReducer,
   userMain: userMainReducer,
   authReducer: authReducer, 
+  alertReducer: alertReducer,
 });

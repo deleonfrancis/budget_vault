@@ -35,6 +35,7 @@ import UserDeleteBudgetOnEditModal from "./components/user/modals/UserDeleteBudg
 import Register from "./pages/auth/Register";
 import GuestHome from "./pages/GuestHome";
 import UserHome from "./pages/UserHome";
+import Alert from "./components/user/layout/Alert";
 
 const Container = styled.div`
   max-width: 80%;
@@ -64,6 +65,7 @@ function App() {
             toggleTheme={toggleTheme}
           />
           <Router>
+          <Alert />
             <Switch>
               <Route exact path="/register" component={Register} />
               <Route exact path="/home">

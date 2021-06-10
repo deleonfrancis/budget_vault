@@ -25,7 +25,8 @@ export const loadUser = () => async (dispatch) => {
 };
 
 // Register User
-export const register = () => async (formData, dispatch) => {
+export const register = (formData) => async (dispatch) => {
+  console.log("register called in authActions")
     const config = {
       headers: {
         "Content-Type": " application/json",
@@ -41,7 +42,7 @@ export const register = () => async (formData, dispatch) => {
   };
 
   //  Login User
-  export const loginUser = () => async (formData, dispatch) => {
+  export const loginUser = (formData) => async (dispatch) => {
     const config = {
       headers: {
         "Content-Type": "application/json",

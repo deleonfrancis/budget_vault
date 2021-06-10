@@ -1,19 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { clearErrors, register } from "../../actions/authActions";
+import {setAlert} from "../../actions/alertActions"
 
 function Register({ authReducer: { error, isAuthenticated }, props }) {
-  // useEffect(() => {
-  //   if (isAuthenticated) {
-  //     props.history.push("/");
-  //   }
-  //   if (error === "User already exists") {
-  //     //   setAlert(error, "danger");
-  //     clearErrors();
-  //   }
-  //   // eslint-disable-next-line
-  // }, [error, isAuthenticated, props.history]);
+  useEffect(() => {
+    // if (isAuthenticated) {
+    //   props.history.push("/");
+    // }
+    if (error === "User already exists") {
+      // console.log("there is an error")
+      // console.log(error)
+      dispatch(setAlert(error, "danger"));
+      dispatch(clearErrors());
+    }
+    // eslint-disable-next-line
+  }, [error, isAuthenticated, history]);
+  const dispatch = useDispatch()
 
   const [user, setUser] = useState({
     firstName: "",
@@ -29,22 +33,23 @@ function Register({ authReducer: { error, isAuthenticated }, props }) {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    console.log("register called in onSubmit")
     if (
       firstName === "" ||
       lastName === "" ||
       email === "" ||
       password === ""
     ) {
-    //   setAlert("Please Enter All Fields", "danger");
+      dispatch(setAlert("Please Enter All Fields", "danger"));
     } else if (password !== password2) {
-    //   setAlert("Passwords Must Match", "danger");
+      dispatch(setAlert("Passwords Must Match", "danger"));
     } else {
-      register({
+      dispatch(register({
         firstName,
         lastName,
         email,
         password,
-      });
+      }));
     }
   };
 
