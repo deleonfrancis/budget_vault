@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 function Alert({alerts}) {
     return (
         alerts.length > 0 && alerts.map((alert) => ( 
-            <div key={alert.id} className={`alert alert-${alert.type}`}>
+            <div key={alert.id} className={`alert red lighten-3`}>
             <i className="fas fa-info-circle">{alert.msg}</i>
             </div>
          ) )

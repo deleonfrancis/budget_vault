@@ -32,6 +32,7 @@ import UserDeleteAllBudgetsModal from "./components/user/modals/UserDeleteAllBud
 import UserAboutModal from "./components/user/modals/UserAboutModal";
 import UserDeleteBudgetOnEditModal from "./components/user/modals/UserDeleteBudgetOnEditModal";
 
+import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import GuestHome from "./pages/GuestHome";
 import UserHome from "./pages/UserHome";
@@ -65,8 +66,9 @@ function App() {
             toggleTheme={toggleTheme}
           />
           <Router>
-          <Alert />
+            <Alert />
             <Switch>
+              <Route exact path="/login" component={Login} />
               <Route exact path="/register" component={Register} />
               <Route exact path="/home">
                 <UserHome theme={theme} />
