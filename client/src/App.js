@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import PrivateRoute from "./components/routing/PrivateRoute";
-
+import axios from "axios";
 
 import { Provider } from "react-redux";
 import store from "./store";
@@ -44,6 +44,13 @@ const Container = styled.div`
   max-width: 80%;
   margin: 8rem auto 0;
 `;
+
+axios.defaults.headers.common = {
+  "Content-Type": "application/json",
+  "x-auth-token": localStorage.getItem("token"),
+};
+
+
 
 function App() {
   useEffect(() => {

@@ -1,28 +1,28 @@
 import React, { useEffect } from "react";
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { css } from "@emotion/core";
 import RingLoader from "react-spinners/RingLoader";
 import { useMediaQuery } from "react-responsive";
 import M from "materialize-css";
 
-
 import BudgetItem from "./BudgetItem";
 import { getBudgets, setLoading } from "../../../actions/userBudgetActions";
 import BudgetItemMobile from "./BudgetItemMobile";
 
-function Budgets({
-  theme,
-  userBudget: { budgets, loading, filtered },
-  getBudgets,
-  setLoading,
-}) {
+function Budgets({ theme }) {
+  const { budgets, loading, filtered } = useSelector(
+    (state) => state.userBudget
+  );
+
+  const dispatch = useDispatch();
   useEffect(() => {
     setLoading(true);
-    getBudgets();
-    
-    const tooltipElements = document.querySelectorAll('.tooltipped')
-    const tooltipOptions = {}
+    dispatch(getBudgets());
+
+    const tooltipElements = document.querySelectorAll(".tooltipped");
+    const tooltipOptions = {};
     M.Tooltip.init(tooltipElements, tooltipOptions);
+    console.log(budgets);
     // eslint-disable-next-line
   }, []);
 
@@ -47,18 +47,28 @@ function Budgets({
       />
     );
   }
-
+  console.log(budgets);
   return (
     <section className="">
-      {smallerThanIPad && <div className= "row">
-      {!loading && budgets.length > 0 && filtered !== null
-              ? filtered.map((budget) => (
-                  <BudgetItemMobile key={budget.id} budget={budget} theme={theme} />
-                ))
-              : budgets.map((budget) => (
-                  <BudgetItemMobile key={budget.id} budget={budget} theme={theme} />
-                ))}
-      </div>}
+      {smallerThanIPad && (
+        <div className="row">
+          {!loading && budgets.length > 0 && filtered !== null
+            ? filtered.map((budget) => (
+                <BudgetItemMobile
+                  key={budget._id}
+                  budget={budget}
+                  theme={theme}
+                />
+              ))
+            : budgets.map((budget) => (
+                <BudgetItemMobile
+                  key={budget._id}
+                  budget={budget}
+                  theme={theme}
+                />
+              ))}
+        </div>
+      )}
 
       {!smallerThanIPad && (
         <table className={theme === "dark" ? "highlight" : "highlight"}>
@@ -89,10 +99,10 @@ function Budgets({
           <tbody>
             {!loading && budgets.length > 0 && filtered !== null
               ? filtered.map((budget) => (
-                  <BudgetItem key={budget.id} budget={budget} theme={theme} />
+                  <BudgetItem key={budget._id} budget={budget} theme={theme} />
                 ))
               : budgets.map((budget) => (
-                  <BudgetItem key={budget.id} budget={budget} theme={theme} />
+                  <BudgetItem key={budget._id} budget={budget} theme={theme} />
                 ))}
           </tbody>
         </table>
@@ -106,8 +116,4 @@ function Budgets({
   );
 }
 
-const mapStateToProps = (state) => ({
-  userBudget: state.userBudget,
-});
-
-export default connect(mapStateToProps, { getBudgets, setLoading })(Budgets);
+export default Budgets;

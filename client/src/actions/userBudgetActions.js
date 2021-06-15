@@ -1,4 +1,4 @@
-// import { openDB, deleteDB, wrap, unwrap } from 'idb';
+import axios from "axios";
 import Localbase from "localbase";
 import {
   USER_GET_BUDGETS,
@@ -6,8 +6,8 @@ import {
   USER_DELETE_BUDGET,
   //   USER_SET_CURRENT,
   //   USER_CLEAR_CURRENT,
-    USER_UPDATE_BUDGET,
-    USER_CLEAR_BUDGETS,
+  USER_UPDATE_BUDGET,
+  USER_CLEAR_BUDGETS,
   USER_SET_LOADING,
   USER_BUDGETS_ERROR,
   USER_SEARCH_BUDGETS,
@@ -24,25 +24,39 @@ import {
 let db = new Localbase("db");
 
 // Get the Budgets from the server
-export const getBudgets = () => (dispatch) => {
-  try {
-    setLoading();
-    db.collection("Budget Vault")
-      .get()
+export const getBudgets = () => async (dispatch) => {
+  // try {
+  //   setLoading();
+  //   db.collection("Budget Vault")
+  //     .get()
 
-      // const res = await fetch("/budgets");
-      // const data = await res.json();
-      .then((data) => {
-        // console.log(data);
-        dispatch({
-          type: USER_GET_BUDGETS,
-          payload: data,
-        });
-      });
+  //     // const res = await fetch("/budgets");
+  //     // const data = await res.json();
+  //     .then((data) => {
+  //       // console.log(data);
+  //       dispatch({
+  //         type: USER_GET_BUDGETS,
+  //         payload: data,
+  //       });
+  //     });
+  // } catch (error) {
+  //   dispatch({
+  //     type: USER_BUDGETS_ERROR,
+  //     payload: error.response.statusText,
+  //   });
+  // }
+
+  try {
+    // setLoading(true);
+    const res = await axios.get("/api/budgets");
+    dispatch({
+      type: USER_GET_BUDGETS,
+      payload: res.data,
+    });
   } catch (error) {
     dispatch({
       type: USER_BUDGETS_ERROR,
-      payload: error.response.statusText,
+      payload: error.response.msg,
     });
   }
 };
@@ -75,17 +89,19 @@ export const userAddBudget = (budget) => (dispatch) => {
 // Updates the budget in the database
 export const userUpdateBudget = (budget) => (dispatch) => {
   try {
-    db.collection("Budget Vault").doc({
-      id: budget.id,
-    }).update({
-      title: budget.title,
-      currency: budget.currency,
-      budgetAmount: budget.budgetAmount,
-      dateCreated: budget.dateCreated,
-      dateUpdated: budget.dateUpdated,
-      expenses: budget.expenses,
-      balance: budget.balance,
-    });
+    db.collection("Budget Vault")
+      .doc({
+        id: budget.id,
+      })
+      .update({
+        title: budget.title,
+        currency: budget.currency,
+        budgetAmount: budget.budgetAmount,
+        dateCreated: budget.dateCreated,
+        dateUpdated: budget.dateUpdated,
+        expenses: budget.expenses,
+        balance: budget.balance,
+      });
     dispatch({
       type: USER_UPDATE_BUDGET,
       payload: budget,
@@ -124,11 +140,12 @@ export const deleteAllBudgets = () => (dispatch) => {
     console.log("deleteAllBudgets function");
     setLoading();
     db.collection("Budget Vault")
-      .delete().then(
+      .delete()
+      .then(
         dispatch({
           type: USER_CLEAR_BUDGETS,
         })
-      )
+      );
   } catch (error) {
     dispatch({
       type: USER_BUDGETS_ERROR,

@@ -26,49 +26,36 @@ export const loadUser = () => async (dispatch) => {
 
 // Register User
 export const register = (formData) => async (dispatch) => {
-  console.log("register called in authActions")
-    const config = {
-      headers: {
-        "Content-Type": " application/json",
-      },
-    };
-    try {
-      const res = await axios.post("/api/users", formData, config);
-      dispatch({ type: REGISTER_SUCCESS, payload: res.data });
-    } catch (error) {
-      dispatch({ type: REGISTER_FAIL, payload: error.response.data.msg });
-      loadUser();
-    }
-  };
+  console.log("register called in authActions");
+  try {
+    const res = await axios.post("/api/users", formData);
+    dispatch({ type: REGISTER_SUCCESS, payload: res.data });
+  } catch (error) {
+    dispatch({ type: REGISTER_FAIL, payload: error.response.data.msg });
+    loadUser();
+  }
+};
 
-  //  Login User
-  export const loginUser = (formData) => async (dispatch) => {
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
+//  Login User
+export const loginUser = (formData) => async (dispatch) => {
+  try {
+    const res = await axios.post("/api/auth", formData);
+    dispatch({
+      type: LOGIN_SUCCESS,
+      payload: res.data,
+    });
 
-    try {
-      const res = await axios.post("/api/auth", formData, config);
+    loadUser();
+  } catch (err) {
+    dispatch({
+      type: LOGIN_FAIL,
+      payload: err.response.data.msg,
+    });
+  }
+};
 
-      dispatch({
-        type: LOGIN_SUCCESS,
-        payload: res.data,
-      });
+// Logout
+export const logoutUser = () => (dispatch) => dispatch({ type: LOGOUT });
 
-      loadUser();
-    } catch (err) {
-      dispatch({
-        type: LOGIN_FAIL,
-        payload: err.response.data.msg,
-      });
-    }
-  };
-
-    // Logout
-    export const logoutUser = () => (dispatch) => dispatch({ type: LOGOUT });
-
-    // Clear Errors
-    export const clearErrors = () => (dispatch) => dispatch({ type: CLEAR_ERRORS });
-
+// Clear Errors
+export const clearErrors = () => (dispatch) => dispatch({ type: CLEAR_ERRORS });

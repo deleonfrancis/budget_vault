@@ -4,20 +4,12 @@ import { Route, Redirect } from "react-router-dom";
 
 function PrivateRoute({
   authReducer: { isAuthenticated, loading },
-  component: Component,
-  ...rest
+  children,
 }) {
-  return (
-    <Route
-      {...rest}
-      render={(props) =>
-        !isAuthenticated && !loading ? (
-          <Redirect to="/login" />
-        ) : (
-          <Component {...props} />
-        )
-      }
-    />
+  return !isAuthenticated && !loading ? (
+    <Redirect to="/login" />
+  ) : (
+    <Route>{children}</Route>
   );
 }
 

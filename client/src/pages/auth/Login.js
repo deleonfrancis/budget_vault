@@ -21,6 +21,10 @@ function Login({ authReducer: { error, isAuthenticated } }) {
     // eslint-disable-next-line
   }, [error, isAuthenticated, history]);
 
+  useEffect(() => {
+    localStorage.clear();
+  }, []);
+
   const [user, setUser] = useState({
     email: "",
     password: "",
