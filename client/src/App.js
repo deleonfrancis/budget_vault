@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import PrivateRoute from "./components/routing/PrivateRoute";
+
 
 import { Provider } from "react-redux";
 import store from "./store";
@@ -70,7 +72,7 @@ function App() {
             <Switch>
               <Route exact path="/login" component={Login} />
               <Route exact path="/register" component={Register} />
-              <Route exact path="/home">
+              <PrivateRoute exact path="/">
                 <UserHome theme={theme} />
                 <UserComposeBudgetModal />
                 <UserDeleteAllBudgetsModal />
@@ -78,7 +80,7 @@ function App() {
                 <UserDeleteBudgetModal />
                 <UserDeleteBudgetOnEditModal />
                 <UserAboutModal />
-              </Route>
+              </PrivateRoute>
               <Route exact path="/guest">
                 <GuestHome theme={theme} />
                 <ComposeBudgetModal />
