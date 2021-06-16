@@ -44,4 +44,13 @@ cursor: pointer;
   margin: 20px auto !important ;
 }
 
+.logoutBtn {
+  border-radius: 0%;
+}
+
+.logoutBtn:hover {
+  background-color: #1ea6b3;
+  color: white;
+}
+
 /* .budgetTr  */

@@ -26,7 +26,7 @@ export const loadUser = () => async (dispatch) => {
 
 // Register User
 export const register = (formData) => async (dispatch) => {
-  console.log("register called in authActions");
+  // console.log("register called in authActions");
   try {
     const res = await axios.post("/api/users", formData);
     dispatch({ type: REGISTER_SUCCESS, payload: res.data });

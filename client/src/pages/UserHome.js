@@ -6,6 +6,7 @@ import ComposeBudgetBtn from "../components/user/layout/UserComposeBudgetBtn";
 import DeleteAllBudgetsBtn from "../components/user/layout/DeleteAllBudgetsBtn";
 import GuestFilter from "../components/user/layout/GuestFilter";
 import GuestLogo from "../components/user/layout/Logo";
+import LogOutBtn from "../components/user/layout/LogOutBtn";
 
 function UserHome({ theme }) {
   const dispatch = useDispatch()
@@ -16,6 +17,7 @@ function UserHome({ theme }) {
   return (
     <div>
       <GuestLogo theme={theme} />
+      <LogOutBtn />
       <GuestFilter />
       <ComposeBudgetBtn />
       <Budgets theme={theme} />
