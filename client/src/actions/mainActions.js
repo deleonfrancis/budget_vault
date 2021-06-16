@@ -38,8 +38,6 @@ export const setBudgetId = (id) => (dispatch) => {
 
 // For Setting the budget TITLE
 export const setTitle = (text) => (dispatch) => {
-  // console.log("setTitle:");
-  // console.log(text);
   dispatch({
     type: BUDGET_TITLE,
     payload: text,
@@ -105,15 +103,6 @@ export const createExpDate = (date) => (dispatch) => {
 // For adding an expense to the expenses array
 export const addExpense = (expense) => async (dispatch) => {
   try {
-    // setLoading();
-    // const res = await fetch("/budgets",{
-    //     method: "POST",
-    //     body: JSON.stringify(expense),
-    //     headers: {
-    //         "Content-Type": "application/json",
-    //       },
-    // });
-    // const data = await res.json();
     dispatch({
       type: ADD_EXPENSE,
       payload: expense,
@@ -130,8 +119,6 @@ export const addExpense = (expense) => async (dispatch) => {
 // For Setting the Balance
 export const deleteExpense = (expense) => async (dispatch) => {
   try {
-
-    // console.log(expense);
     dispatch({
       type: DELETE_EXPENSE,
       payload: expense,
@@ -150,7 +137,6 @@ export const deleteExpense = (expense) => async (dispatch) => {
 export const clearBudget = () => (dispatch) => {
   dispatch({
     type: CLEAR_BUDGET,
-    // payload: budget,
   });
 };
 
@@ -165,16 +151,6 @@ export const setShowModifyBudget = (bool) => (dispatch) => {
 // For Adding to the Budget
 export const addToBudget = (amount) => async (dispatch) => {
   try {
-    // setLoading();
-    // const res = await fetch("/budgets",{
-    //     method: "POST",
-    //     body: JSON.stringify(expense),
-    //     headers: {
-    //         "Content-Type": "application/json",
-    //       },
-    // });
-    // const data = await res.json();
-    // console.log(amount);
     dispatch({
       type: ADD_TO_BUDGET,
       payload: amount,
@@ -191,16 +167,6 @@ export const addToBudget = (amount) => async (dispatch) => {
 // For Subtracting from the Budget
 export const subtractFromBudget = (amount) => async (dispatch) => {
   try {
-    // setLoading();
-    // const res = await fetch("/budgets",{
-    //     method: "POST",
-    //     body: JSON.stringify(expense),
-    //     headers: {
-    //         "Content-Type": "application/json",
-    //       },
-    // });
-    // const data = await res.json();
-    // console.log(amount);
     dispatch({
       type: SUBTRACT_FROM_BUDGET,
       payload: amount,
@@ -230,10 +196,9 @@ export const setGuestBudget = (budget) => (dispatch) => {
   });
   dispatch(addBudget(budget))
 };
+
 // Fills the budget with the data and updates the database
 export const setAndUpdate = (budget) => (dispatch) => {
-  console.log("setAndUpdate budget:");
-  console.log(budget);
   dispatch ({
     type: SET_GUEST_BUDGET,
     payload: budget,
@@ -243,8 +208,6 @@ export const setAndUpdate = (budget) => (dispatch) => {
 
 // Fills the budget with the data
 export const onlySetGuestBudget = (budget) => (dispatch) => {
-  // console.log("onlySetGuestBudget():");
-  // console.log(budget);
   dispatch ({
     type: SET_GUEST_BUDGET_AND_SUB_BUDGET,
     payload: budget,

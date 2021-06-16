@@ -25,7 +25,6 @@ import {
   USER_SUBTRACT_FROM_BUDGET,
   // USER_EXPENSES,
 } from "./types";
-// import { subtractFromBudgetService } from "../utils/budgetTransactions";
 import { userAddBudget, setLoading, userUpdateBudget } from "./userBudgetActions";
 
 // Create the budget ID
@@ -38,8 +37,6 @@ export const setBudgetId = (id) => (dispatch) => {
 
 // For Setting the budget TITLE
 export const setTitle = (text) => (dispatch) => {
-  // console.log("setTitle:");
-  // console.log(text);
   dispatch({
     type: USER_BUDGET_TITLE,
     payload: text,
@@ -105,15 +102,6 @@ export const createExpDate = (date) => (dispatch) => {
 // For adding an expense to the expenses array
 export const addExpense = (expense) => async (dispatch) => {
   try {
-    // setLoading();
-    // const res = await fetch("/budgets",{
-    //     method: "POST",
-    //     body: JSON.stringify(expense),
-    //     headers: {
-    //         "Content-Type": "application/json",
-    //       },
-    // });
-    // const data = await res.json();
     dispatch({
       type: USER_ADD_EXPENSE,
       payload: expense,
@@ -130,8 +118,6 @@ export const addExpense = (expense) => async (dispatch) => {
 // For Setting the Balance
 export const deleteExpense = (expense) => async (dispatch) => {
   try {
-
-    // console.log(expense);
     dispatch({
       type: USER_DELETE_EXPENSE,
       payload: expense,
@@ -165,16 +151,6 @@ export const setShowModifyBudget = (bool) => (dispatch) => {
 // For Adding to the Budget
 export const addToBudget = (amount) => async (dispatch) => {
   try {
-    // setLoading();
-    // const res = await fetch("/budgets",{
-    //     method: "POST",
-    //     body: JSON.stringify(expense),
-    //     headers: {
-    //         "Content-Type": "application/json",
-    //       },
-    // });
-    // const data = await res.json();
-    // console.log(amount);
     dispatch({
       type: USER_ADD_TO_BUDGET,
       payload: amount,
@@ -191,16 +167,6 @@ export const addToBudget = (amount) => async (dispatch) => {
 // For Subtracting from the Budget
 export const subtractFromBudget = (amount) => async (dispatch) => {
   try {
-    // setLoading();
-    // const res = await fetch("/budgets",{
-    //     method: "POST",
-    //     body: JSON.stringify(expense),
-    //     headers: {
-    //         "Content-Type": "application/json",
-    //       },
-    // });
-    // const data = await res.json();
-    // console.log(amount);
     dispatch({
       type: USER_SUBTRACT_FROM_BUDGET,
       payload: amount,
@@ -232,8 +198,6 @@ export const setUserBudget = (budget) => (dispatch) => {
 };
 // Fills the budget with the data and updates the database
 export const setAndUpdate = (budget) => (dispatch) => {
-  console.log("setAndUpdate budget:");
-  console.log(budget);
   dispatch ({
     type: SET_USER_BUDGET,
     payload: budget,
@@ -243,8 +207,6 @@ export const setAndUpdate = (budget) => (dispatch) => {
 
 // Fills the budget with the data
 export const onlySetUserBudget = (budget) => (dispatch) => {
-  // console.log("onlySetUserBudget():");
-  // console.log(budget);
   dispatch ({
     type: SET_USER_BUDGET_AND_SUB_BUDGET,
     payload: budget,

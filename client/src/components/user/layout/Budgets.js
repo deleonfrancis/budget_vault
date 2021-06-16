@@ -22,7 +22,7 @@ function Budgets({ theme }) {
     const tooltipElements = document.querySelectorAll(".tooltipped");
     const tooltipOptions = {};
     M.Tooltip.init(tooltipElements, tooltipOptions);
-    console.log(budgets);
+    // console.log(budgets);
     // eslint-disable-next-line
   }, []);
 
@@ -47,7 +47,7 @@ function Budgets({ theme }) {
       />
     );
   }
-  console.log(budgets);
+  // console.log(budgets);
   return (
     <section className="">
       {smallerThanIPad && (

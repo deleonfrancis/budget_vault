@@ -12,7 +12,7 @@ router.get("/", auth, async (req, res) => {
   try {
     console.log(req.user.id)
     const budgets = await Budget.find({ user: req.user.id }).sort({ date: -1 });
-    console.log(budgets)
+    // console.log(budgets)
     res.json(budgets);
   } catch (error) {
     console.error(error.message);

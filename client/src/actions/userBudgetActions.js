@@ -25,29 +25,7 @@ let db = new Localbase("db");
 
 // Get the Budgets from the server
 export const getBudgets = () => async (dispatch) => {
-  // try {
-  //   setLoading();
-  //   db.collection("Budget Vault")
-  //     .get()
-
-  //     // const res = await fetch("/budgets");
-  //     // const data = await res.json();
-  //     .then((data) => {
-  //       // console.log(data);
-  //       dispatch({
-  //         type: USER_GET_BUDGETS,
-  //         payload: data,
-  //       });
-  //     });
-  // } catch (error) {
-  //   dispatch({
-  //     type: USER_BUDGETS_ERROR,
-  //     payload: error.response.statusText,
-  //   });
-  // }
-
   try {
-    // setLoading(true);
     const res = await axios.get("/api/budgets");
     dispatch({
       type: USER_GET_BUDGETS,
