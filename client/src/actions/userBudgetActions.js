@@ -40,28 +40,41 @@ export const getBudgets = () => async (dispatch) => {
 };
 
 // adds the budget to the database
-export const userAddBudget = (budget) => (dispatch) => {
+export const userAddBudget = (budget) => async (dispatch) => {
   try {
-    db.collection("Budget Vault").add({
-      id: budget.id,
-      title: budget.title,
-      currency: budget.currency,
-      budgetAmount: budget.budgetAmount,
-      dateCreated: budget.dateCreated,
-      dateUpdated: null,
-      expenses: budget.expenses,
-      balance: budget.balance,
-    });
+    const res = await axios.post("/api/budgets", budget);
     dispatch({
       type: USER_ADD_BUDGET,
-      payload: budget,
+      payload: res.data,
     });
   } catch (error) {
     dispatch({
       type: USER_BUDGETS_ERROR,
-      payload: error.response.statusText,
+      payload: error.response.msg,
     });
   }
+
+  // try {
+  //   db.collection("Budget Vault").add({
+  //     id: budget.id,
+  //     title: budget.title,
+  //     currency: budget.currency,
+  //     budgetAmount: budget.budgetAmount,
+  //     dateCreated: budget.dateCreated,
+  //     dateUpdated: null,
+  //     expenses: budget.expenses,
+  //     balance: budget.balance,
+  //   });
+  //   dispatch({
+  //     type: USER_ADD_BUDGET,
+  //     payload: budget,
+  //   });
+  // } catch (error) {
+  //   dispatch({
+  //     type: USER_BUDGETS_ERROR,
+  //     payload: error.response.statusText,
+  //   });
+  // }
 };
 
 // Updates the budget in the database
